@@ -1,0 +1,24 @@
+hr {
+    border: 1px solid #eee;
+    width: 80%;
+}
+
+.Navbar {
+    width: 250px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 15px;
+}
+
+.logo {
+    margin: 20px 50px;
+}
+
+.navLinks {
+    display: flex;
+    flex-direction: column;
+}
+
+.navLinks a {
+    margin: 20px 50px;
+}

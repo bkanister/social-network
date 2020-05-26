@@ -1,0 +1,30 @@
+.Post {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+}
+
+.postContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.postContent img {
+    width: 50px;
+}
+
+.postText {
+    margin: auto;
+}
+
+.Post footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.Post footer p {
+    margin-right: 10px;
+}
+

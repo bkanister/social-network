@@ -1,0 +1,14 @@
+.Profile {
+    display: flex;
+    justify-content: space-between;
+    background: #fff;
+    border-radius: 15px;
+    width: 600px;
+    height: 100px;
+    margin: 40px auto;
+}
+
+.Profile img {
+    width: 100px;
+    height: 100px;
+}
