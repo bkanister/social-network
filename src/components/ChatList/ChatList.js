@@ -10,7 +10,7 @@ const ChatList = props => {
             <hr/>
             <RecentContacts users={props.users}/>
             <hr/>
-            <RecentChats/>
+            <RecentChats users={props.users}/>
             <button>+ New chat</button>
         </aside>
     )

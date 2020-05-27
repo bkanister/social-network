@@ -15,6 +15,10 @@
     width: 50px;
 }
 
+.postContent button {
+    height: 20px;
+}
+
 .postText {
     margin: auto;
 }

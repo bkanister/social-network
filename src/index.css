@@ -4,7 +4,7 @@ body {
 }
 
 .App {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 3fr 6fr 3fr;
+    column-gap: 80px;
 }

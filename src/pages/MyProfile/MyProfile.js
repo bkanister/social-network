@@ -7,8 +7,10 @@ const MyProfile = props => {
     return (
         <div style={{flexGrow: 1}}>
             <Profile avatar={props.avatar}/>
-            <NewPostCreator/>
-            <Posts posts={props.posts}/>
+            <NewPostCreator addNewPost={props.addNewPost}
+                            textareaValue={props.textareaValue}
+                            changeInputHandler={props.changeInputHandler}/>
+            <Posts deletePost={props.deletePost} posts={props.posts} avatar={props.avatar}/>
         </div>
     )
 }
