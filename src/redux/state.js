@@ -24,10 +24,11 @@ const store = {
     },
 
     getUsers() {
-        fetch('https://randomuser.me/api/?results=4')
+        fetch('https://randomuser.me/api/?results=5')
             .then(response => response.json())
             .then(json => {
                 this._state.users = json.results
+                console.log(json.results)
             })
             .then(() => this._callSubscriber(this._state))
     },

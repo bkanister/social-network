@@ -2,7 +2,6 @@ import React from 'react'
 import classes from '../RecentContacts/RecentContacts.module.css'
 
 const RecentContacts = props => {
-    debugger
     const contacts = props.users.map((user, index) => {
         return (
             <a key={index}>

@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar/Navbar";
 import ChatList from "./components/ChatList/ChatList";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import MyProfile from "./pages/MyProfile/MyProfile";
-import MyTeam from "./pages/MyTeam/MyTeam";
+import MyChats from "./pages/MyChats/MyChats";
 import MyFriends from "./pages/MyFriends/MyFriends";
 import MyTasks from "./pages/MyTasks/MyTasks";
 
@@ -13,6 +13,7 @@ const App = props => {
         props.getUsers();
         props.getPosts();
     }, []);
+    debugger
 
     return (
         <BrowserRouter>
@@ -26,7 +27,10 @@ const App = props => {
                                                                 textareaValue={props.state.textareaValue}
                     />
                     }/>
-                    <Route path={'/my-team'} component={MyTeam}/>
+                    <Route path={'/my-chats'} render={() => <MyChats
+                                                                users={props.state.users}
+                                                                messages={props.state.posts}
+                    />}/>
                     <Route path={'/my-friends'} component={MyFriends}/>
                     <Route path={'/my-tasks'} component={MyTasks}/>
                 </Switch>

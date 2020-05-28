@@ -9,8 +9,8 @@ const Navbar = props => {
             <hr/>
             <section className={classes.navLinks}>
                 <NavLink to={'/'}>My profile</NavLink>
-                <NavLink to={'/my-team'}>My team</NavLink>
                 <NavLink to={'/my-friends'}>My friends</NavLink>
+                <NavLink to={'/my-chats'}>My chats</NavLink>
                 <NavLink to={'/my-tasks'}>My tasks</NavLink>
                 <NavLink to={'/news'}>News</NavLink>
                 <NavLink to={'/settings'}>Settings</NavLink>

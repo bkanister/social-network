@@ -7,7 +7,7 @@ const RecentChats = props => {
             <div key={index} className={classes.chat}>
                 <img src={user.picture['thumbnail']} alt=""/>
                 <div>
-                    <p>Name</p>
+                    <p>{user.name.first} {user.name.last}</p>
                     <p>Message text</p>
                 </div>
             </div>
