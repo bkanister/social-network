@@ -1,5 +1,7 @@
 import React from 'react'
 import classes from '../Post/Post.module.css'
+import {deletePostCreator} from "../../redux/state";
+
 
 const Post = props => {
     return (
@@ -7,7 +9,7 @@ const Post = props => {
             <div className={classes.postContent}>
                 <img src={props.avatar} alt="Avatar"/>
                 <p className={classes.postText}>{props.post.body}</p>
-                <button onClick={() => props.dispatch({type: 'DELETE_POST', postId: props.postId})}>&times;</button>
+                <button onClick={() => props.dispatch(deletePostCreator(props.postId))}>&times;</button>
             </div>
             <footer>
                 <p>{new Date().toLocaleString()}</p>

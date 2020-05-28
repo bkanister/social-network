@@ -1,5 +1,8 @@
 import React, {useRef} from 'react'
 import classes from '../NewPostCreator/NewPostCreator.module.css'
+import {addPostCreator, inputChangeCreator} from "../../redux/state";
+
+
 
 const NewPostCreator = props => {
 const textInput = useRef(null);
@@ -10,12 +13,12 @@ const textInput = useRef(null);
                       id="textarea"
                       placeholder="Add new post..."
                       value={props.textareaValue}
-                      onChange={(e) => props.dispatch({type: 'INPUT_CHANGE', inputText: e.target.value})}
+                      onChange={(e) => props.dispatch(inputChangeCreator(e.target.value))}
             />
             <footer>
                 <div>add photo or emoji</div>
                 <button onClick={() => {
-                    props.dispatch({type: 'ADD_POST', postText: textInput.current.value});
+                    props.dispatch(addPostCreator(textInput.current.value));
                 }}>Add post</button>
             </footer>
         </div>
