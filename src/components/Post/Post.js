@@ -1,6 +1,6 @@
 import React from 'react'
 import classes from '../Post/Post.module.css'
-import {deletePostCreator} from "../../redux/state";
+import {deletePostCreator} from "../../redux/reducers/postsReducer";
 
 
 const Post = props => {

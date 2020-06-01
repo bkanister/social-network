@@ -1,7 +1,9 @@
 import React from 'react'
 
 const MyTasks = props => {
-    return <h1>My Tasks</h1>
+    return <div>
+        <h1>My tasks</h1>
+    </div>
 }
 
 export default MyTasks

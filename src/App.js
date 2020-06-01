@@ -13,7 +13,6 @@ const App = props => {
         props.getUsers();
         props.getPosts();
     }, []);
-    debugger
 
     return (
         <BrowserRouter>

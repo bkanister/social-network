@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import store from "./redux/state";
+import store from "./redux/store";
 
 
 const rerenderEntireTree = state => {
+    console.log('rerender entire tree')
     ReactDOM.render(
         <React.StrictMode>
             <App state={store.getState()}
