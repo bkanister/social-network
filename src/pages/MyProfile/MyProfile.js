@@ -6,10 +6,10 @@ import React from "react";
 const MyProfile = props => {
     return (
         <div style={{flexGrow: 1}}>
-            <Profile avatar={props.avatar}/>
+            <Profile/>
             <NewPostCreator dispatch={props.dispatch}
                             textareaValue={props.textareaValue}/>
-            <Posts dispatch={props.dispatch} posts={props.posts} avatar={props.avatar}/>
+            <Posts dispatch={props.dispatch} posts={props.posts}/>
         </div>
     )
 }

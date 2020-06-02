@@ -8,8 +8,61 @@ const DOWNLOAD_USERS = 'DOWNLOAD_USERS';
 
 const initialState = {
     avatar: 'https://image.spreadshirtmedia.net/image-server/v1/mp/designs/170224352,width=178,height=178,version=1579272891/benzinkanister-ersatz-tanken.png',
-    users: [],
-    posts: [],
+    users: [
+        {
+            name: {
+                title: "Mr",
+                first: "Gabriel",
+                last: "Novak"
+            },
+            picture: {
+                large: "https://randomuser.me/api/portraits/men/40.jpg",
+                medium: "https://randomuser.me/api/portraits/med/men/40.jpg",
+                thumbnail: "https://randomuser.me/api/portraits/thumb/men/40.jpg"
+            }
+        },
+        {
+            name: {
+                title: "Mr",
+                first: "Emile",
+                last: "White"
+            },
+            picture: {
+                large: "https://randomuser.me/api/portraits/men/98.jpg",
+                medium: "https://randomuser.me/api/portraits/med/men/98.jpg",
+                thumbnail: "https://randomuser.me/api/portraits/thumb/men/98.jpg"
+            }
+        },
+        {
+            name: {
+                title: "Mademoiselle",
+                first: "Selma",
+                last: "Lefebvre"
+            },
+            picture: {
+                large: "https://randomuser.me/api/portraits/women/13.jpg",
+                medium: "https://randomuser.me/api/portraits/med/women/13.jpg",
+                thumbnail: "https://randomuser.me/api/portraits/thumb/women/13.jpg"
+            }
+        }
+    ],
+    posts: [
+        {
+            userId: 1,
+            id: 1,
+            body: "quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto"
+        },
+        {
+            userId: 1,
+            id: 2,
+            body: "est rerum tempore vitae sequi sint nihil reprehenderit dolor beatae ea dolores neque fugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis qui aperiam non debitis possimus qui neque nisi nulla"
+        },
+        {
+            userId: 1,
+            id: 3,
+            body: "et iusto sed quo iure voluptatem occaecati omnis eligendi aut ad voluptatem doloribus vel accusantium quis pariatur molestiae porro eius odio et labore et velit aut"
+        },
+    ],
     textareaValue: ''
 }
 
