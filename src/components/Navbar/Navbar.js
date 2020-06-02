@@ -8,12 +8,12 @@ const Navbar = props => {
             <header className={classes.logo}>Social network</header>
             <hr/>
             <section className={classes.navLinks}>
-                <NavLink to={'/'}>My profile</NavLink>
-                <NavLink to={'/my-friends'}>My friends</NavLink>
-                <NavLink to={'/my-chats'}>My chats</NavLink>
-                <NavLink to={'/my-tasks'}>My tasks</NavLink>
-                <NavLink to={'/news'}>News</NavLink>
-                <NavLink to={'/settings'}>Settings</NavLink>
+                <NavLink exact to={'/'} activeClassName={classes.active}>My profile</NavLink>
+                <NavLink to={'/my-friends'} activeClassName={classes.active}>My friends</NavLink>
+                <NavLink to={'/my-chats'} activeClassName={classes.active}>My chats</NavLink>
+                <NavLink to={'/my-tasks'} activeClassName={classes.active}>My tasks</NavLink>
+                <NavLink to={'/news'} activeClassName={classes.active}>News</NavLink>
+                <NavLink to={'/settings'} activeClassName={classes.active}>Settings</NavLink>
             </section>
         </aside>
 

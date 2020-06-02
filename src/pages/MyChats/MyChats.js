@@ -2,7 +2,6 @@ import React from 'react'
 import classes from '../MyChats/MyChats.module.css'
 
 const MyChats = props => {
-    debugger
     const messages = props.messages.map(message => {
         return (
             <div className={classes.MyChats}>

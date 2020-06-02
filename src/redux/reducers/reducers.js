@@ -3,6 +3,7 @@ import {createRenderer} from "react-dom/test-utils";
 const ADD_POST = 'ADD_POST';
 const INPUT_CHANGE = 'INPUT_CHANGE';
 const DELETE_POST = 'DELETE_POST';
+const ADD_PHOTO = 'ADD_PHOTO';
 const DOWNLOAD_POSTS = 'DOWNLOAD_POSTS';
 const DOWNLOAD_USERS = 'DOWNLOAD_USERS';
 
@@ -63,7 +64,8 @@ const initialState = {
             body: "et iusto sed quo iure voluptatem occaecati omnis eligendi aut ad voluptatem doloribus vel accusantium quis pariatur molestiae porro eius odio et labore et velit aut"
         },
     ],
-    textareaValue: ''
+    textareaValue: '',
+    postImage: ''
 }
 
 const reducers = (state = initialState, action) => {
@@ -73,7 +75,8 @@ const reducers = (state = initialState, action) => {
                 userId: 1,
                 id: state.posts.length + 1,
                 title: '',
-                body: state.textareaValue
+                body: state.textareaValue,
+                img: state.postImage
             };
             return {
                 ...state,
@@ -95,6 +98,13 @@ const reducers = (state = initialState, action) => {
             return {
                 ...state,
                 posts: newPosts
+            }
+
+        case ADD_PHOTO:
+            console.log('add photo', action.payload)
+            return {
+                ...state,
+                postImage: action.payload
             }
             
         case DOWNLOAD_POSTS:
@@ -126,6 +136,7 @@ const reducers = (state = initialState, action) => {
 export const addPostCreator = () => ({type: ADD_POST})
 export const inputChangeCreator = (inputText) => ({type: INPUT_CHANGE, inputText})
 export const deletePostCreator = (postId) => ({type: DELETE_POST, postId})
+export const addPhotoCreator = (image) => ({type: ADD_PHOTO, payload: image})
 export const downloadUsersCreator = () => ({type: DOWNLOAD_USERS})
 export const downloadPostsCreator = () => ({type: DOWNLOAD_POSTS})
 

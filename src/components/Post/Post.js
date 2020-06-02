@@ -14,6 +14,7 @@ const Post = props => {
                             <div className={classes.postContent}>
                                 <img src={value} alt="Avatar"/>
                                 <p className={classes.postText}>{props.post.body}</p>
+                                {props.post.img ? <p>{props.post.img}</p> : null}
                                 <button onClick={() => props.dispatch(deletePostCreator(props.postId))}>&times;</button>
                             </div>
                             <footer>
@@ -24,7 +25,6 @@ const Post = props => {
                     )
                 }
             }
-
         </AvatarContext.Consumer>
     )
 }
