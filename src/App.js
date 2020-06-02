@@ -9,10 +9,10 @@ import MyFriends from "./pages/MyFriends/MyFriends";
 import MyTasks from "./pages/MyTasks/MyTasks";
 
 const App = props => {
-    useEffect(() => {
-        props.getUsers();
-        props.getPosts();
-    }, []);
+    // useEffect(() => {
+    //     props.getUsers();
+    //     props.getPosts();
+    // }, []);
 
     return (
         <BrowserRouter>
@@ -33,7 +33,7 @@ const App = props => {
                     <Route path={'/my-friends'} component={MyFriends}/>
                     <Route path={'/my-tasks'} component={MyTasks}/>
                 </Switch>
-                <ChatList users={props.state.users}/>
+                {/*<ChatList users={props.state.users}/>*/}
             </div>
         </BrowserRouter>
     )

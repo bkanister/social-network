@@ -1,6 +1,6 @@
 import React, {useRef} from 'react'
 import classes from '../NewPostCreator/NewPostCreator.module.css'
-import {addPostCreator, inputChangeCreator} from "../../redux/reducers/newPostCreatorReducer";
+import {addPostCreator, inputChangeCreator} from "../../redux/reducers/reducers";
 
 
 

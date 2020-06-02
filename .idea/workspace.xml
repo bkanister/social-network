@@ -16,23 +16,27 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e2d4b51-0842-4c32-b61d-f1a185f159f3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/redux/reducers/newPostCreatorReducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/reducers/postsReducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/reduxStore.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/store.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/reducers/reducers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/NewPostCreator/NewPostCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewPostCreator/NewPostCreator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Post/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Post/Post.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/MyTasks/MyTasks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyTasks/MyTasks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/state.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/newPostCreatorReducer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/postsReducer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reduxStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reduxStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/store.js" beforeDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -71,18 +75,6 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -124,18 +116,41 @@
         <entry key="MAIN">
           <value>
             <State>
-              <option name="COLUMN_ORDER" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
             </State>
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="309" y="62" key="#Inspections" timestamp="1591102490838">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="309" y="62" key="#Inspections/0.0.1366.768@0.0.1366.768" timestamp="1591102490838" />
     <state x="572" y="228" key="#Notifications" timestamp="1590924459700">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="572" y="228" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1590924459700" />
+    <state x="413" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591105913526">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="413" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.768@0.0.1366.768" timestamp="1591105913526" />
+    <state x="92" y="92" width="1182" height="584" key="DiffContextDialog" timestamp="1591104906417">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="92" y="92" width="1182" height="584" key="DiffContextDialog/0.0.1366.768@0.0.1366.768" timestamp="1591104906417" />
     <state width="1308" height="163" key="GridCell.Tab.0.bottom" timestamp="1590838182537">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -156,6 +171,10 @@
     </state>
     <state width="1308" height="163" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1590838182537" />
     <state width="1308" height="176" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1590678463329" />
+    <state x="510" y="86" key="RollbackChangesDialog" timestamp="1591104846063">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="510" y="86" key="RollbackChangesDialog/0.0.1366.768@0.0.1366.768" timestamp="1591104846063" />
     <state x="173" y="24" width="990" height="704" key="SettingsEditor" timestamp="1590924894640">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
