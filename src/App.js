@@ -7,12 +7,13 @@ import MyProfile from "./pages/MyProfile/MyProfile";
 import MyChats from "./pages/MyChats/MyChats";
 import MyFriends from "./pages/MyFriends/MyFriends";
 import MyTasks from "./pages/MyTasks/MyTasks";
+import {downloadPostsCreator, downloadUsersCreator} from "./redux/reducers/reducers";
 
 const App = props => {
-    // useEffect(() => {
-    //     props.getUsers();
-    //     props.getPosts();
-    // }, []);
+    useEffect(() => {
+        props.dispatch(downloadUsersCreator());
+        props.dispatch(downloadPostsCreator());
+    }, []);
 
     return (
         <BrowserRouter>
@@ -33,7 +34,7 @@ const App = props => {
                     <Route path={'/my-friends'} component={MyFriends}/>
                     <Route path={'/my-tasks'} component={MyTasks}/>
                 </Switch>
-                {/*<ChatList users={props.state.users}/>*/}
+                <ChatList users={props.state.users}/>
             </div>
         </BrowserRouter>
     )

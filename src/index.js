@@ -11,8 +11,6 @@ const rerenderEntireTree = state => {
         <React.StrictMode>
             <App state={store.getState()}
                  dispatch={store.dispatch.bind(store)}
-                 // getUsers={getUsers.bind(store)}
-                 // getPosts={getPosts.bind(store)}
             />
         </React.StrictMode>,
         document.getElementById('root')
