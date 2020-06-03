@@ -11,8 +11,9 @@
     justify-content: space-between;
 }
 
-.postContent img {
+.avatar {
     width: 50px;
+    height: 50px;
 }
 
 .postContent button {
@@ -21,6 +22,10 @@
 
 .postText {
     margin: auto;
+}
+
+.postImg {
+    width: 100%;
 }
 
 .Post footer {

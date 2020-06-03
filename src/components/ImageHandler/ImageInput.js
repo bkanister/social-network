@@ -6,8 +6,8 @@ const ImageInput = props => {
             <form onSubmit={(e) => props.handleFireBaseUpload(e)}>
                 <input type="file" onChange={(e) => props.handleImageAsFile(e)}/>
                 <button type="submit">Upload</button>
-                {props.imageUrl
-                    ? <img style={{width: '100%'}} src={props.imageUrl} alt="image tag"/>
+                {props.postImage
+                    ? <img style={{width: '100%'}} src={props.postImage} alt="image tag"/>
                     : null}
             </form>
         </div>

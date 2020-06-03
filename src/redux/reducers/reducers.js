@@ -85,7 +85,8 @@ const reducers = (state = initialState, action) => {
             return {
                 ...state,
                 posts: [...state.posts, newPost],
-                textareaValue: ''
+                textareaValue: '',
+                postImage: ''
             }
 
         case INPUT_CHANGE:
@@ -95,7 +96,6 @@ const reducers = (state = initialState, action) => {
             }
 
         case DELETE_POST:
-            debugger
             const newPosts = state.posts.filter(post => {
                 return post.id !== action.postId;
             });

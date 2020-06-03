@@ -8,7 +8,9 @@ const MyProfile = props => {
         <div style={{flexGrow: 1}}>
             <Profile/>
             <NewPostCreator dispatch={props.dispatch}
-                            textareaValue={props.textareaValue}/>
+                            textareaValue={props.textareaValue}
+                            postImage={props.postImage}
+            />
             <Posts dispatch={props.dispatch} posts={props.posts}/>
         </div>
     )

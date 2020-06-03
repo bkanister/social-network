@@ -27,6 +27,7 @@ const App = props => {
                             posts={props.state.posts}
                             dispatch={props.dispatch}
                             textareaValue={props.state.textareaValue}
+                            postImage={props.state.postImage}
                         />
                         }/>
                         <Route path={'/my-chats'} render={() => <MyChats

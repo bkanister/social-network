@@ -50,10 +50,11 @@ const ImageInputContainer = props => {
     }
 
     return <ImageInput
-        handleImageAsFile={handleImageAsFile}
-        handleFireBaseUpload={handleFireBaseUpload}
-        imageUrl={imageAsUrl.imgUrl}
-    />
+                handleImageAsFile={handleImageAsFile}
+                handleFireBaseUpload={handleFireBaseUpload}
+                postImage={props.postImage}
+            />
 }
+
 
 export default ImageInputContainer

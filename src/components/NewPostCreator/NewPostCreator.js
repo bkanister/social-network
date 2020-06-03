@@ -19,7 +19,7 @@ const textInput = useRef(null);
             />
             <footer>
                 <div>
-                    <ImageInputContainer dispatch={props.dispatch}>
+                    <ImageInputContainer dispatch={props.dispatch} postImage={props.postImage}>
                         {props.children}
                     </ImageInputContainer>
                     <p>add photo or emoji</p>
