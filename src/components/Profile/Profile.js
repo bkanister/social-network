@@ -8,7 +8,7 @@ const Profile = props => {
             {
                 value => {
                     return (<div className={classes.Profile}>
-                        <img src={value} alt="Avatar"/>
+                        <img src={value.avatar} alt="Avatar"/>
                         <div>
                             <p>Benzin Kanister</p>
                             <p>On my way to be front-end developer</p>

@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
-import storage from "../firebase/firebase";
+import storage from "../../firebase/firebase";
+import ImageInput from "./ImageInput";
 
-const ImageInput = props => {
-    const imageInput = React.useRef(null)
+const ImageInputContainer = props => {
 
     const allInputs = {imgUrl: ''}
     const [imageAsFile, setImageAsFile] = useState('')
@@ -35,29 +35,25 @@ const ImageInput = props => {
                 // gets the download url then sets the image from firebase as the value for the imgUrl key:
                 storage.ref('images').child(imageAsFile.name).getDownloadURL()
                     .then(fireBaseUrl => {
-                        setImageAsUrl(prevObject => {
-                                console.log(fireBaseUrl)
-                                return {
-                                    ...prevObject,
-                                    imgUrl: fireBaseUrl
+                            setImageAsUrl(prevObject => {
+                                    props.dispatch({type: 'ADD_PHOTO', payload: fireBaseUrl})
+                                    return {
+                                        ...prevObject,
+                                        imgUrl: fireBaseUrl
+                                    }
                                 }
-                            }
-                        )
-                    }
-            )
+                            )
+                        }
+                    )
+            }
+        )
     }
-)
+
+    return <ImageInput
+        handleImageAsFile={handleImageAsFile}
+        handleFireBaseUpload={handleFireBaseUpload}
+        imageUrl={imageAsUrl.imgUrl}
+    />
 }
 
-    return (
-        <div>
-            <form onSubmit={handleFireBaseUpload}>
-                <input ref={imageInput} type="file" onChange={handleImageAsFile}/>
-                <button type="submit">Upload</button>
-                <img src={imageAsUrl.imgUrl} alt="image tag" />
-            </form>
-        </div>
-    )
-}
-
-export default ImageInput
+export default ImageInputContainer

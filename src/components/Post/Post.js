@@ -12,9 +12,11 @@ const Post = props => {
                     return (
                         <div className={classes.Post}>
                             <div className={classes.postContent}>
-                                <img src={value} alt="Avatar"/>
-                                <p className={classes.postText}>{props.post.body}</p>
-                                {props.post.img ? <p>{props.post.img}</p> : null}
+                                <img src={value.avatar} alt="Avatar"/>
+                                <div>
+                                    <p className={classes.postText}>{props.post.body}</p>
+                                    {value.postImage ? <p><img src={value.postImage} alt=""/></p> : null}
+                                </div>
                                 <button onClick={() => props.dispatch(deletePostCreator(props.postId))}>&times;</button>
                             </div>
                             <footer>

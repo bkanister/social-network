@@ -105,7 +105,7 @@ const reducers = (state = initialState, action) => {
             }
 
         case ADD_PHOTO:
-            console.log(action.payload)
+            console.log('add_photo', action.payload)
             return {
                 ...state,
                 postImage: action.payload
