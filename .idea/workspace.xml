@@ -26,14 +26,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e2d4b51-0842-4c32-b61d-f1a185f159f3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/ImageInput.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/firebase/firebase.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navbar.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NewPostCreator/NewPostCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewPostCreator/NewPostCreator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Post/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Post/Post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/MyChats/MyChats.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyChats/MyChats.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ImageInput.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/reducers/reducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/reducers.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -104,7 +103,8 @@
       <workItem from="1590924807756" duration="426000" />
       <workItem from="1590998885091" duration="3859000" />
       <workItem from="1591106363338" duration="16000" />
-      <workItem from="1591106441508" duration="12918000" />
+      <workItem from="1591106441508" duration="13926000" />
+      <workItem from="1591167922586" duration="10284000" />
     </task>
     <servers />
   </component>

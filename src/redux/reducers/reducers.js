@@ -1,4 +1,5 @@
 import {createRenderer} from "react-dom/test-utils";
+import axios from 'axios'
 
 const ADD_POST = 'ADD_POST';
 const INPUT_CHANGE = 'INPUT_CHANGE';
@@ -78,6 +79,9 @@ const reducers = (state = initialState, action) => {
                 body: state.textareaValue,
                 img: state.postImage
             };
+            axios.post('https://social-network-7c6c6.firebaseio.com/posts.json', newPost)
+                .then((response) => console.log(response))
+                .catch(error => console.log(error))
             return {
                 ...state,
                 posts: [...state.posts, newPost],
@@ -101,28 +105,33 @@ const reducers = (state = initialState, action) => {
             }
 
         case ADD_PHOTO:
-            console.log('add photo', action.payload)
+            console.log(action.payload)
             return {
                 ...state,
                 postImage: action.payload
             }
             
         case DOWNLOAD_POSTS:
-            fetch('https://jsonplaceholder.typicode.com/posts?userId=1')
-                .then(response => response.json())
-                .then(json => {
-                    console.log('posts', json)
+            axios.get('https://social-network-7c6c6.firebaseio.com/posts.json')
+                .then(response => {
+                    // const arr = []
+                    // Object.keys(response.data).forEach((key, index) => {
+                    //     arr.push({
+                    //         id: key,
+                    //         name: `Post #${index}`
+                    //     })
+                    // })
+                    console.log(response.data)
                     return {
                         ...state,
-                        posts: json
+                        posts: Array.from(response.data)
                     }
-                })
+            })
 
         case DOWNLOAD_USERS:
             fetch('https://randomuser.me/api/?results=5')
                 .then(response => response.json())
                 .then(json => {
-                    console.log('users', json.results)
                     return {
                         ...state,
                         users: json.results
@@ -132,6 +141,7 @@ const reducers = (state = initialState, action) => {
         default: return state
     }
 }
+
 
 export const addPostCreator = () => ({type: ADD_POST})
 export const inputChangeCreator = (inputText) => ({type: INPUT_CHANGE, inputText})

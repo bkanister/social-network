@@ -12,8 +12,8 @@ import {AvatarContext} from "./context";
 
 const App = props => {
     useEffect(() => {
-        props.dispatch(downloadUsersCreator());
-        props.dispatch(downloadPostsCreator());
+        props.dispatch(downloadUsersCreator(props.state));
+        props.dispatch(downloadPostsCreator(props.state));
     }, []);
 
     return (
