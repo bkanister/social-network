@@ -5,6 +5,7 @@ import {AvatarContext} from "../../context";
 
 
 const Post = props => {
+    console.log(props)
     return (
         <AvatarContext.Consumer>
             {
@@ -17,7 +18,7 @@ const Post = props => {
                                     <p className={classes.postText}>{props.post.body}</p>
                                     {props.post.img ? <p><img className={classes.postImg} src={props.post.img} alt=""/></p> : null}
                                 </div>
-                                <button onClick={() => props.dispatch(deletePostCreator(props.postId))}>&times;</button>
+                                <button onClick={() => props.dispatch(deletePostCreator(props.postKey))}>&times;</button>
                             </div>
                             <footer>
                                 <p>{new Date().toLocaleString()}</p>

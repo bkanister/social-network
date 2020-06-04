@@ -9,11 +9,18 @@ import MyFriends from "./pages/MyFriends/MyFriends";
 import MyTasks from "./pages/MyTasks/MyTasks";
 import {downloadPostsCreator, downloadUsersCreator} from "./redux/reducers/reducers";
 import {AvatarContext} from "./context";
+import axios from "axios";
 
 const App = props => {
+
     useEffect(() => {
         props.dispatch(downloadUsersCreator(props.state));
-        props.dispatch(downloadPostsCreator(props.state));
+
+        axios.get('https://social-network-7c6c6.firebaseio.com/posts.json')
+            .then((response) => {
+                console.log(response.data)
+                props.dispatch(downloadPostsCreator(response.data))
+        })
     }, []);
 
     return (

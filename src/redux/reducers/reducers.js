@@ -1,4 +1,3 @@
-import {createRenderer} from "react-dom/test-utils";
 import axios from 'axios'
 
 const ADD_POST = 'ADD_POST';
@@ -48,23 +47,7 @@ const initialState = {
             }
         }
     ],
-    posts: [
-        {
-            userId: 1,
-            id: 1,
-            body: "quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto"
-        },
-        {
-            userId: 1,
-            id: 2,
-            body: "est rerum tempore vitae sequi sint nihil reprehenderit dolor beatae ea dolores neque fugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis qui aperiam non debitis possimus qui neque nisi nulla"
-        },
-        {
-            userId: 1,
-            id: 3,
-            body: "et iusto sed quo iure voluptatem occaecati omnis eligendi aut ad voluptatem doloribus vel accusantium quis pariatur molestiae porro eius odio et labore et velit aut"
-        },
-    ],
+    posts: [],
     textareaValue: '',
     postImage: ''
 }
@@ -73,9 +56,8 @@ const reducers = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST:
             const newPost = {
-                userId: 1,
+                key: '',
                 id: state.posts.length + 1,
-                title: '',
                 body: state.textareaValue,
                 img: state.postImage
             };
@@ -84,9 +66,7 @@ const reducers = (state = initialState, action) => {
                 .catch(error => console.log(error))
             return {
                 ...state,
-                posts: [...state.posts, newPost],
-                textareaValue: '',
-                postImage: ''
+                posts: [...state.posts, newPost]
             }
 
         case INPUT_CHANGE:
@@ -97,8 +77,11 @@ const reducers = (state = initialState, action) => {
 
         case DELETE_POST:
             const newPosts = state.posts.filter(post => {
-                return post.id !== action.postId;
+                return post[0].key !== action.postKey;
             });
+            axios.delete(`https://social-network-7c6c6.firebaseio.com/posts/${action.postKey}.json`)
+                .then((response) => console.log(response))
+                .catch(error => console.log(error))
             return {
                 ...state,
                 posts: newPosts
@@ -112,21 +95,20 @@ const reducers = (state = initialState, action) => {
             }
             
         case DOWNLOAD_POSTS:
-            axios.get('https://social-network-7c6c6.firebaseio.com/posts.json')
-                .then(response => {
-                    // const arr = []
-                    // Object.keys(response.data).forEach((key, index) => {
-                    //     arr.push({
-                    //         id: key,
-                    //         name: `Post #${index}`
-                    //     })
-                    // })
-                    console.log(response.data)
-                    return {
-                        ...state,
-                        posts: Array.from(response.data)
-                    }
-            })
+            if (action.posts) {
+                let posts = Object.entries(action.posts)
+                posts.forEach(post => {
+                    post[1]['key'] = post[0]
+                    post.splice(0,1)
+                    post = post[0]
+                })
+                console.log('Object.entries', posts)
+                return {
+                    ...state,
+                    posts
+                }
+            }
+            return state
 
         case DOWNLOAD_USERS:
             fetch('https://randomuser.me/api/?results=5')
@@ -143,11 +125,10 @@ const reducers = (state = initialState, action) => {
 }
 
 
-export const addPostCreator = () => ({type: ADD_POST})
+export const addPostCreator = (postKey) => ({type: ADD_POST, postKey})
 export const inputChangeCreator = (inputText) => ({type: INPUT_CHANGE, inputText})
-export const deletePostCreator = (postId) => ({type: DELETE_POST, postId})
-export const addPhotoCreator = (image) => ({type: ADD_PHOTO, payload: image})
+export const deletePostCreator = (postKey) => ({type: DELETE_POST, postKey})
 export const downloadUsersCreator = () => ({type: DOWNLOAD_USERS})
-export const downloadPostsCreator = () => ({type: DOWNLOAD_POSTS})
+export const downloadPostsCreator = (posts) => ({type: DOWNLOAD_POSTS, posts})
 
 export default reducers

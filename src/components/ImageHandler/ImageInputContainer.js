@@ -26,7 +26,7 @@ const ImageInputContainer = props => {
             }, () => {
                 storage.ref('images').child(image.name).getDownloadURL()
                     .then(fireBaseUrl => {
-                        props.dispatch({type: 'ADD_PHOTO', payload: fireBaseUrl})
+                        props.dispatch({type: 'ADD_PHOTO', payload: fireBaseUrl}) //dispatching action
                     })
         })
     }
