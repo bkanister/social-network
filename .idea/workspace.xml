@@ -26,16 +26,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e2d4b51-0842-4c32-b61d-f1a185f159f3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/ImageHandler/ImageInputContainer2.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ImageHandler/ImageInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ImageHandler/ImageInput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ImageHandler/ImageInputContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ImageHandler/ImageInputContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/NewPostCreator/NewPostCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewPostCreator/NewPostCreator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Post/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Post/Post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Post/Post.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Post/Post.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/MyProfile/MyProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyProfile/MyProfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducers/reducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/reducers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reduxStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reduxStore.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +61,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/ImageHandler" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -80,6 +73,9 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="X:\Projects\social-network\src\components\ImageHandler" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="X:\Projects\social-network\src\components\ImageHandler" />
     </key>
@@ -114,7 +110,8 @@
       <workItem from="1590998885091" duration="3859000" />
       <workItem from="1591106363338" duration="16000" />
       <workItem from="1591106441508" duration="13926000" />
-      <workItem from="1591167922586" duration="21099000" />
+      <workItem from="1591167922586" duration="22062000" />
+      <workItem from="1591261906214" duration="2980000" />
     </task>
     <servers />
   </component>
