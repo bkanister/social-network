@@ -1,12 +1,13 @@
 import axios from 'axios'
-
-const ADD_POST = 'ADD_POST';
-const INPUT_CHANGE = 'INPUT_CHANGE';
-const DELETE_POST = 'DELETE_POST';
-const ADD_PHOTO = 'ADD_PHOTO';
-const DOWNLOAD_POSTS = 'DOWNLOAD_POSTS';
-const DOWNLOAD_USERS = 'DOWNLOAD_USERS';
-const SET_CURRENT_PAGE_NUMBER = 'SET_CURRENT_PAGE_NUMBER'
+import {
+    ADD_PHOTO,
+    ADD_POST,
+    DELETE_POST,
+    DOWNLOAD_POSTS,
+    DOWNLOAD_USERS,
+    INPUT_CHANGE,
+    SET_CURRENT_PAGE_NUMBER
+} from "./constants";
 
 const initialState = {
     avatar: 'https://image.spreadshirtmedia.net/image-server/v1/mp/designs/170224352,width=178,height=178,version=1579272891/benzinkanister-ersatz-tanken.png',
@@ -75,7 +76,7 @@ const reducers = (state = initialState, action) => {
             }
             return state
 
-        case 'SET_CURRENT_PAGE_NUMBER':
+        case SET_CURRENT_PAGE_NUMBER:
             return {
                 ...state,
                 currentFriendsPageNumber: action.pageNumber

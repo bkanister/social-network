@@ -26,9 +26,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e2d4b51-0842-4c32-b61d-f1a185f159f3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/redux/reducers/constants.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/MyFriends/MyFriends.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyFriends/MyFriends.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/reducers/reducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/reducers.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,6 +45,13 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/bkanister/social-network.git" />
+      </set>
+    </option>
   </component>
   <component name="ProjectId" id="1eSyZ6Bkc1eWXCa46ShBP2ZWP9X" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -114,7 +120,7 @@
       <workItem from="1591167922586" duration="22062000" />
       <workItem from="1591261906214" duration="19196000" />
       <workItem from="1591340616494" duration="4526000" />
-      <workItem from="1591348243520" duration="2053000" />
+      <workItem from="1591348243520" duration="4029000" />
     </task>
     <servers />
   </component>
