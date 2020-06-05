@@ -1,7 +1,8 @@
 import React from 'react'
+import {setCurrentPageNumberCreator} from "../../redux/reducers/reducers";
 
 const MyFriends = props => {
-    const pageCount = Math.ceil(props.users.length / 20)
+    const pageCount = Math.ceil(props.users.length / 5)
     const pageNumbers = []
     for (let i = 1; i <= pageCount; i++) {
         pageNumbers.push(i)
@@ -10,7 +11,10 @@ const MyFriends = props => {
     return (
         <div>
             <div>
-                {pageNumbers.map(pageNumber => <span key={pageNumber}>{pageNumber}</span>)}
+                {pageNumbers.map(pageNumber => <span key={pageNumber}
+                                                     onClick={() => props.dispatch(setCurrentPageNumberCreator(pageNumber))}>
+                                                    {pageNumber}
+                                                </span>)}
             </div>
             {props.users.map((user, index) => {
                 return (

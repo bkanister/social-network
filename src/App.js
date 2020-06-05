@@ -13,7 +13,7 @@ import axios from "axios";
 
 const App = props => {
     useEffect(() => {
-        axios.get('https://randomuser.me/api/?inc=name,picture,login&results=100')
+        axios.get(`https://randomuser.me/api/?inc=name,picture,login&page=${props.state.currentFriendsPageNumber}&results=10`)
             .then((response) => {
                 props.dispatch(downloadUsersCreator(response.data.results));
             })
@@ -21,8 +21,8 @@ const App = props => {
         axios.get('https://social-network-7c6c6.firebaseio.com/posts.json')
             .then((response) => {
                 props.dispatch(downloadPostsCreator(response.data))
-        })
-    }, []);
+        }) // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [props.state.currentFriendsPageNumber]);
 
     return (
         <AvatarContext.Provider
@@ -42,7 +42,10 @@ const App = props => {
                             users={props.state.users}
                             messages={props.state.posts}
                         />}/>
-                        <Route path={'/my-friends'} render={() => <MyFriends users={props.state.users}/>}/>
+                        <Route path={'/my-friends'} render={() => <MyFriends
+                                                                    users={props.state.users}
+                                                                    dispatch={props.dispatch}
+                                                                />}/>
                         <Route path={'/my-tasks'} component={MyTasks}/>
                     </Switch>
                     <ChatList users={props.state.users}/>

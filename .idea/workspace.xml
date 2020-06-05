@@ -28,13 +28,6 @@
     <list default="true" id="6e2d4b51-0842-4c32-b61d-f1a185f159f3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ChatList/RecentContacts/RecentContacts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ChatList/RecentContacts/RecentContacts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ChatList/RecentContacts/RecentContacts.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ChatList/RecentContacts/RecentContacts.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ImageHandler/ImageInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ImageHandler/ImageInput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ImageHandler/ImageInputContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ImageHandler/ImageInputContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NewPostCreator/NewPostCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewPostCreator/NewPostCreator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Post/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Post/Post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Posts/Posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Posts/Posts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/MyFriends/MyFriends.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyFriends/MyFriends.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/reducers/reducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/reducers.js" afterDir="false" />
     </list>
@@ -120,7 +113,8 @@
       <workItem from="1591106441508" duration="13926000" />
       <workItem from="1591167922586" duration="22062000" />
       <workItem from="1591261906214" duration="19196000" />
-      <workItem from="1591340616494" duration="4182000" />
+      <workItem from="1591340616494" duration="4526000" />
+      <workItem from="1591348243520" duration="2053000" />
     </task>
     <servers />
   </component>
@@ -208,9 +202,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="96" y="96" width="1174" height="536" key="dock-window-1/0.0.1366.728@0.0.1366.728" timestamp="1590925240337" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1590924974477">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="346" y="52" width="672" height="716" key="search.everywhere.popup" timestamp="1591345033507">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1590924974477" />
+    <state x="346" y="52" width="672" height="716" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1591345033507" />
   </component>
 </project>

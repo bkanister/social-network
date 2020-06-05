@@ -6,50 +6,15 @@ const DELETE_POST = 'DELETE_POST';
 const ADD_PHOTO = 'ADD_PHOTO';
 const DOWNLOAD_POSTS = 'DOWNLOAD_POSTS';
 const DOWNLOAD_USERS = 'DOWNLOAD_USERS';
+const SET_CURRENT_PAGE_NUMBER = 'SET_CURRENT_PAGE_NUMBER'
 
 const initialState = {
     avatar: 'https://image.spreadshirtmedia.net/image-server/v1/mp/designs/170224352,width=178,height=178,version=1579272891/benzinkanister-ersatz-tanken.png',
-    users: [
-        {
-            name: {
-                title: "Mr",
-                first: "Gabriel",
-                last: "Novak"
-            },
-            picture: {
-                large: "https://randomuser.me/api/portraits/men/40.jpg",
-                medium: "https://randomuser.me/api/portraits/med/men/40.jpg",
-                thumbnail: "https://randomuser.me/api/portraits/thumb/men/40.jpg"
-            }
-        },
-        {
-            name: {
-                title: "Mr",
-                first: "Emile",
-                last: "White"
-            },
-            picture: {
-                large: "https://randomuser.me/api/portraits/men/98.jpg",
-                medium: "https://randomuser.me/api/portraits/med/men/98.jpg",
-                thumbnail: "https://randomuser.me/api/portraits/thumb/men/98.jpg"
-            }
-        },
-        {
-            name: {
-                title: "Mademoiselle",
-                first: "Selma",
-                last: "Lefebvre"
-            },
-            picture: {
-                large: "https://randomuser.me/api/portraits/women/13.jpg",
-                medium: "https://randomuser.me/api/portraits/med/women/13.jpg",
-                thumbnail: "https://randomuser.me/api/portraits/thumb/women/13.jpg"
-            }
-        }
-    ],
+    users: [],
     posts: [],
     textareaValue: '',
-    postImage: ''
+    postImage: '',
+    currentFriendsPageNumber: 1
 }
 
 const reducers = (state = initialState, action) => {
@@ -77,7 +42,7 @@ const reducers = (state = initialState, action) => {
 
         case DELETE_POST:
             const newPosts = state.posts.filter(post => {
-                return post[0].key !== action.postKey;
+                return post.key !== action.postKey;
             });
             axios.delete(`https://social-network-7c6c6.firebaseio.com/posts/${action.postKey}.json`)
                 .then((response) => console.log(response))
@@ -105,10 +70,16 @@ const reducers = (state = initialState, action) => {
                 const merged = [].concat.apply([], posts);
                 return {
                     ...state,
-                    posts: merged
+                    posts: merged.reverse()
                 }
             }
             return state
+
+        case 'SET_CURRENT_PAGE_NUMBER':
+            return {
+                ...state,
+                currentFriendsPageNumber: action.pageNumber
+            }
 
         case DOWNLOAD_USERS:
                 return {
@@ -126,5 +97,6 @@ export const inputChangeCreator = (inputText) => ({type: INPUT_CHANGE, inputText
 export const deletePostCreator = (postKey) => ({type: DELETE_POST, postKey})
 export const downloadUsersCreator = (users) => ({type: DOWNLOAD_USERS, users})
 export const downloadPostsCreator = (posts) => ({type: DOWNLOAD_POSTS, posts})
+export const setCurrentPageNumberCreator = (pageNumber) => ({type: SET_CURRENT_PAGE_NUMBER, pageNumber})
 
 export default reducers
