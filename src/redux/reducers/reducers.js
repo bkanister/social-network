@@ -57,16 +57,16 @@ const reducers = (state = initialState, action) => {
         case ADD_POST:
             const newPost = {
                 key: '',
-                id: state.posts.length + 1,
                 body: state.textareaValue,
-                img: state.postImage
+                img: state.postImage,
+                date: new Date().toLocaleString()
             };
             axios.post('https://social-network-7c6c6.firebaseio.com/posts.json', newPost)
                 .then((response) => console.log(response))
                 .catch(error => console.log(error))
             return {
                 ...state,
-                posts: [...state.posts, newPost]
+                posts: [newPost, ...state.posts]
             }
 
         case INPUT_CHANGE:
@@ -102,23 +102,19 @@ const reducers = (state = initialState, action) => {
                     post.splice(0,1)
                     post = post[0]
                 })
-                console.log('Object.entries', posts)
+                const merged = [].concat.apply([], posts);
                 return {
                     ...state,
-                    posts
+                    posts: merged
                 }
             }
             return state
 
         case DOWNLOAD_USERS:
-            fetch('https://randomuser.me/api/?results=5')
-                .then(response => response.json())
-                .then(json => {
-                    return {
-                        ...state,
-                        users: json.results
-                    }
-                })
+                return {
+                    ...state,
+                    users: action.users
+                }
 
         default: return state
     }
@@ -128,7 +124,7 @@ const reducers = (state = initialState, action) => {
 export const addPostCreator = (postKey) => ({type: ADD_POST, postKey})
 export const inputChangeCreator = (inputText) => ({type: INPUT_CHANGE, inputText})
 export const deletePostCreator = (postKey) => ({type: DELETE_POST, postKey})
-export const downloadUsersCreator = () => ({type: DOWNLOAD_USERS})
+export const downloadUsersCreator = (users) => ({type: DOWNLOAD_USERS, users})
 export const downloadPostsCreator = (posts) => ({type: DOWNLOAD_POSTS, posts})
 
 export default reducers

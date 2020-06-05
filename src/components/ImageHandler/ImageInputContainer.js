@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import storage from "../../firebase/firebase";
 import ImageInput from "./ImageInput";
 
@@ -13,7 +13,7 @@ const ImageInputContainer = props => {
                 let error = new Error('something went wrong')
                 reject(error)
             }
-        }).then((image) => handleFireBaseUpload(image))
+        }).then(image => handleFireBaseUpload(image))
     }
 
     const handleFireBaseUpload = (image) => {

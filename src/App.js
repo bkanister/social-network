@@ -12,13 +12,14 @@ import {AvatarContext} from "./context";
 import axios from "axios";
 
 const App = props => {
-
     useEffect(() => {
-        props.dispatch(downloadUsersCreator(props.state));
+        axios.get('https://randomuser.me/api/?inc=name,picture,login&results=100')
+            .then((response) => {
+                props.dispatch(downloadUsersCreator(response.data.results));
+            })
 
         axios.get('https://social-network-7c6c6.firebaseio.com/posts.json')
             .then((response) => {
-                console.log(response.data)
                 props.dispatch(downloadPostsCreator(response.data))
         })
     }, []);
@@ -41,7 +42,7 @@ const App = props => {
                             users={props.state.users}
                             messages={props.state.posts}
                         />}/>
-                        <Route path={'/my-friends'} component={MyFriends}/>
+                        <Route path={'/my-friends'} render={() => <MyFriends users={props.state.users}/>}/>
                         <Route path={'/my-tasks'} component={MyTasks}/>
                     </Switch>
                     <ChatList users={props.state.users}/>
