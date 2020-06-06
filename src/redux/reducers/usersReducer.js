@@ -5,7 +5,10 @@ import {
 
 const initialState = {
     defaultUserAvatar: 'https://art.pixilart.com/1f127be4c0f2913.png',
-    currentUserProfile: 2,
+    currentUserProfile: {
+        id: 2,
+        info: {}
+    },
     users: [],
     currentPage: 1,
     isLoading: false,
@@ -36,10 +39,21 @@ const usersReducer = (state = initialState, action) => {
                 }
 
         case 'SET_CURRENT_USER_PROFILE':
-            debugger
             return {
                 ...state,
-                currentUserProfile: action.userId
+                currentUserProfile: {
+                    ...state.currentUserProfile,
+                    id: action.userId
+                }
+            }
+
+        case 'SET_USER_PROFILE_INFO':
+            return {
+                ...state,
+                currentUserProfile: {
+                    ...state.currentUserProfile,
+                    info: action.payload
+                }
             }
 
         default: return state

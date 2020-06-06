@@ -46,7 +46,11 @@ const App = props => {
                             textareaValue={props.state.posts.textareaValue}
                             postImage={props.state.posts.postImage}/>}
                         />
-                        <Route exact path={'/profile/:id'} component={UserProfile}/>
+                        <Route exact path={'/profile/:id'} render={() => <UserProfile
+                                                                            dispatch={props.dispatch}
+                                                                            userInfo={props.state.users.currentUserProfile.info}
+                                                                            avatar={props.state.users.defaultUserAvatar}
+                                                                          />}/>
                         <Route path={'/my-chats'} render={() => <MyChats
                             users={props.state.users.users}
                             messages={props.state.posts.posts}
