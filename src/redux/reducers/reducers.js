@@ -6,7 +6,7 @@ import {
     DOWNLOAD_POSTS,
     DOWNLOAD_USERS,
     INPUT_CHANGE,
-    SET_CURRENT_PAGE_NUMBER
+    SET_CURRENT_PAGE_NUMBER, USERS_ARE_LOADING
 } from "./constants";
 
 const initialState = {
@@ -15,14 +15,16 @@ const initialState = {
     posts: [],
     textareaValue: '',
     postImage: '',
-    currentFriendsPageNumber: 1
+    currentFriendsPageNumber: 1,
+    usersAreLoading: false,
+    postsAreLoading: false
 }
 
 const reducers = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST:
             const newPost = {
-                key: '',
+                key: Math.random(),
                 body: state.textareaValue,
                 img: state.postImage,
                 date: new Date().toLocaleString()
@@ -32,7 +34,9 @@ const reducers = (state = initialState, action) => {
                 .catch(error => console.log(error))
             return {
                 ...state,
-                posts: [newPost, ...state.posts]
+                posts: [newPost, ...state.posts],
+                postImage: '',
+                textareaValue: ''
             }
 
         case INPUT_CHANGE:
@@ -42,6 +46,7 @@ const reducers = (state = initialState, action) => {
             }
 
         case DELETE_POST:
+            debugger
             const newPosts = state.posts.filter(post => {
                 return post.key !== action.postKey;
             });
@@ -85,8 +90,15 @@ const reducers = (state = initialState, action) => {
         case DOWNLOAD_USERS:
                 return {
                     ...state,
-                    users: action.users
+                    users: action.users,
+                    usersAreLoading: false
                 }
+
+        case USERS_ARE_LOADING:
+            return {
+                ...state,
+                usersAreLoading: action.usersAreLoading
+            }
 
         default: return state
     }
@@ -97,6 +109,7 @@ export const addPostCreator = (postKey) => ({type: ADD_POST, postKey})
 export const inputChangeCreator = (inputText) => ({type: INPUT_CHANGE, inputText})
 export const deletePostCreator = (postKey) => ({type: DELETE_POST, postKey})
 export const downloadUsersCreator = (users) => ({type: DOWNLOAD_USERS, users})
+export const usersAreLoadingCreator = (usersAreLoading) => ({type: 'USERS_ARE_LOADING', usersAreLoading})
 export const downloadPostsCreator = (posts) => ({type: DOWNLOAD_POSTS, posts})
 export const setCurrentPageNumberCreator = (pageNumber) => ({type: SET_CURRENT_PAGE_NUMBER, pageNumber})
 

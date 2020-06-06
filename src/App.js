@@ -7,7 +7,7 @@ import MyProfile from "./pages/MyProfile/MyProfile";
 import MyChats from "./pages/MyChats/MyChats";
 import MyFriends from "./pages/MyFriends/MyFriends";
 import MyTasks from "./pages/MyTasks/MyTasks";
-import {downloadPostsCreator, downloadUsersCreator} from "./redux/reducers/reducers";
+import {downloadPostsCreator, downloadUsersCreator, usersAreLoadingCreator} from "./redux/reducers/reducers";
 import {AvatarContext} from "./context";
 import axios from "axios";
 
@@ -15,8 +15,13 @@ const App = props => {
     useEffect(() => {
         axios.get(`https://randomuser.me/api/?inc=name,picture,login&page=${props.state.currentFriendsPageNumber}&results=10`)
             .then((response) => {
+                props.dispatch(usersAreLoadingCreator(true))
+                return response
+            })
+            .then((response) => {
                 props.dispatch(downloadUsersCreator(response.data.results));
             })
+
 
         axios.get('https://social-network-7c6c6.firebaseio.com/posts.json')
             .then((response) => {
@@ -45,6 +50,7 @@ const App = props => {
                         <Route path={'/my-friends'} render={() => <MyFriends
                                                                     users={props.state.users}
                                                                     dispatch={props.dispatch}
+                                                                    usersAreLoading={props.state.usersAreLoading}
                                                                 />}/>
                         <Route path={'/my-tasks'} component={MyTasks}/>
                     </Switch>
