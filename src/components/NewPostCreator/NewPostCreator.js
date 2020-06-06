@@ -4,7 +4,6 @@ import {addPostCreator, inputChangeCreator} from "../../redux/reducers/reducers"
 import ImageInputContainer from "../ImageHandler/ImageInputContainer";
 
 
-
 const NewPostCreator = props => {
 const textInput = useRef(null);
     return (
@@ -24,7 +23,7 @@ const textInput = useRef(null);
                     <p>add photo or emoji</p>
                 </div>
                 <button onClick={() => {
-                    props.dispatch(addPostCreator(textInput.current.value));
+                    props.dispatch(addPostCreator());
                 }}>Add post</button>
             </footer>
         </div>

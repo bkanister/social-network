@@ -1,6 +1,6 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import classes from '../Post/Post.module.css'
-import {deletePostCreator} from "../../redux/reducers/reducers";
+import {deletePostCreator, downloadPostsCreator} from "../../redux/reducers/reducers";
 import {AvatarContext} from "../../context";
 
 

@@ -23,14 +23,17 @@ const initialState = {
 const reducers = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST:
+            debugger
             const newPost = {
-                key: Math.random(),
+                key: '',
                 body: state.textareaValue,
                 img: state.postImage,
                 date: new Date().toLocaleString()
             };
             axios.post('https://social-network-7c6c6.firebaseio.com/posts.json', newPost)
-                .then((response) => console.log(response))
+                .then((response) => {
+                    newPost.key = response.data.name
+                })
                 .catch(error => console.log(error))
             return {
                 ...state,
@@ -46,17 +49,16 @@ const reducers = (state = initialState, action) => {
             }
 
         case DELETE_POST:
-            debugger
-            const newPosts = state.posts.filter(post => {
-                return post.key !== action.postKey;
-            });
-            axios.delete(`https://social-network-7c6c6.firebaseio.com/posts/${action.postKey}.json`)
-                .then((response) => console.log(response))
-                .catch(error => console.log(error))
-            return {
-                ...state,
-                posts: newPosts
-            }
+                const newPosts = state.posts.filter(post => {
+                    return post.key !== action.postKey;
+                });
+                axios.delete(`https://social-network-7c6c6.firebaseio.com/posts/${action.postKey}.json`)
+                    .then((response) => console.log(response))
+                    .catch(error => console.log(error))
+                return {
+                    ...state,
+                    posts: newPosts
+                }
 
         case ADD_PHOTO:
             console.log('add_photo', action.payload)
@@ -105,7 +107,7 @@ const reducers = (state = initialState, action) => {
 }
 
 
-export const addPostCreator = (postKey) => ({type: ADD_POST, postKey})
+export const addPostCreator = () => ({type: ADD_POST})
 export const inputChangeCreator = (inputText) => ({type: INPUT_CHANGE, inputText})
 export const deletePostCreator = (postKey) => ({type: DELETE_POST, postKey})
 export const downloadUsersCreator = (users) => ({type: DOWNLOAD_USERS, users})
