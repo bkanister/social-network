@@ -12,24 +12,26 @@ import {downloadPostsCreator} from "./redux/reducers/postsReducer";
 import axios from "axios";
 import {Provider} from "react-redux";
 import store from "./redux/reduxStore";
+import UserProfile from "./components/UsersProfile/UsersProfile";
 
 
 const App = props => {
     useEffect(() => {
-        axios.get(`https://randomuser.me/api/?inc=name,picture,login&page=${props.state.users.currentFriendsPageNumber}&results=10`)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=100&page=${props.state.users.currentPage}`)
             .then((response) => {
-                props.dispatch(usersAreLoadingCreator(true))
+                console.log(response.data.items)
+                props.dispatch(usersAreLoadingCreator())
                 return response
             })
             .then((response) => {
-                props.dispatch(downloadUsersCreator(response.data.results));
+                props.dispatch(downloadUsersCreator(response.data));
             })
 
         axios.get('https://social-network-7c6c6.firebaseio.com/posts.json')
             .then((response) => {
                 props.dispatch(downloadPostsCreator(response.data))
         })
-    }, [props.state.users.currentFriendsPageNumber]);
+    }, [props.state.users.currentPage]);
 
     return (
         <Provider
@@ -42,9 +44,9 @@ const App = props => {
                             posts={props.state.posts.posts}
                             dispatch={props.dispatch}
                             textareaValue={props.state.posts.textareaValue}
-                            postImage={props.state.posts.postImage}
+                            postImage={props.state.posts.postImage}/>}
                         />
-                        }/>
+                        <Route exact path={'/profile/:id'} component={UserProfile}/>
                         <Route path={'/my-chats'} render={() => <MyChats
                             users={props.state.users.users}
                             messages={props.state.posts.posts}
@@ -52,11 +54,16 @@ const App = props => {
                         <Route path={'/my-friends'} render={() => <MyFriends
                                                                     users={props.state.users.users}
                                                                     dispatch={props.dispatch}
-                                                                    usersAreLoading={props.state.users.usersAreLoading}
+                                                                    isLoading={props.state.users.isLoading}
+                                                                    avatar={props.state.users.defaultUserAvatar}
+                                                                    totalUsersCount={props.state.users.totalUsersCount}
+                                                                    currentUserProfile={props.state.users.currentUserProfile}
                                                                 />}/>
                         <Route path={'/my-tasks'} component={MyTasks}/>
                     </Switch>
-                    <ChatList users={props.state.users.users}/>
+                    <ChatList users={props.state.users.users}
+                              avatar={props.state.users.defaultUserAvatar}
+                    />
                 </div>
             </BrowserRouter>
         </Provider>

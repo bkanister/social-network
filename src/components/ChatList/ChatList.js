@@ -8,9 +8,9 @@ const ChatList = props => {
         <aside className={classes.ChatList}>
             <header>Chat list</header>
             <hr/>
-            <RecentContacts users={props.users}/>
+            <RecentContacts users={props.users} avatar={props.avatar}/>
             <hr/>
-            <RecentChats users={props.users}/>
+            <RecentChats users={props.users} avatar={props.avatar}/>
             <button>+ New chat</button>
         </aside>
     )

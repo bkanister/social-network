@@ -1,5 +1,5 @@
 import React from "react";
-import classes from '../Profile/Profile.module.css'
+import classes from './/Profile.module.css'
 import {connect} from "react-redux";
 
 const Profile = props => {

@@ -5,7 +5,7 @@ const RecentContacts = props => {
     const contacts = props.users.map((user, index) => {
         return (
                 <span key={index} >
-                    <img src={user.picture['thumbnail']} alt="Avatar"/>
+                    <img src={user.photos.small || props.avatar} alt="Avatar"/>
                 </span>
         )
     })

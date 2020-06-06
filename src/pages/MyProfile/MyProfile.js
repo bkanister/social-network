@@ -1,4 +1,4 @@
-import Profile from "../../components/Profile/Profile";
+import Profile from "../../components/MyProfile/Profile";
 import NewPostCreator from "../../components/NewPostCreator/NewPostCreator";
 import Posts from "../../components/Posts/Posts";
 import React from "react";

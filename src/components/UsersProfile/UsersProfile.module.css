@@ -1,0 +1,14 @@
+.UsersProfile {
+    display: flex;
+    justify-content: space-between;
+    background: #fff;
+    border-radius: 15px;
+    height: 100px;
+    margin: 40px auto;
+    min-width: 500px;
+}
+
+.UsersProfile img {
+    width: 100px;
+    height: 100px;
+}
