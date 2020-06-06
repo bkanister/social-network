@@ -1,14 +1,11 @@
 import React from "react";
 import classes from '../Profile/Profile.module.css'
-import {AvatarContext} from "../../context";
+import {connect} from "react-redux";
 
 const Profile = props => {
     return (
-        <AvatarContext.Consumer>
-            {
-                value => {
-                    return (<div className={classes.Profile}>
-                        <img src={value.avatar} alt="Avatar"/>
+        <div className={classes.Profile}>
+                        <img src={props.avatar} alt="Avatar"/>
                         <div>
                             <p>Benzin Kanister</p>
                             <p>On my way to be front-end developer</p>
@@ -17,13 +14,15 @@ const Profile = props => {
                             <p>Contact links</p>
                             <p>Saint-Petersburg, Russia</p>
                         </div>
-                    </div>)
-                }
-            }
-
-        </AvatarContext.Consumer>
-
+                    </div>
     )
 }
 
-export default Profile
+const mapStateToProps = (state) => {
+    return {
+        avatar: state.posts.avatar
+    }
+}
+
+
+export default connect(mapStateToProps, null)(Profile)

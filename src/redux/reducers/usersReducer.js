@@ -12,6 +12,7 @@ const initialState = {
 const usersReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_CURRENT_PAGE_NUMBER:
+            debugger
             return {
                 ...state,
                 currentFriendsPageNumber: action.pageNumber

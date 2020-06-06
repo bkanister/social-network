@@ -9,14 +9,14 @@ import MyFriends from "./pages/MyFriends/MyFriends";
 import MyTasks from "./pages/MyTasks/MyTasks";
 import {downloadUsersCreator, usersAreLoadingCreator} from "./redux/reducers/usersReducer";
 import {downloadPostsCreator} from "./redux/reducers/postsReducer";
-import {AvatarContext} from "./context";
 import axios from "axios";
+import {Provider} from "react-redux";
+import store from "./redux/reduxStore";
 
 
 const App = props => {
-    debugger
     useEffect(() => {
-        axios.get(`https://randomuser.me/api/?inc=name,picture,login&page=${props.state.currentFriendsPageNumber}&results=10`)
+        axios.get(`https://randomuser.me/api/?inc=name,picture,login&page=${props.state.users.currentFriendsPageNumber}&results=10`)
             .then((response) => {
                 props.dispatch(usersAreLoadingCreator(true))
                 return response
@@ -25,16 +25,15 @@ const App = props => {
                 props.dispatch(downloadUsersCreator(response.data.results));
             })
 
-
         axios.get('https://social-network-7c6c6.firebaseio.com/posts.json')
             .then((response) => {
                 props.dispatch(downloadPostsCreator(response.data))
-        }) // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [props.state.currentFriendsPageNumber]);
+        })
+    }, [props.state.users.currentFriendsPageNumber]);
 
     return (
-        <AvatarContext.Provider
-            value={props.state.posts}>
+        <Provider
+            store={store}>
             <BrowserRouter>
                 <div className="App">
                     <Navbar/>
@@ -60,7 +59,7 @@ const App = props => {
                     <ChatList users={props.state.users.users}/>
                 </div>
             </BrowserRouter>
-        </AvatarContext.Provider>
+        </Provider>
 
     )
 }
