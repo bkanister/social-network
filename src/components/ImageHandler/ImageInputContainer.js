@@ -1,5 +1,5 @@
 import React from 'react'
-import storage from "../../firebase/firebase";
+import {storage} from "../../firebase/firebase";
 import ImageInput from "./ImageInput";
 import {addPhotoCreator} from "../../redux/reducers/postsReducer";
 

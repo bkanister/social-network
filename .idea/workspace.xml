@@ -26,10 +26,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e2d4b51-0842-4c32-b61d-f1a185f159f3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/AuthenticationPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/PasswordReset.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/SignIn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/SignUp.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UsersProfile/UsersProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UsersProfile/UsersProfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducers/usersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/usersReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageHandler/ImageInputContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ImageHandler/ImageInputContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/firebase/firebase.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/firebase.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,8 +43,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -123,7 +127,8 @@
       <workItem from="1591340616494" duration="4526000" />
       <workItem from="1591348243520" duration="4324000" />
       <workItem from="1591433133411" duration="18877000" />
-      <workItem from="1591463523461" duration="4077000" />
+      <workItem from="1591463523461" duration="5737000" />
+      <workItem from="1591524665955" duration="5297000" />
     </task>
     <servers />
   </component>

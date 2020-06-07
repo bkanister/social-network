@@ -13,6 +13,7 @@ import axios from "axios";
 import {Provider} from "react-redux";
 import store from "./redux/reduxStore";
 import UserProfile from "./components/UsersProfile/UsersProfile";
+import Authentication from "./components/AuthenticationPage/AuthenticationPage";
 
 
 const App = props => {
@@ -64,6 +65,7 @@ const App = props => {
                                                                     currentUserProfile={props.state.users.currentUserProfile}
                                                                 />}/>
                         <Route path={'/my-tasks'} component={MyTasks}/>
+                        <Route path={'/auth'} component={Authentication}/>
                     </Switch>
                     <ChatList users={props.state.users.users}
                               avatar={props.state.users.defaultUserAvatar}
