@@ -20,7 +20,6 @@ const App = props => {
     useEffect(() => {
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=100&page=${props.state.users.currentPage}`)
             .then((response) => {
-                console.log(response.data.items)
                 props.dispatch(usersAreLoadingCreator())
                 return response
             })
@@ -65,7 +64,11 @@ const App = props => {
                                                                     currentUserProfile={props.state.users.currentUserProfile}
                                                                 />}/>
                         <Route path={'/my-tasks'} component={MyTasks}/>
-                        <Route path={'/auth'} component={Authentication}/>
+                        <Route path={'/auth'} render={() => <Authentication dispatch={props.dispatch}
+                                                                            userName={props.state.profile.userName}
+                                                                            userEmail={props.state.profile.userEmail}
+                                                                            userPassword={props.state.profile.userPassword}
+                        />}/>
                     </Switch>
                     <ChatList users={props.state.users.users}
                               avatar={props.state.users.defaultUserAvatar}
