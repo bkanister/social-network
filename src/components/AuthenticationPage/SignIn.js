@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {Link} from "react-router-dom";
-import {auth, firestore} from "../../firebase/firebase";
+import {auth} from "../../firebase/firebase";
 import {setUserId} from "../../redux/reducers/profileReducer";
 
 const SignIn = props => {
@@ -35,7 +35,7 @@ const SignIn = props => {
     // }
 
     const handleSignIn = (event, email, password) => {
-        debugger
+
         event.preventDefault();
             if (email.length < 4) {
                 alert('Please enter an email address.');
@@ -92,8 +92,6 @@ const SignIn = props => {
                 <p>
                     Don't have an account?{" "}
                     <Link to={'./sign-up'}>Sign up here</Link>{" "}
-                    <br />{" "}
-                    <Link to={'./password-reset'}>Forgot Password?</Link>
                 </p>
             </div>
         </div>

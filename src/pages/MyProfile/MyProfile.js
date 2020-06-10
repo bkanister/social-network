@@ -11,7 +11,7 @@ const MyProfile = props => {
                             textareaValue={props.textareaValue}
                             postImage={props.postImage}
             />
-            <Posts dispatch={props.dispatch} posts={props.posts}/>
+            <Posts dispatch={props.dispatch} posts={props.posts} userID={props.userID}/>
         </div>
     )
 }

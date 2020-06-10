@@ -26,17 +26,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e2d4b51-0842-4c32-b61d-f1a185f159f3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.firebaserc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firebase-debug.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firebase.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/reducers/profileReducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/firebase/firebaseRequests.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AuthenticationPage/AuthenticationPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/AuthenticationPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AuthenticationPage/AuthenticationPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/Authentication.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AuthenticationPage/PasswordReset.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/AuthenticationPage/SignIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/SignIn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AuthenticationPage/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/SignUp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/firebase/firebase.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/firebase.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reduxStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reduxStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Posts/Posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Posts/Posts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UsersProfile/UsersProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UsersProfile/UsersProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/MyProfile/MyProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyProfile/MyProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/postsReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/postsReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +136,8 @@
       <workItem from="1591463523461" duration="5737000" />
       <workItem from="1591524665955" duration="5374000" />
       <workItem from="1591606969448" duration="3077000" />
-      <workItem from="1591690611584" duration="10374000" />
+      <workItem from="1591690611584" duration="20721000" />
+      <workItem from="1591764206327" duration="7762000" />
     </task>
     <servers />
   </component>
@@ -182,10 +185,10 @@
     </state>
     <state x="572" y="228" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1590924459700" />
     <state x="572" y="241" key="#Notifications/0.0.1366.768@0.0.1366.768" timestamp="1591437190061" />
-    <state x="413" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591448685099">
+    <state x="413" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591711273492">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="413" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.768@0.0.1366.768" timestamp="1591448685099" />
+    <state x="413" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.768@0.0.1366.768" timestamp="1591711273492" />
     <state x="92" y="92" width="1182" height="584" key="DiffContextDialog" timestamp="1591104906417">
       <screen x="0" y="0" width="1366" height="768" />
     </state>

@@ -1,15 +1,13 @@
 import React, {useEffect} from "react";
 import classes from '../UsersProfile/UsersProfile.module.css'
-import axios from "axios";
 import {withRouter} from "react-router-dom";
+import {getUserProfile} from "../../firebase/firebaseRequests";
 
 const UserProfile = props => {
     useEffect(() => {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${props.match.params.id}`).then((response) => {
-            console.log('response.data', response.data)
-            props.dispatch({type: 'SET_USER_PROFILE_INFO', payload: response.data})
-        })
+        getUserProfile(props.dispatch, props.match.params.id)
     })
+
     const avatar = Object.keys(props.userInfo).length !== 0 ? props.userInfo['photos']['large'] : props.avatar
     const contacts = Object.keys(props.userInfo).length !== 0 ? props.userInfo['contacts'] : ''
     return (

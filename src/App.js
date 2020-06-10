@@ -7,30 +7,17 @@ import MyProfile from "./pages/MyProfile/MyProfile";
 import MyChats from "./pages/MyChats/MyChats";
 import MyFriends from "./pages/MyFriends/MyFriends";
 import MyTasks from "./pages/MyTasks/MyTasks";
-import {downloadUsersCreator, usersAreLoadingCreator} from "./redux/reducers/usersReducer";
-import {downloadPostsCreator} from "./redux/reducers/postsReducer";
-import axios from "axios";
 import {Provider} from "react-redux";
 import store from "./redux/reduxStore";
 import UserProfile from "./components/UsersProfile/UsersProfile";
-import Authentication from "./components/AuthenticationPage/AuthenticationPage";
+import Authentication from "./components/AuthenticationPage/Authentication";
+import {getPosts, getUsers} from "./firebase/firebaseRequests";
+import SignIn from "./components/AuthenticationPage/SignIn";
 
 
 const App = props => {
     useEffect(() => {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=100&page=${props.state.users.currentPage}`)
-            .then((response) => {
-                props.dispatch(usersAreLoadingCreator())
-                return response
-            })
-            .then((response) => {
-                props.dispatch(downloadUsersCreator(response.data));
-            })
-
-        axios.get('https://social-network-7c6c6.firebaseio.com/posts.json')
-            .then((response) => {
-                props.dispatch(downloadPostsCreator(response.data))
-        })
+        getUsers(props.dispatch, props.state.users.currentPage)
     }, [props.state.users.currentPage]);
 
     return (
@@ -40,11 +27,17 @@ const App = props => {
                 <div className="App">
                     <Navbar/>
                     <Switch>
-                        <Route exact path={'/'} render={() => <MyProfile
+                        <Route exact path={'/'} render={() => props.state.profile.userID ? <MyProfile
+                            userID={props.state.profile.userID}
                             posts={props.state.posts.posts}
                             dispatch={props.dispatch}
                             textareaValue={props.state.posts.textareaValue}
-                            postImage={props.state.posts.postImage}/>}
+                            postImage={props.state.posts.postImage}/>
+                        : <SignIn dispatch={props.dispatch}
+                                          userName={props.state.profile.userName}
+                                          userEmail={props.state.profile.userEmail}
+                                          userPassword={props.state.profile.userPassword}
+                            />}
                         />
                         <Route exact path={'/profile/:id'} render={() => <UserProfile
                                                                             dispatch={props.dispatch}

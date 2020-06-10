@@ -6,6 +6,7 @@ import {
     DOWNLOAD_POSTS,
     INPUT_CHANGE,
 } from "./constants";
+import {deletePostFromServer, sendPostToServerAndGetKey} from "../../firebase/firebaseRequests";
 
 const initialState = {
     avatar: 'https://image.spreadshirtmedia.net/image-server/v1/mp/designs/170224352,width=178,height=178,version=1579272891/benzinkanister-ersatz-tanken.png',
@@ -18,18 +19,15 @@ const initialState = {
 const postsReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST:
-            debugger
             const newPost = {
                 key: '',
                 body: state.textareaValue,
                 img: state.postImage,
                 date: new Date().toLocaleString()
             };
-            axios.post('https://social-network-7c6c6.firebaseio.com/posts.json', newPost)
-                .then((response) => {
-                    newPost.key = response.data.name
-                })
-                .catch(error => console.log(error))
+            sendPostToServerAndGetKey.sendPost(newPost)
+            newPost.key = sendPostToServerAndGetKey.getPostKey.bind(sendPostToServerAndGetKey)()
+            debugger
             return {
                 ...state,
                 posts: [newPost, ...state.posts],
@@ -47,9 +45,7 @@ const postsReducer = (state = initialState, action) => {
             const newPosts = state.posts.filter(post => {
                 return post.key !== action.postKey;
             });
-            axios.delete(`https://social-network-7c6c6.firebaseio.com/posts/${action.postKey}.json`)
-                .then((response) => console.log(response))
-                .catch(error => console.log(error))
+            deletePostFromServer(action.postKey)
             return {
                 ...state,
                 posts: newPosts
@@ -64,16 +60,16 @@ const postsReducer = (state = initialState, action) => {
 
         case DOWNLOAD_POSTS:
             if (action.posts) {
-                let posts = Object.entries(action.posts)
-                posts.forEach(post => {
-                    post[1]['key'] = post[0]
-                    post.splice(0,1)
-                    post = post[0]
-                })
-                const merged = [].concat.apply([], posts);
+                // let posts = Object.entries(action.posts)
+                // posts.forEach(post => {
+                //     post[1]['key'] = post[0]
+                //     post.splice(0,1)
+                //     post = post[0]
+                // })
+                // const merged = [].concat.apply([], posts);
                 return {
                     ...state,
-                    posts: merged.reverse()
+                    posts: [action.posts]
                 }
             }
             return state
