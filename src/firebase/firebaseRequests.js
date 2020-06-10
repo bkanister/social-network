@@ -15,13 +15,19 @@ export const getUsers = (dispatch, currentPage) => {
 }
 
 export const getPosts = (dispatch, id) => {
-    return firestore.collection("users").doc(id).onSnapshot( function(doc) {
-        return new Promise(resolve => {
-            resolve(doc.data())
-        }).then((response) => {
-            response && dispatch(downloadPostsCreator(response.posts))
-        })
-    })
+    firestore.collection("users").doc(id).collection('posts').get()
+        .then(function(querySnapshot) {
+            const posts = [];
+            const postsArray = []
+                querySnapshot.forEach(function(doc) {
+                    posts.push(doc.data());
+                });
+                posts.forEach(post => {
+                    postsArray.push(Object.values(post))
+                })
+                const merged = [].concat.apply([], postsArray);
+                dispatch(downloadPostsCreator(merged))
+    });
 }
 
 export const getUserProfile = (dispatch, id) => {

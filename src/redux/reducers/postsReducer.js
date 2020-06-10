@@ -27,7 +27,6 @@ const postsReducer = (state = initialState, action) => {
             };
             sendPostToServerAndGetKey.sendPost(newPost)
             newPost.key = sendPostToServerAndGetKey.getPostKey.bind(sendPostToServerAndGetKey)()
-            debugger
             return {
                 ...state,
                 posts: [newPost, ...state.posts],
@@ -60,16 +59,9 @@ const postsReducer = (state = initialState, action) => {
 
         case DOWNLOAD_POSTS:
             if (action.posts) {
-                // let posts = Object.entries(action.posts)
-                // posts.forEach(post => {
-                //     post[1]['key'] = post[0]
-                //     post.splice(0,1)
-                //     post = post[0]
-                // })
-                // const merged = [].concat.apply([], posts);
                 return {
                     ...state,
-                    posts: [action.posts]
+                    posts: action.posts
                 }
             }
             return state
