@@ -1,4 +1,3 @@
-import axios from 'axios'
 import {
     ADD_PHOTO,
     ADD_POST,
@@ -23,7 +22,8 @@ const postsReducer = (state = initialState, action) => {
                 key: '',
                 body: state.textareaValue,
                 img: state.postImage,
-                date: new Date().toLocaleString()
+                date: new Date().toLocaleString(),
+                timestamp: Date.now()
             };
             sendPostToServerAndGetKey.sendPost(newPost)
             newPost.key = sendPostToServerAndGetKey.getPostKey.bind(sendPostToServerAndGetKey)()

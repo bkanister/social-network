@@ -26,7 +26,17 @@ export const getPosts = (dispatch, id) => {
                     postsArray.push(Object.values(post))
                 })
                 const merged = [].concat.apply([], postsArray);
-                dispatch(downloadPostsCreator(merged))
+
+                const sorted = merged.sort( (a, b) => {
+                if (a.timestamp < b.timestamp) {
+                    return 1;
+                }
+                if (a.timestamp > b.timestamp) {
+                    return -1;
+                }
+                return 0;
+            });
+                dispatch(downloadPostsCreator(sorted))
     });
 }
 
@@ -57,7 +67,12 @@ export const sendPostToServerAndGetKey = {
 
 
 export const deletePostFromServer = (postKey) => {
-    axios.delete(`https://social-network-7c6c6.firebaseio.com/posts/${postKey}.json`)
-        .then((response) => console.log(response))
-        .catch(error => console.log(error))
+    firestore.collection("users").doc(auth.currentUser.uid).collection('posts').doc(postKey)
+        .delete()
+        .then(function () {
+            console.log("Document successfully deleted!");
+        }).catch(
+        function(error) {
+            console.error("Error removing document: ", error);
+        });
 }
