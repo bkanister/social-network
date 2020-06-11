@@ -11,8 +11,8 @@ import {Provider} from "react-redux";
 import store from "./redux/reduxStore";
 import UserProfile from "./components/UsersProfile/UsersProfile";
 import Authentication from "./components/AuthenticationPage/Authentication";
-import {getPosts, getUsers} from "./firebase/firebaseRequests";
-import SignIn from "./components/AuthenticationPage/SignIn";
+import {getUsers} from "./firebase/firebaseRequests";
+import SignInContainer from "./components/AuthenticationPage/SignInContainer";
 
 
 const App = props => {
@@ -33,8 +33,7 @@ const App = props => {
                             dispatch={props.dispatch}
                             textareaValue={props.state.posts.textareaValue}
                             postImage={props.state.posts.postImage}/>
-                        : <SignIn dispatch={props.dispatch}
-                                          userName={props.state.profile.userName}
+                        : <SignInContainer dispatch={props.dispatch}
                                           userEmail={props.state.profile.userEmail}
                                           userPassword={props.state.profile.userPassword}
                             />}

@@ -1,43 +1,8 @@
 import React from 'react'
 import {Link} from "react-router-dom";
-import {auth} from "../../firebase/firebase";
-import {setUserEmail, setUserId, setUserPassword} from "../../redux/reducers/profileReducer";
 
-const SignIn = props => {
-    const onChangeHandler = e => {
-        const {name, value} = e.currentTarget;
-        if (name === 'userEmail') {
-            props.dispatch(setUserEmail(value));
-        } else if (name === 'userPassword'){
-            props.dispatch(setUserPassword(value));
-        }
-    };
-
-    const handleSignIn = e => {
-        e.preventDefault();
-        if (props.userEmail.length < 4) {
-            alert('Email address must contain more that 4 symbols');
-            return;
-        }
-        if (props.userPassword.length < 4) {
-            alert('Password must contain more that 4 symbols');
-            return;
-        }
-
-        auth.signInWithEmailAndPassword(props.userEmail, props.userPassword)
-            .then(() => {
-                props.dispatch(setUserId(auth.currentUser.uid))
-            })
-            .catch(error => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                errorCode === 'auth/wrong-password'
-                    ? alert('Wrong password')
-                    : alert(errorMessage);
-                console.log(error);
-            })
-    }
-
+const SignIn = ({userEmail, userPassword, ...props }) => {
+    debugger
     return (
         <div>
             <h1>Sign In</h1>
@@ -47,22 +12,22 @@ const SignIn = props => {
                     <input
                         type="email"
                         name="userEmail"
-                        value = {props.userEmail}
+                        value = {userEmail}
                         placeholder="E.g: my.name@gmail.com"
                         id="userEmail"
-                        onChange={(e) => onChangeHandler(e)}
+                        onChange={props.onChangeHandler}
                     />
                     <br/>
                     <label htmlFor="userPassword">Password:</label>
                     <input
                         type="password"
                         name="userPassword"
-                        value = {props.userPassword}
+                        value = {userPassword}
                         placeholder="Your Password"
                         id="userPassword"
-                        onChange = {(event) => onChangeHandler(event)}
+                        onChange = {props.onChangeHandler}
                     />
-                    <button onClick={(e) => handleSignIn(e)}>Sign in</button>
+                    <button onClick={props.handleSignIn}>Sign in</button>
                 </form>
                 <p>
                     Don't have an account?{" "}

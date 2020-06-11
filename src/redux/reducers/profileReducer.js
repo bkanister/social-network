@@ -1,4 +1,5 @@
 import {SET_USER_EMAIL, SET_USER_ID, SET_USER_NAME, SET_USER_PASSWORD} from "./constants";
+import {auth} from "../../firebase/firebase";
 
 const initialState = {
     userID: '',
@@ -43,5 +44,22 @@ export const setUserId = (userId) => ({type: SET_USER_ID, payload: userId})
 export const setUserName = (userName) => ({type: SET_USER_NAME, payload: userName})
 export const setUserEmail = (userEmail) => ({type: SET_USER_EMAIL, payload: userEmail})
 export const setUserPassword = (userPassword) => ({type: SET_USER_PASSWORD, payload: userPassword})
+
+export const signInThunkAC = (email, password) => {
+    return (dispatch) => {
+        auth.signInWithEmailAndPassword(email, password)
+            .then(() => {
+                dispatch(setUserId(auth.currentUser.uid))
+            })
+            .catch(error => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                errorCode === 'auth/wrong-password'
+                    ? alert('Wrong password')
+                    : alert(errorMessage);
+                console.log(error);
+            })
+    }
+}
 
 export default profileReducer
