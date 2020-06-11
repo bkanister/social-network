@@ -6,7 +6,7 @@ import {
     INPUT_CHANGE,
 } from "./constants";
 import {deletePostFromServer, sendPostToServerAndGetKey} from "../../firebase/firebaseRequests";
-import {auth, firestore} from "../../firebase/firebase";
+import {firestore} from "../../firebase/firebase";
 
 const initialState = {
     avatar: 'https://image.spreadshirtmedia.net/image-server/v1/mp/designs/170224352,width=178,height=178,version=1579272891/benzinkanister-ersatz-tanken.png',

@@ -1,67 +1,42 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {Link} from "react-router-dom";
 import {auth} from "../../firebase/firebase";
-import {setUserId} from "../../redux/reducers/profileReducer";
+import {setUserEmail, setUserId, setUserPassword} from "../../redux/reducers/profileReducer";
 
 const SignIn = props => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-
-    const onChangeHandler = (event) => {
-        const {name, value} = event.currentTarget;
-        if(name === 'userEmail') {
-            setEmail(value);
-        }
-        else if(name === 'userPassword'){
-            setPassword(value);
+    const onChangeHandler = e => {
+        const {name, value} = e.currentTarget;
+        if (name === 'userEmail') {
+            props.dispatch(setUserEmail(value));
+        } else if (name === 'userPassword'){
+            props.dispatch(setUserPassword(value));
         }
     };
 
-    // const getPosts = (e) => {
-    //     e.preventDefault()
-    //     const docRef = firestore.collection("users").doc(
-    //         "M2lbegjVJpYKGrXRJzm9waEIOfi1");
-    //
-    //     docRef.get().then(function(doc) {
-    //         if (doc.exists) {
-    //             console.log("Document data:", doc.data());
-    //         } else {
-    //             // doc.data() will be undefined in this case
-    //             console.log("No such document!");
-    //         }
-    //     }).catch(function(error) {
-    //         console.log("Error getting document:", error);
-    //     });
-    // }
-
-    const handleSignIn = (event, email, password) => {
-
-        event.preventDefault();
-            if (email.length < 4) {
-                alert('Please enter an email address.');
-                return;
-            }
-            if (password.length < 4) {
-                alert('Please enter a password.');
-                return;
-            }
-
-            auth.signInWithEmailAndPassword(email, password)
-                .then((response) => {
-                    console.log(response)
-                    props.dispatch(setUserId(auth.currentUser.uid))
-                } )
-                .catch(function(error) {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                    if (errorCode === 'auth/wrong-password') {
-                        alert('Wrong password.');
-                    } else {
-                        alert(errorMessage);
-                    }
-                    console.log(error);
-                });
+    const handleSignIn = e => {
+        e.preventDefault();
+        if (props.userEmail.length < 4) {
+            alert('Email address must contain more that 4 symbols');
+            return;
         }
+        if (props.userPassword.length < 4) {
+            alert('Password must contain more that 4 symbols');
+            return;
+        }
+
+        auth.signInWithEmailAndPassword(props.userEmail, props.userPassword)
+            .then(() => {
+                props.dispatch(setUserId(auth.currentUser.uid))
+            })
+            .catch(error => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                errorCode === 'auth/wrong-password'
+                    ? alert('Wrong password')
+                    : alert(errorMessage);
+                console.log(error);
+            })
+    }
 
     return (
         <div>
@@ -72,26 +47,26 @@ const SignIn = props => {
                     <input
                         type="email"
                         name="userEmail"
-                        value = {email}
+                        value = {props.userEmail}
                         placeholder="E.g: my.name@gmail.com"
                         id="userEmail"
-                        onChange={(event) => onChangeHandler(event)}
+                        onChange={(e) => onChangeHandler(e)}
                     />
                     <br/>
                     <label htmlFor="userPassword">Password:</label>
                     <input
                         type="password"
                         name="userPassword"
-                        value = {password}
+                        value = {props.userPassword}
                         placeholder="Your Password"
                         id="userPassword"
                         onChange = {(event) => onChangeHandler(event)}
                     />
-                    <button onClick={(event) => handleSignIn(event, email, password)}>Sign in</button>
+                    <button onClick={(e) => handleSignIn(e)}>Sign in</button>
                 </form>
                 <p>
                     Don't have an account?{" "}
-                    <Link to={'./sign-up'}>Sign up here</Link>{" "}
+                    <Link to={'/auth/sign-up'}>Sign up here</Link>{" "}
                 </p>
             </div>
         </div>

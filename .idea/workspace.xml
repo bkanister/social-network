@@ -27,11 +27,11 @@
   <component name="ChangeListManager">
     <list default="true" id="6e2d4b51-0842-4c32-b61d-f1a185f159f3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NewPostCreator/NewPostCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewPostCreator/NewPostCreator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Post/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Post/Post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Posts/Posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Posts/Posts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/firebase/firebaseRequests.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/firebaseRequests.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AuthenticationPage/SignIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/SignIn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AuthenticationPage/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/SignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/constants.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/reducers/postsReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/postsReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/profileReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/profileReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +133,7 @@
       <workItem from="1591764206327" duration="11091000" />
       <workItem from="1591786395934" duration="6920000" />
       <workItem from="1591808258425" duration="3156000" />
-      <workItem from="1591862171007" duration="5465000" />
+      <workItem from="1591862171007" duration="9068000" />
     </task>
     <servers />
   </component>

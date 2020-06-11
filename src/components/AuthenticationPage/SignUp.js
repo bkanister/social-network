@@ -62,6 +62,7 @@ const SignUp = props => {
                         id="displayName"
                         onChange={event => onChangeHandler(event)}
                     />
+                    <br/>
                     <label htmlFor="userEmail">
                         Email:
                     </label>
@@ -73,6 +74,7 @@ const SignUp = props => {
                         id="userEmail"
                         onChange={event => onChangeHandler(event)}
                     />
+                    <br/>
                     <label htmlFor="userPassword">
                         Password:
                     </label>
