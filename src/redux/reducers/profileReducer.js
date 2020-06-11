@@ -1,5 +1,5 @@
 import {SET_USER_EMAIL, SET_USER_ID, SET_USER_NAME, SET_USER_PASSWORD} from "./constants";
-import {auth} from "../../firebase/firebase";
+import {auth, firestore} from "../../firebase/firebase";
 
 const initialState = {
     userID: '',
@@ -58,6 +58,28 @@ export const signInThunkAC = (email, password) => {
                     ? alert('Wrong password')
                     : alert(errorMessage);
                 console.log(error);
+            })
+    }
+}
+
+export const signUpThunkAC = (name, email, password) => {
+    return (dispatch) => {
+        auth.createUserWithEmailAndPassword(email, password)
+            .then((response) => {
+                firestore.collection('users').doc(auth.currentUser.uid)
+                    .set({
+                        name,
+                        email
+                    })
+                    .catch(function(error) {
+                        const errorCode = error.code;
+                        const errorMessage = error.message;
+                            errorCode === 'auth/weak-password'
+                            ? alert('The password is too weak.')
+                            : alert(errorMessage)
+                        console.log(error);
+                    });
+                dispatch(setUserId(auth.currentUser.uid))
             })
     }
 }

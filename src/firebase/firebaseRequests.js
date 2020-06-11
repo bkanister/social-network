@@ -1,6 +1,7 @@
 import axios from "axios";
 import {downloadUsersCreator, usersAreLoadingCreator} from "../redux/reducers/usersReducer";
 import {auth, firestore} from "./firebase"
+import {setUserId} from "../redux/reducers/profileReducer";
 
 export const getUsers = (dispatch, currentPage) => {
     axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=100&page=${currentPage}`)

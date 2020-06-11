@@ -1,9 +1,8 @@
 import React from 'react'
-import {setUserEmail, setUserPassword, signInThunkAC} from "../../redux/reducers/profileReducer";
+import {setUserEmail, setUserPassword, signInThunkAC} from "../../../redux/reducers/profileReducer";
 import SignIn from "./SignIn";
 
 const SignInContainer = ({dispatch, userEmail, userPassword}) => {
-    debugger
     const onChangeHandler = e => {
         const {name, value} = e.currentTarget;
         if (name === 'userEmail') {

@@ -2,7 +2,6 @@ import React from 'react'
 import {Link} from "react-router-dom";
 
 const SignIn = ({userEmail, userPassword, ...props }) => {
-    debugger
     return (
         <div>
             <h1>Sign In</h1>

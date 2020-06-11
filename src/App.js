@@ -12,7 +12,7 @@ import store from "./redux/reduxStore";
 import UserProfile from "./components/UsersProfile/UsersProfile";
 import Authentication from "./components/AuthenticationPage/Authentication";
 import {getUsers} from "./firebase/firebaseRequests";
-import SignInContainer from "./components/AuthenticationPage/SignInContainer";
+import SignInContainer from "./components/AuthenticationPage/SignIn/SignInContainer";
 
 
 const App = props => {
