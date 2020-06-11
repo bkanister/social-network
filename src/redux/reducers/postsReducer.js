@@ -6,6 +6,7 @@ import {
     INPUT_CHANGE,
 } from "./constants";
 import {deletePostFromServer, sendPostToServerAndGetKey} from "../../firebase/firebaseRequests";
+import {auth, firestore} from "../../firebase/firebase";
 
 const initialState = {
     avatar: 'https://image.spreadshirtmedia.net/image-server/v1/mp/designs/170224352,width=178,height=178,version=1579272891/benzinkanister-ersatz-tanken.png',
@@ -18,18 +19,9 @@ const initialState = {
 const postsReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST:
-            const newPost = {
-                key: '',
-                body: state.textareaValue,
-                img: state.postImage,
-                date: new Date().toLocaleString(),
-                timestamp: Date.now()
-            };
-            sendPostToServerAndGetKey.sendPost(newPost)
-            newPost.key = sendPostToServerAndGetKey.getPostKey.bind(sendPostToServerAndGetKey)()
             return {
                 ...state,
-                posts: [newPost, ...state.posts],
+                posts: [action.payload, ...state.posts],
                 postImage: '',
                 textareaValue: ''
             }
@@ -37,31 +29,29 @@ const postsReducer = (state = initialState, action) => {
         case INPUT_CHANGE:
             return {
                 ...state,
-                textareaValue: action.inputText
+                textareaValue: action.payload
             }
 
         case DELETE_POST:
             const newPosts = state.posts.filter(post => {
-                return post.key !== action.postKey;
+                return post.key !== action.payload;
             });
-            deletePostFromServer(action.postKey)
             return {
                 ...state,
                 posts: newPosts
             }
 
         case ADD_PHOTO:
-            console.log('add_photo', action.payload)
             return {
                 ...state,
                 postImage: action.payload
             }
 
         case DOWNLOAD_POSTS:
-            if (action.posts) {
+            if (action.payload) {
                 return {
                     ...state,
-                    posts: action.posts
+                    posts: action.payload
                 }
             }
             return state
@@ -71,10 +61,51 @@ const postsReducer = (state = initialState, action) => {
 }
 
 
-export const addPostCreator = () => ({type: ADD_POST})
-export const inputChangeCreator = (inputText) => ({type: INPUT_CHANGE, inputText})
-export const deletePostCreator = (postKey) => ({type: DELETE_POST, postKey})
-export const downloadPostsCreator = (posts) => ({type: DOWNLOAD_POSTS, posts})
+export const addPostCreator = (newPost) => ({type: ADD_POST, payload: newPost})
+export const inputChangeCreator = (inputText) => ({type: INPUT_CHANGE, payload: inputText})
+export const deletePostCreator = (postKey) => ({type: DELETE_POST, payload: postKey})
+export const downloadPostsCreator = (posts) => ({type: DOWNLOAD_POSTS, payload: posts})
 export const addPhotoCreator = (fireBaseUrl) => ({type: ADD_PHOTO, payload: fireBaseUrl})
+
+export const getPostsThunkAC = (id) => {
+    return (dispatch) => {
+        firestore.collection("users").doc(id).collection('posts').get()
+            .then(function (querySnapshot) {
+                let posts = [];
+                querySnapshot.forEach(function (doc) {
+                    posts.push(doc.data());
+                });
+                posts = posts.map(post => Object.values(post))
+                const merged = [].concat.apply([], posts);
+                const sorted = merged.sort((a, b) => {
+                    return a.timestamp < b.timestamp ? 1 : a.timestamp > b.timestamp ? -1 : 0
+                })
+                dispatch(downloadPostsCreator(sorted))
+            })
+    }
+}
+
+export const deletePostThunkAC = (postKey) => {
+    return (dispatch) => {
+        deletePostFromServer(postKey)
+        dispatch(deletePostCreator(postKey))
+    }
+}
+
+export const addPostThunkAC = () => {
+    return (dispatch, getState) => {
+        debugger
+        const newPost = {
+            key: '',
+            body: getState().posts.textareaValue,
+            img: getState().posts.postImage,
+            date: new Date().toLocaleString(),
+            timestamp: Date.now()
+        };
+        sendPostToServerAndGetKey.sendPost(newPost)
+        newPost.key = sendPostToServerAndGetKey.getPostKey.bind(sendPostToServerAndGetKey)()
+        dispatch(addPostCreator(newPost))
+    }
+}
 
 export default postsReducer

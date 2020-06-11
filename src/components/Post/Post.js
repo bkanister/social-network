@@ -1,6 +1,6 @@
 import React from 'react'
 import classes from '../Post/Post.module.css'
-import {deletePostCreator} from "../../redux/reducers/postsReducer";
+import {deletePostThunkAC} from "../../redux/reducers/postsReducer";
 import {connect} from "react-redux";
 
 
@@ -32,7 +32,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         deletePost: (postKey) => {
-            dispatch(deletePostCreator(postKey))
+            dispatch(deletePostThunkAC(postKey))
         }
     }
 }

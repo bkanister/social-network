@@ -1,6 +1,6 @@
 import React, {useRef} from 'react'
 import classes from '../NewPostCreator/NewPostCreator.module.css'
-import {addPostCreator, inputChangeCreator} from "../../redux/reducers/postsReducer";
+import {addPostCreator, addPostThunkAC, inputChangeCreator} from "../../redux/reducers/postsReducer";
 import ImageInputContainer from "../ImageHandler/ImageInputContainer";
 
 
@@ -23,7 +23,7 @@ const textInput = useRef(null);
                     <p>add photo or emoji</p>
                 </div>
                 <button onClick={() => {
-                    props.dispatch(addPostCreator());
+                    props.dispatch(addPostThunkAC());
                 }}>Add post</button>
             </footer>
         </div>
