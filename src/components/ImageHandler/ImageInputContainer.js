@@ -2,6 +2,7 @@ import React from 'react'
 import {storage} from "../../firebase/firebase";
 import ImageInput from "./ImageInput";
 import {addPhotoCreator} from "../../redux/reducers/postsReducer";
+import {connect} from "react-redux";
 
 const ImageInputContainer = props => {
 
@@ -27,7 +28,7 @@ const ImageInputContainer = props => {
             }, () => {
                 storage.ref('images').child(image.name).getDownloadURL()
                     .then(fireBaseUrl => {
-                        props.dispatch(addPhotoCreator(fireBaseUrl)) //dispatching action
+                        props.addPhoto(fireBaseUrl)
                     })
         })
     }
@@ -38,5 +39,16 @@ const ImageInputContainer = props => {
             />
 }
 
+const mapStateToProps = state => {
+    return {
+        postImage: state.posts.postImage
+    }
+}
 
-export default ImageInputContainer
+const mapDispatchToProps = dispatch => {
+    return {
+        addPhoto: (url) => dispatch(addPhotoCreator(url))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ImageInputContainer)

@@ -1,6 +1,7 @@
 import React from 'react'
 import {setUserEmail, setUserPassword, signInThunkAC} from "../../../redux/reducers/profileReducer";
 import SignIn from "./SignIn";
+import {withAuth} from "../withAuth";
 
 const SignInContainer = ({dispatch, userEmail, userPassword}) => {
     const onChangeHandler = e => {
@@ -26,6 +27,7 @@ const SignInContainer = ({dispatch, userEmail, userPassword}) => {
     }
 
     return (
+
             <SignIn userEmail={userEmail}
                     onChangeHandler={onChangeHandler}
                     userPassword={userPassword}
@@ -34,4 +36,4 @@ const SignInContainer = ({dispatch, userEmail, userPassword}) => {
     )
 }
 
-export default SignInContainer
+export default withAuth(SignInContainer)

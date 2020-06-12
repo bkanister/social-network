@@ -6,6 +6,7 @@ import {
     signUpThunkAC
 } from "../../../redux/reducers/profileReducer";
 import SignUp from "./SignUp";
+import {withAuth} from "../withAuth";
 
 const SignUpContainer = ({dispatch, userName, userEmail, userPassword}) => {
     const onChangeHandler = e => {
@@ -41,4 +42,4 @@ const SignUpContainer = ({dispatch, userName, userEmail, userPassword}) => {
     )
 }
 
-export default SignUpContainer
+export default withAuth(SignUpContainer)

@@ -26,13 +26,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e2d4b51-0842-4c32-b61d-f1a185f159f3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/SignUpContainer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/withAuth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/AuthenticationPage/Authentication.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/Authentication.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AuthenticationPage/SignIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/SignIn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AuthenticationPage/SignInContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/SignInContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AuthenticationPage/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/SignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AuthenticationPage/SignIn/SignInContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/SignIn/SignInContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AuthenticationPage/SignUp/SignUpContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/SignUp/SignUpContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageHandler/ImageInputContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ImageHandler/ImageInputContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MyProfile/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyProfile/Profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NewPostCreator/NewPostCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewPostCreator/NewPostCreator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Posts/Posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Posts/Posts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/firebase/firebase.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/firebase.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/firebase/firebaseRequests.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/firebaseRequests.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/MyChats/MyChats.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyChats/MyChats.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/MyFriends/MyFriends.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyFriends/MyFriends.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/MyProfile/MyProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyProfile/MyProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/MyTasks/MyTasks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyTasks/MyTasks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/postsReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/postsReducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/reducers/profileReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/profileReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,10 +96,12 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="X:\Projects\social-network\src\components\AuthenticationPage\SignUp" />
+      <recent name="X:\Projects\social-network\src\components\AuthenticationPage\SignIn" />
       <recent name="X:\Projects\social-network\src\components\ImageHandler" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="X:\Projects\social-network\src\components\ImageHandler" />
     </key>
   </component>
@@ -135,7 +147,8 @@
       <workItem from="1591764206327" duration="11091000" />
       <workItem from="1591786395934" duration="6920000" />
       <workItem from="1591808258425" duration="3156000" />
-      <workItem from="1591862171007" duration="17706000" />
+      <workItem from="1591862171007" duration="20138000" />
+      <workItem from="1591952836780" duration="12726000" />
     </task>
     <servers />
   </component>

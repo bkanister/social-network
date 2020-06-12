@@ -1,5 +1,6 @@
 import {SET_USER_EMAIL, SET_USER_ID, SET_USER_NAME, SET_USER_PASSWORD} from "./constants";
 import {auth, firestore} from "../../firebase/firebase";
+import * as firebase from "firebase/app"
 
 const initialState = {
     userID: '',
@@ -12,24 +13,28 @@ const profileReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case SET_USER_ID:
+            console.log('SET_USER_ID')
             return {
                 ...state,
                 userID: action.payload
             }
 
         case SET_USER_NAME:
+            console.log('SET_USER_NAME')
             return {
                 ...state,
                 userName: action.payload
             }
 
         case SET_USER_EMAIL:
+            console.log('SET_USER_EMAIL')
             return {
                 ...state,
                 userEmail: action.payload
             }
 
         case SET_USER_PASSWORD:
+            console.log('SET_USER_PASSWORD')
             return {
                 ...state,
                 userPassword: action.payload
@@ -46,23 +51,29 @@ export const setUserEmail = (userEmail) => ({type: SET_USER_EMAIL, payload: user
 export const setUserPassword = (userPassword) => ({type: SET_USER_PASSWORD, payload: userPassword})
 
 export const signInThunkAC = (email, password) => {
+    console.log('signInThunkAC')
     return (dispatch) => {
-        auth.signInWithEmailAndPassword(email, password)
-            .then(() => {
-                dispatch(setUserId(auth.currentUser.uid))
+        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+            .then(function() {
+                return firebase.auth().signInWithEmailAndPassword(email, password).then((response) => {
+                    console.log(response)
+                    dispatch(setUserId(auth.currentUser.uid))
+                    localStorage.setItem('uid', auth.currentUser.uid)
+                })
             })
-            .catch(error => {
+            .catch(function(error) {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                errorCode === 'auth/wrong-password'
-                    ? alert('Wrong password')
-                    : alert(errorMessage);
-                console.log(error);
-            })
+                        errorCode === 'auth/wrong-password'
+                            ? alert('Wrong password')
+                            : alert(errorMessage);
+                        console.log(error);
+            });
     }
 }
 
 export const signUpThunkAC = (name, email, password) => {
+    console.log('signUpThunkAC')
     return (dispatch) => {
         auth.createUserWithEmailAndPassword(email, password)
             .then((response) => {

@@ -2,6 +2,7 @@ import React from 'react'
 import {setCurrentPageNumberCreator} from "../../redux/reducers/usersReducer";
 import Preloader from "../../components/Preloader/Preloader";
 import {NavLink} from "react-router-dom";
+import {withAuth} from "../../components/AuthenticationPage/withAuth";
 
 const MyFriends = props => {
     const pageCount = Math.ceil(props.totalUsersCount / 100)
@@ -39,4 +40,4 @@ const MyFriends = props => {
     )
 }
 
-export default MyFriends
+export default withAuth(MyFriends)

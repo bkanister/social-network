@@ -1,6 +1,7 @@
 import React from "react";
 import classes from './/Profile.module.css'
 import {connect} from "react-redux";
+import {auth} from "../../firebase/firebase";
 
 const Profile = props => {
     return (
@@ -11,7 +12,7 @@ const Profile = props => {
                             <p>On my way to be front-end developer</p>
                         </div>
                         <div>
-                            <p>Contact links</p>
+                            {auth.currentUser && <p>authorized</p>}
                             <p>Saint-Petersburg, Russia</p>
                         </div>
                     </div>

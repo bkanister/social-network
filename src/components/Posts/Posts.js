@@ -2,18 +2,30 @@ import React, {useEffect} from 'react'
 import classes from '../Posts/Posts.module.css'
 import Post from "../Post/Post";
 import {getPostsThunkAC} from "../../redux/reducers/postsReducer";
+import {connect} from "react-redux";
 
 const Posts = props => {
-
     useEffect(() => {
-        props.dispatch(getPostsThunkAC(props.userID))
-    }, [props.posts])
+        props.getPosts(props.userID)
+    }, [])
 
     return (
         <div className={classes.Posts}>
-            {props.posts.map(post => <Post key={post.key} post={post} dispatch={props.dispatch}/>)}
+            {props.posts.map(post => <Post key={post.key} post={post}/>)}
         </div>
     )
 }
 
-export default Posts
+const mapStateToProps = state => {
+    return {
+        userID: state.profile.userID
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        getPosts: (userID) => dispatch(getPostsThunkAC(userID))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Posts)

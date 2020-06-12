@@ -9,11 +9,14 @@ const Authentication = props => {
                     <Switch>
                         <Route exact path={'/auth/sign-in'} render={() => <SignInContainer dispatch={props.dispatch}
                                                                                   userEmail={props.userEmail}
-                                                                                  userPassword={props.userPassword}/>}/>
+                                                                                  userPassword={props.userPassword}
+                                                                                  userID={props.userID}
+                        />}/>
                         <Route path={'/auth/sign-up'} render={() => <SignUpContainer dispatch={props.dispatch}
                                                                                      userName={props.userName}
                                                                                      userEmail={props.userEmail}
                                                                                      userPassword={props.userPassword}
+                                                                                     userID={props.userID}
                         />}/>
                     </Switch>
             </BrowserRouter>

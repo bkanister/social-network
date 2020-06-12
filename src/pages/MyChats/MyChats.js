@@ -1,5 +1,6 @@
 import React from 'react'
 import classes from '../MyChats/MyChats.module.css'
+import {withAuth} from "../../components/AuthenticationPage/withAuth";
 
 const MyChats = props => {
     const messages = props.messages.map(message => {
@@ -23,4 +24,4 @@ const MyChats = props => {
     )
 }
 
-export default MyChats
+export default withAuth(MyChats)

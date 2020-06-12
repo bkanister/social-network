@@ -1,4 +1,5 @@
 import React from 'react'
+import {withAuth} from "../../components/AuthenticationPage/withAuth";
 
 const MyTasks = props => {
     return <div>
@@ -6,4 +7,4 @@ const MyTasks = props => {
     </div>
 }
 
-export default MyTasks
+export default withAuth(MyTasks)
