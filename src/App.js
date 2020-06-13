@@ -29,7 +29,6 @@ const App = props => {
     return (
         <Provider
             store={store}>
-            <BrowserRouter>
                 <div className="App">
                     <Navbar/>
                     <Switch>
@@ -57,23 +56,19 @@ const App = props => {
                                                                 currentUserProfile={props.state.users.currentUserProfile}
                                                                 />}/>
                         <Route path={'/my-tasks'} component={MyTasks}/>
-                        <Route path="/auth">
-                                                {props.state.profile.userID
-                                                    ? <Redirect exact to={'/'} />
-                                                    : <Authentication
+                        <Route path={'/auth'} render={() => <Authentication
                                                                 dispatch={props.dispatch}
                                                                 userName={props.state.profile.userName}
                                                                 userEmail={props.state.profile.userEmail}
                                                                 userPassword={props.state.profile.userPassword}
                                                                 userID={props.state.profile.userID}
-                                                    />}
+                        />}>
                         </Route>
                     </Switch>
                     <ChatList users={props.state.users.users}
                               avatar={props.state.users.defaultUserAvatar}
                     />
                 </div>
-            </BrowserRouter>
         </Provider>
 
     )

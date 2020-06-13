@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {setUserEmail, setUserPassword, signInThunkAC} from "../../../redux/reducers/profileReducer";
 import SignIn from "./SignIn";
-import {withAuth} from "../withAuth";
+import {Redirect} from "react-router-dom";
 
-const SignInContainer = ({dispatch, userEmail, userPassword}) => {
+const SignInContainer = ({dispatch, userEmail, userPassword, userID}) => {
+
     const onChangeHandler = e => {
         const {name, value} = e.currentTarget;
         if (name === 'userEmail') {
@@ -27,13 +28,14 @@ const SignInContainer = ({dispatch, userEmail, userPassword}) => {
     }
 
     return (
-
-            <SignIn userEmail={userEmail}
+        !!userID
+            ? <Redirect exact to={'/'} />
+            : <SignIn userEmail={userEmail}
                     onChangeHandler={onChangeHandler}
                     userPassword={userPassword}
                     handleSignIn={handleSignIn}
-            />
+              />
     )
 }
 
-export default withAuth(SignInContainer)
+export default SignInContainer
