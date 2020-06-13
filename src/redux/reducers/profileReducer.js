@@ -6,7 +6,8 @@ const initialState = {
     userID: '',
     userName: '',
     userEmail: '',
-    userPassword: ''
+    userPassword: '',
+    userStatus: ''
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -39,6 +40,12 @@ const profileReducer = (state = initialState, action) => {
                 ...state,
                 userPassword: action.payload
             }
+        case 'SET_USER_STATUS':
+            console.log('SET_USER_STATUS')
+            return {
+                ...state,
+                userStatus: action.payload
+            }
 
         default: return state
     }
@@ -49,6 +56,7 @@ export const setUserId = (userId) => ({type: SET_USER_ID, payload: userId})
 export const setUserName = (userName) => ({type: SET_USER_NAME, payload: userName})
 export const setUserEmail = (userEmail) => ({type: SET_USER_EMAIL, payload: userEmail})
 export const setUserPassword = (userPassword) => ({type: SET_USER_PASSWORD, payload: userPassword})
+export const setUserStatus = (status) => ({type: 'SET_USER_STATUS', payload: status})
 
 export const signInThunkAC = (email, password) => {
     console.log('signInThunkAC')
@@ -91,6 +99,28 @@ export const signUpThunkAC = (name, email, password) => {
                         console.log(error);
                     });
                 dispatch(setUserId(auth.currentUser.uid))
+            })
+    }
+}
+
+export const updateStatusThunkAC = (status) => {
+    return dispatch => {
+        firestore.collection('users').doc(auth.currentUser.uid)
+            .update({
+                status
+            })
+            .catch(error => console.log(error));
+        dispatch(setUserStatus(status))
+    }
+}
+
+export const getUserStatusThunkAC = () => {
+    return dispatch => {
+        firestore.collection('users').doc(auth.currentUser.uid).get()
+            .then((doc) => {
+                if (doc.exists) {
+                    dispatch(setUserStatus(doc.data().status))
+                }
             })
     }
 }

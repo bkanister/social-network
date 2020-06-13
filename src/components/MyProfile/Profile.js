@@ -2,6 +2,7 @@ import React from "react";
 import classes from './/Profile.module.css'
 import {connect} from "react-redux";
 import {auth} from "../../firebase/firebase";
+import Status from "./Status/Status";
 
 const Profile = props => {
     return (
@@ -9,7 +10,7 @@ const Profile = props => {
                         <img src={props.avatar} alt="Avatar"/>
                         <div>
                             <p>Benzin Kanister</p>
-                            <p>On my way to be front-end developer</p>
+                            <Status/>
                         </div>
                         <div>
                             {auth.currentUser && <p>authorized</p>}
