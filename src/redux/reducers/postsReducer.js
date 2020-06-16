@@ -27,13 +27,6 @@ const postsReducer = (state = initialState, action) => {
                 textareaValue: ''
             }
 
-        case INPUT_CHANGE:
-            console.log('INPUT_CHANGE')
-            return {
-                ...state,
-                textareaValue: action.payload
-            }
-
         case DELETE_POST:
             console.log('DELETE_POST')
             const newPosts = state.posts.filter(post => {
@@ -67,7 +60,6 @@ const postsReducer = (state = initialState, action) => {
 
 
 export const addPostCreator = (newPost) => ({type: ADD_POST, payload: newPost})
-export const inputChangeCreator = (inputText) => ({type: INPUT_CHANGE, payload: inputText})
 export const deletePostCreator = (postKey) => ({type: DELETE_POST, payload: postKey})
 export const downloadPostsCreator = (posts) => ({type: DOWNLOAD_POSTS, payload: posts})
 export const addPhotoCreator = (fireBaseUrl) => ({type: ADD_PHOTO, payload: fireBaseUrl})
@@ -99,13 +91,13 @@ export const deletePostThunkAC = (postKey) => {
     }
 }
 
-export const addPostThunkAC = () => {
+export const addPostThunkAC = (postText) => {
     console.log('addPostThunkAC')
     return (dispatch, getState) => {
         debugger
         const newPost = {
             key: '',
-            body: getState().posts.textareaValue,
+            body: postText,
             img: getState().posts.postImage,
             date: new Date().toLocaleString(),
             timestamp: Date.now()

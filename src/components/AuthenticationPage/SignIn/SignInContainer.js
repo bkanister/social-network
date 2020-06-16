@@ -7,14 +7,6 @@ import {connect} from "react-redux";
 const SignInContainer = (props) => {
 
     const handleSignIn = (formData) => {
-        if (formData.userEmail.length < 4) {
-            alert('Email address must contain more that 4 symbols');
-            return;
-        }
-        if (formData.userPassword.length < 4) {
-            alert('Password must contain more that 4 symbols');
-            return;
-        }
         props.signIn(formData.userEmail, formData.userPassword)
     }
 

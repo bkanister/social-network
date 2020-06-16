@@ -18,7 +18,8 @@ const Posts = props => {
 
 const mapStateToProps = state => {
     return {
-        userID: state.profile.userID
+        userID: state.profile.userID,
+        posts: state.posts.posts
     }
 }
 

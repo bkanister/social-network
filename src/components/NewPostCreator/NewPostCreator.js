@@ -1,30 +1,25 @@
-import React, {useRef} from 'react'
+import React from 'react'
 import classes from '../NewPostCreator/NewPostCreator.module.css'
-import {addPostThunkAC, inputChangeCreator} from "../../redux/reducers/postsReducer";
+import {addPostThunkAC} from "../../redux/reducers/postsReducer";
 import ImageInputContainer from "../ImageHandler/ImageInputContainer";
 import {connect} from "react-redux";
+import {Field, reduxForm, reset} from "redux-form";
+import {Textarea} from "../formComponents/Textarea";
+import {minLength, required} from "../../validators";
 
+const minLength10 = minLength(10)
 
-const NewPostCreator = props => {
-const textInput = useRef(null);
+let NewPostCreator = props => {
     return (
         <div className={classes.NewPostCreator}>
-            <textarea ref={textInput}
-                      name="newPost"
-                      id="textarea"
-                      placeholder="Add new post..."
-                      value={props.textareaValue}
-                      onChange={(e) => props.handleInputChange(e.target.value)}
-            />
-            <footer>
-                <div>
-                    <ImageInputContainer>
-                        {props.children}
-                    </ImageInputContainer>
-                    <p>add photo or emoji</p>
-                </div>
-                <button onClick={props.addPost}>Add post</button>
-            </footer>
+            <form onSubmit={props.handleSubmit}>
+                <Field name='newPost' type='text'
+                       component={Textarea}
+                       placeholder='add new post...'
+                       validate={[required, minLength10]}/>
+                    <ImageInputContainer/>
+                    <button>Add post</button>
+            </form>
         </div>
     )
 }
@@ -38,9 +33,15 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        handleInputChange: (value) => dispatch(inputChangeCreator(value)),
-        addPost: () => dispatch(addPostThunkAC())
+        onSubmit: (formData) => {
+            dispatch(addPostThunkAC(formData.newPost));
+            dispatch(reset('newPostCreator'));
+        }
     }
 }
+
+NewPostCreator = reduxForm({
+    form: 'newPostCreator'
+})(NewPostCreator);
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewPostCreator)

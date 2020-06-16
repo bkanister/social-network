@@ -33,10 +33,15 @@ const ImageInputContainer = props => {
         })
     }
 
-    return <ImageInput
+    return (
+        <div>
+            <ImageInput
                 downloadImage={downloadImage}
                 postImage={props.postImage}
             />
+            <p>add photo or emoji</p>
+        </div>
+    )
 }
 
 const mapStateToProps = state => {
