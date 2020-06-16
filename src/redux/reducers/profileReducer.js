@@ -1,12 +1,9 @@
-import {SET_USER_EMAIL, SET_USER_ID, SET_USER_NAME, SET_USER_PASSWORD} from "./constants";
+import {SET_USER_ID, SET_USER_STATUS} from "./constants";
 import {auth, firestore} from "../../firebase/firebase";
 import * as firebase from "firebase/app"
 
 const initialState = {
     userID: '',
-    userName: '',
-    userEmail: '',
-    userPassword: '',
     userStatus: ''
 }
 
@@ -20,28 +17,8 @@ const profileReducer = (state = initialState, action) => {
                 userID: action.payload
             }
 
-        case SET_USER_NAME:
-            console.log('SET_USER_NAME')
-            return {
-                ...state,
-                userName: action.payload
-            }
-
-        case SET_USER_EMAIL:
-            console.log('SET_USER_EMAIL')
-            return {
-                ...state,
-                userEmail: action.payload
-            }
-
-        case SET_USER_PASSWORD:
-            console.log('SET_USER_PASSWORD')
-            return {
-                ...state,
-                userPassword: action.payload
-            }
-        case 'SET_USER_STATUS':
-            console.log('SET_USER_STATUS')
+        case SET_USER_STATUS:
+            console.log(SET_USER_STATUS)
             return {
                 ...state,
                 userStatus: action.payload
@@ -53,10 +30,7 @@ const profileReducer = (state = initialState, action) => {
 
 
 export const setUserId = (userId) => ({type: SET_USER_ID, payload: userId})
-export const setUserName = (userName) => ({type: SET_USER_NAME, payload: userName})
-export const setUserEmail = (userEmail) => ({type: SET_USER_EMAIL, payload: userEmail})
-export const setUserPassword = (userPassword) => ({type: SET_USER_PASSWORD, payload: userPassword})
-export const setUserStatus = (status) => ({type: 'SET_USER_STATUS', payload: status})
+export const setUserStatus = (status) => ({type: SET_USER_STATUS, payload: status})
 
 export const signInThunkAC = (email, password) => {
     console.log('signInThunkAC')
@@ -96,7 +70,7 @@ export const signUpThunkAC = (name, email, password) => {
                             errorCode === 'auth/weak-password'
                             ? alert('The password is too weak.')
                             : alert(errorMessage)
-                        console.log(error);
+                        alert(error);
                     });
                 dispatch(setUserId(auth.currentUser.uid))
             })

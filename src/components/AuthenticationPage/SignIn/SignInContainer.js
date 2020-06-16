@@ -1,41 +1,40 @@
-import React, {useEffect} from 'react'
-import {setUserEmail, setUserPassword, signInThunkAC} from "../../../redux/reducers/profileReducer";
-import SignIn from "./SignIn";
+import React from 'react'
+import {signInThunkAC} from "../../../redux/reducers/profileReducer";
 import {Redirect} from "react-router-dom";
+import SignIn from "./SignIn";
+import {connect} from "react-redux";
 
-const SignInContainer = ({dispatch, userEmail, userPassword, userID}) => {
+const SignInContainer = (props) => {
 
-    const onChangeHandler = e => {
-        const {name, value} = e.currentTarget;
-        if (name === 'userEmail') {
-            dispatch(setUserEmail(value));
-        } else if (name === 'userPassword'){
-            dispatch(setUserPassword(value));
-        }
-    };
-
-    const handleSignIn = e => {
-        e.preventDefault();
-        if (userEmail.length < 4) {
+    const handleSignIn = (formData) => {
+        if (formData.userEmail.length < 4) {
             alert('Email address must contain more that 4 symbols');
             return;
         }
-        if (userPassword.length < 4) {
+        if (formData.userPassword.length < 4) {
             alert('Password must contain more that 4 symbols');
             return;
         }
-        dispatch(signInThunkAC(userEmail, userPassword))
+        props.signIn(formData.userEmail, formData.userPassword)
     }
 
     return (
-        !!userID
+        !!props.userID
             ? <Redirect exact to={'/'} />
-            : <SignIn userEmail={userEmail}
-                    onChangeHandler={onChangeHandler}
-                    userPassword={userPassword}
-                    handleSignIn={handleSignIn}
-              />
+            : <SignIn onSubmit={handleSignIn}/>
     )
 }
 
-export default SignInContainer
+const mapStateToProps = state => {
+    return {
+        userID: state.profile.userID
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        signIn: (userEmail, userPassword) => dispatch(signInThunkAC(userEmail, userPassword))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignInContainer)

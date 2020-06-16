@@ -26,8 +26,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e2d4b51-0842-4c32-b61d-f1a185f159f3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MyProfile/Status/Status.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyProfile/Status/Status.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AuthenticationPage/SignIn/SignIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/SignIn/SignInRx.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AuthenticationPage/SignIn/SignInContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/SignIn/SignInContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AuthenticationPage/SignUp/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/SignUp/SignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AuthenticationPage/SignUp/SignUpContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/SignUp/SignUpContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/profileReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/profileReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reduxStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reduxStore.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +76,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/ImageHandler" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/AuthenticationPage/SignIn" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -80,12 +88,13 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="X:\Projects\social-network\src\components\AuthenticationPage\SignUp" />
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="X:\Projects\social-network\src\components\AuthenticationPage\SignIn" />
       <recent name="X:\Projects\social-network\src\components\ImageHandler" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="X:\Projects\social-network\src\components\AuthenticationPage\SignUp" />
+      <recent name="X:\Projects\social-network\src\components\AuthenticationPage\SignIn" />
       <recent name="X:\Projects\social-network\src\components\ImageHandler" />
     </key>
   </component>
@@ -133,6 +142,7 @@
       <workItem from="1591808258425" duration="3156000" />
       <workItem from="1591862171007" duration="20138000" />
       <workItem from="1591952836780" duration="12726000" />
+      <workItem from="1592292877983" duration="6026000" />
     </task>
     <servers />
   </component>

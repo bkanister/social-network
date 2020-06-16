@@ -1,51 +1,24 @@
 import React from 'react'
 import {Link} from "react-router-dom";
+import { Field, reduxForm } from 'redux-form';
 
-const SignUp = ({userName, userEmail, userPassword, ...props}) => {
-    debugger
+let SignUp = (props) => {
     return (
         <div>
             <h1>Sign Up</h1>
             <div>
-                <form>
-                    <label htmlFor="displayName">
-                        Display Name:
-                    </label>
-                    <input
-                        type="text"
-                        name="displayName"
-                        value={userName}
-                        placeholder="E.g: Maya"
-                        id="displayName"
-                        onChange={props.onChangeHandler}
-                    />
+                <form onSubmit={props.handleSubmit}>
+                    <label htmlFor="displayName">Display Name:</label>
+                    <Field name="displayName" component='input' type="text"/>
                     <br/>
-                    <label htmlFor="userEmail">
-                        Email:
-                    </label>
-                    <input
-                        type="email"
-                        name="userEmail"
-                        value={userEmail}
-                        placeholder="E.g: faruq123@gmail.com"
-                        id="userEmail"
-                        onChange={props.onChangeHandler}
-                    />
+
+                    <label htmlFor="userEmail">Email:</label>
+                    <Field name="userEmail" component='input' type="email"/>
                     <br/>
-                    <label htmlFor="userPassword">
-                        Password:
-                    </label>
-                    <input
-                        type="password"
-                        name="userPassword"
-                        value={userPassword}
-                        placeholder="Your Password"
-                        id="userPassword"
-                        onChange={props.onChangeHandler}
-                    />
-                    <button onClick={props.handleSignUp}>
-                        Sign up
-                    </button>
+
+                    <label htmlFor="userPassword"> Password:</label>
+                    <Field name="userPassword" component='input' type="password"/>
+                    <button>Sign up </button>
                 </form>
                 <p>
                     Already have an account?{" "}
@@ -55,5 +28,9 @@ const SignUp = ({userName, userEmail, userPassword, ...props}) => {
         </div>
     )
 }
+
+SignUp = reduxForm({
+    form: 'signup'
+})(SignUp);
 
 export default SignUp
