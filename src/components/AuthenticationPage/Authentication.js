@@ -6,7 +6,6 @@ import SignUpContainer from "./SignUp/SignUpContainer";
 const Authentication = props => {
     return (
         <div>
-            <h1>Authentication page</h1>
             <Switch>
                 <Route path={`/auth/sign-in`} render={() => <SignInContainer dispatch={props.dispatch}
                                                                               userEmail={props.userEmail}

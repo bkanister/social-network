@@ -1,39 +1,37 @@
 import React, {useEffect, useState} from 'react'
 import {getUserStatusThunkAC, updateStatusThunkAC} from "../../../redux/reducers/profileReducer";
 import {connect} from "react-redux";
+import {Field, reduxForm} from "redux-form";
 
-const Status = props => {
+let Status = props => {
     const [editMode, setEditMode] = useState(false)
-    const [status, setStatus] = useState(props.status)
 
     useEffect(() => {
         props.getStatus()
     },[])
 
-    useEffect(() => {
-        setStatus(props.status)
-    },[props.status])
-
-    const editModeChangeHandler = (value) => {
+    const sendStatus = (value) => {
         setEditMode(false);
-        props.updateStatus(value)
+        props.onChange(value)
     }
 
     const handleEnterPress = (e) => {
         if (e.key === 'Enter') {
-            editModeChangeHandler(e.currentTarget.value)
+            sendStatus(e.currentTarget.value)
         }
     }
 
     return (
         !editMode
             ? <p onDoubleClick={() => setEditMode(true)} >{props.status}</p>
-            : <input autoFocus type="text"
-                     value={status}
-                     onChange={(e) => setStatus(e.currentTarget.value)}
-                     onBlur={(e) => editModeChangeHandler(e.currentTarget.value)}
-                     onKeyPress={e => handleEnterPress(e)}
-            />
+            : <form onSubmit={props.handleSubmit}>
+                <Field autoFocus name='status' component='input' type='text'
+                       onBlur={(e) => sendStatus(e.currentTarget.value)}
+                       onKeyPress={e => handleEnterPress(e)}
+                       value={props.status}
+                />
+            </form>
+
     )
 }
 
@@ -45,9 +43,13 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        updateStatus: (value) => dispatch(updateStatusThunkAC(value)),
+        onChange: (value) => dispatch(updateStatusThunkAC(value)),
         getStatus: () => dispatch(getUserStatusThunkAC())
     }
 }
+
+Status = reduxForm({
+    form: 'status'
+})(Status);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Status)

@@ -7,14 +7,6 @@ const SignUpContainer = props => {
 
     const handleSignUp = (formData) => {
         debugger
-            if (formData.userEmail.length < 4) {
-                alert('Please enter an email address.');
-                return;
-            }
-            if (formData.userPassword.length < 4) {
-                alert('Please enter a password.');
-                return;
-            }
         props.signUp(formData.displayName, formData.userEmail, formData.userPassword)
     }
     return (
