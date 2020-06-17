@@ -1,9 +1,10 @@
-import {SET_USER_ID, SET_USER_STATUS} from "./constants";
+import {GET_USER_NAME, SET_USER_ID, SET_USER_STATUS} from "./constants";
 import {auth, firestore} from "../../firebase/firebase";
 import * as firebase from "firebase/app"
 
 const initialState = {
     userID: '',
+    userName: '',
     userStatus: ''
 }
 
@@ -11,10 +12,17 @@ const profileReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case SET_USER_ID:
-            console.log('SET_USER_ID')
+            console.log(SET_USER_ID)
             return {
                 ...state,
                 userID: action.payload
+            }
+
+        case GET_USER_NAME:
+            console.log(GET_USER_NAME)
+            return {
+                ...state,
+                userName: action.payload
             }
 
         case SET_USER_STATUS:
@@ -31,6 +39,7 @@ const profileReducer = (state = initialState, action) => {
 
 export const setUserId = (userId) => ({type: SET_USER_ID, payload: userId})
 export const setUserStatus = (status) => ({type: SET_USER_STATUS, payload: status})
+export const getUserName = (name) => ({type: GET_USER_NAME, payload: name})
 
 export const signInThunkAC = (email, password) => {
     console.log('signInThunkAC')
@@ -77,6 +86,7 @@ export const signUpThunkAC = (name, email, password) => {
     }
 }
 
+
 export const updateStatusThunkAC = (status) => {
     return dispatch => {
         firestore.collection('users').doc(auth.currentUser.uid)
@@ -94,6 +104,17 @@ export const getUserStatusThunkAC = () => {
             .then((doc) => {
                 if (doc.exists) {
                     dispatch(setUserStatus(doc.data().status))
+                }
+            })
+    }
+}
+
+export const getUserNameThunkAC = () => {
+    return dispatch => {
+        firestore.collection('users').doc(auth.currentUser.uid).get()
+            .then((doc) => {
+                if (doc.exists) {
+                    dispatch(getUserName(doc.data().name))
                 }
             })
     }

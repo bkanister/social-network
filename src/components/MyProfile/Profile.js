@@ -1,11 +1,15 @@
-import React from "react";
+import React, {useEffect} from "react";
 import classes from './Profile.module.css'
 import {connect} from "react-redux";
 import {auth} from "../../firebase/firebase";
 import Status from "./Status/Status";
-import {setUserId} from "../../redux/reducers/profileReducer";
+import {getUserNameThunkAC, setUserId} from "../../redux/reducers/profileReducer";
 
 const Profile = props => {
+    useEffect(() => {
+        props.getName()
+    },[props.userID])
+
     const signOut = () => {
         auth.signOut().then(function() {
             console.log('successful');
@@ -14,11 +18,12 @@ const Profile = props => {
         });
         props.setUserId('')
     }
+
     return (
         <div className={classes.Profile}>
                         <img src={props.avatar} alt="Avatar"/>
                         <div>
-                            <p>Benzin Kanister</p>
+                            <p>{props.userName}</p>
                             <Status/>
                         </div>
                         <div>
@@ -32,13 +37,16 @@ const Profile = props => {
 
 const mapStateToProps = (state) => {
     return {
-        avatar: state.posts.avatar
+        avatar: state.posts.avatar,
+        userName: state.profile.userName,
+        userID: state.profile.userID
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        setUserId: (userID) => dispatch(setUserId(userID))
+        setUserId: (userID) => dispatch(setUserId(userID)),
+        getName: () => dispatch(getUserNameThunkAC())
     }
 }
 

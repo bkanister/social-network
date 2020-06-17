@@ -2,6 +2,7 @@ import React from 'react'
 import {signUpThunkAC} from "../../../redux/reducers/profileReducer";
 import SignUp from "./SignUp";
 import {connect} from "react-redux";
+import {Redirect} from "react-router-dom";
 
 const SignUpContainer = props => {
 
@@ -9,8 +10,11 @@ const SignUpContainer = props => {
         debugger
         props.signUp(formData.displayName, formData.userEmail, formData.userPassword)
     }
+
     return (
-            <SignUp onSubmit={handleSignUp}/>
+        !!props.userID
+            ? <Redirect exact to={'/'} />
+            : <SignUp onSubmit={handleSignUp}/>
     )
 }
 
