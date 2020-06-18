@@ -8,11 +8,12 @@ let Status = props => {
 
     useEffect(() => {
         props.getStatus()
-    },[])
+    },[props.status])
 
     const sendStatus = (value) => {
         setEditMode(false);
-        props.onChange(value)
+        props.onSubmit(value)
+        debugger
     }
 
     const handleEnterPress = (e) => {
@@ -23,7 +24,7 @@ let Status = props => {
 
     return (
         !editMode
-            ? <p onDoubleClick={() => setEditMode(true)} >{props.status}</p>
+            ? <p onDoubleClick={() => setEditMode(true)} >{props.status || 'hi'}</p>
             : <form onSubmit={props.handleSubmit}>
                 <Field autoFocus name='status' component='input' type='text'
                        onBlur={(e) => sendStatus(e.currentTarget.value)}
@@ -43,7 +44,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onChange: (value) => dispatch(updateStatusThunkAC(value)),
+        onSubmit: (value) => dispatch(updateStatusThunkAC(value)),
         getStatus: () => dispatch(getUserStatusThunkAC())
     }
 }

@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import './index.css'
 import Navbar from "./components/Navbar/Navbar";
 import ChatList from "./components/ChatList/ChatList";
-import {Route, Switch, withRouter} from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import MyProfile from "./pages/MyProfile/MyProfile";
 import MyChats from "./pages/MyChats/MyChats";
 import MyFriends from "./pages/MyFriends/MyFriends";
@@ -12,7 +12,7 @@ import {getUsers} from "./firebase/firebaseRequests";
 import {auth} from './firebase/firebase'
 import {setUserId} from "./redux/reducers/profileReducer";
 import Authentication from "./components/AuthenticationPage/Authentication";
-import Preloader from "./components/Preloader/Preloader";
+import {connect} from "react-redux";
 
 const App = props => {
     useEffect(() => {
@@ -29,7 +29,7 @@ const App = props => {
          <div className="App">
                 <Navbar/>
                 <Switch>
-                        <Route exact path="/" render={() => <MyProfile userID={props.state.profile.userID}/>}/>
+                        <Route exact path="/" component={MyProfile}/>
                         <Route exact path={'/profile/:id'} render={() => <UserProfile
                             dispatch={props.dispatch}
                             userInfo={props.state.users.currentUserProfile.info}
@@ -54,8 +54,7 @@ const App = props => {
                             userEmail={props.state.profile.userEmail}
                             userPassword={props.state.profile.userPassword}
                             userID={props.state.profile.userID}
-                        />}>
-                        </Route>
+                        />}/>
                     </Switch>
                     <ChatList users={props.state.users.users}
                               avatar={props.state.users.defaultUserAvatar}
@@ -64,5 +63,17 @@ const App = props => {
     )
 }
 
+const mapStateToProps = state => {
+    return {
+        state: state
+    }
+}
 
-export default withRouter(App)
+const mapDispatchToProps = dispatch => {
+    return {
+        dispatch: dispatch
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

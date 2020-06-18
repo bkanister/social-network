@@ -86,14 +86,14 @@ export const signUpThunkAC = (name, email, password) => {
 }
 
 
-export const updateStatusThunkAC = (status) => {
+export const updateStatusThunkAC = (value) => {
     return dispatch => {
         firestore.collection('users').doc(auth.currentUser.uid)
             .update({
-                status
+                status: value
             })
             .catch(error => console.log(error));
-        dispatch(setUserStatus(status))
+        dispatch(setUserStatus(value))
     }
 }
 
