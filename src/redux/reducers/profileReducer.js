@@ -44,12 +44,11 @@ export const getUserName = (name) => ({type: GET_USER_NAME, payload: name})
 export const signInThunkAC = (email, password) => {
     console.log('signInThunkAC')
     return (dispatch) => {
-        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+         firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
             .then(function() {
-                return firebase.auth().signInWithEmailAndPassword(email, password).then((response) => {
+               return firebase.auth().signInWithEmailAndPassword(email, password).then((response) => {
                     console.log(response)
                     dispatch(setUserId(auth.currentUser.uid))
-                    localStorage.setItem('uid', auth.currentUser.uid)
                 })
             })
             .catch(function(error) {

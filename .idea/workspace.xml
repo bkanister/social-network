@@ -27,9 +27,17 @@
   <component name="ChangeListManager">
     <list default="true" id="6e2d4b51-0842-4c32-b61d-f1a185f159f3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AuthenticationPage/SignUp/SignUpContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/SignUp/SignUpContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AuthenticationPage/Authentication.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/Authentication.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AuthenticationPage/SignIn/SignInContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/SignIn/SignInContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AuthenticationPage/withAuth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/withAuth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MyProfile/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyProfile/Profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducers/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Preloader/Preloader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Preloader/Preloader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/MyChats/MyChats.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyChats/MyChats.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/MyFriends/MyFriends.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyFriends/MyFriends.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/MyProfile/MyProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyProfile/MyProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/MyTasks/MyTasks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyTasks/MyTasks.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/reducers/profileReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/profileReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -139,7 +147,9 @@
       <workItem from="1591862171007" duration="20138000" />
       <workItem from="1591952836780" duration="12726000" />
       <workItem from="1592292877983" duration="22891000" />
-      <workItem from="1592379984827" duration="5309000" />
+      <workItem from="1592379984827" duration="19689000" />
+      <workItem from="1592409453684" duration="2810000" />
+      <workItem from="1592467772655" duration="2504000" />
     </task>
     <servers />
   </component>
@@ -191,10 +201,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="413" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.768@0.0.1366.768" timestamp="1592310242731" />
-    <state x="92" y="92" width="1182" height="584" key="DiffContextDialog" timestamp="1592039778022">
+    <state x="92" y="92" width="1182" height="584" key="DiffContextDialog" timestamp="1592407247187">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="92" y="92" width="1182" height="584" key="DiffContextDialog/0.0.1366.768@0.0.1366.768" timestamp="1592039778022" />
+    <state x="92" y="92" width="1182" height="584" key="DiffContextDialog/0.0.1366.768@0.0.1366.768" timestamp="1592407247187" />
     <state width="1308" height="163" key="GridCell.Tab.0.bottom" timestamp="1590838182537">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -227,14 +237,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1590923830545" />
-    <state x="438" y="118" key="VcsDiffUtil.ChangesDialog" timestamp="1592039471828">
+    <state x="438" y="118" key="VcsDiffUtil.ChangesDialog" timestamp="1592402988088">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="438" y="118" key="VcsDiffUtil.ChangesDialog/0.0.1366.768@0.0.1366.768" timestamp="1592039471828" />
-    <state x="92" y="92" width="1182" height="584" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1591451225038">
+    <state x="438" y="118" key="VcsDiffUtil.ChangesDialog/0.0.1366.768@0.0.1366.768" timestamp="1592402988088" />
+    <state x="92" y="92" width="1182" height="584" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1592392364023">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="92" y="92" width="1182" height="584" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.768@0.0.1366.768" timestamp="1591451225038" />
+    <state x="92" y="92" width="1182" height="584" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.768@0.0.1366.768" timestamp="1592392364023" />
+    <state x="92" y="92" width="1182" height="584" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog" timestamp="1592407247187">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="92" y="92" width="1182" height="584" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog/0.0.1366.768@0.0.1366.768" timestamp="1592407247187" />
     <state x="96" y="96" width="1174" height="536" key="dock-window-1" timestamp="1590925240337">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

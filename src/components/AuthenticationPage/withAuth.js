@@ -1,13 +1,20 @@
 import React from 'react'
-import {Redirect} from "react-router-dom";
+import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
+import Preloader from "../Preloader/Preloader";
 
-export const withAuth = Component => {
+const withAuth = Component => {
     const withAuthRedirect = (props) => {
-        console.log('props.isAuth: ', !!props.isAuth)
-        return props.isAuth ? <Component {...props}/> : <Redirect to={'/auth/sign-in'}/>
+        if (props.isAuth) {
+            return <Component {...props}/>
+        } else {
+            setTimeout(() => {
+                props.history.push('/auth/sign-in');
+            }, 3000)
+            return <Preloader/>
+        }
     }
-    return connect(mapStateToProps, null)(withAuthRedirect)
+    return withRouter(connect(mapStateToProps, null)(withAuthRedirect))
 }
 
 const mapStateToProps = state => {
@@ -15,3 +22,5 @@ const mapStateToProps = state => {
         isAuth: state.profile.userID
     }
 }
+
+export default withAuth

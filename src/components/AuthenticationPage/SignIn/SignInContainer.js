@@ -12,7 +12,7 @@ const SignInContainer = (props) => {
 
     return (
         !!props.userID
-            ? <Redirect exact to={'/'} />
+            ? <Redirect exact to={'/'} /> // fix this! redirect user to previous page
             : <SignIn onSubmit={handleSignIn}/>
     )
 }

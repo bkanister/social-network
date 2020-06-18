@@ -1,16 +1,16 @@
 import Profile from "../../components/MyProfile/Profile";
 import Posts from "../../components/Posts/Posts";
 import React from "react";
-import {withAuth} from "../../components/AuthenticationPage/withAuth";
+import withAuth from "../../components/AuthenticationPage/withAuth";
 import NewPostCreator from "../../components/NewPostCreator/NewPostCreator";
 
 const MyProfile = props => {
     return (
         <div style={{flexGrow: 1}}>
-            <Profile/>
-            <NewPostCreator/>
-            <Posts/>
-        </div>
+                <Profile/>
+                <NewPostCreator/>
+                <Posts/>
+            </div>
     )
 }
 

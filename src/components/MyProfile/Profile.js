@@ -18,7 +18,6 @@ const Profile = props => {
         });
         props.setUserId('')
     }
-
     return (
         <div className={classes.Profile}>
                         <img src={props.avatar} alt="Avatar"/>
