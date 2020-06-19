@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import {auth} from "../../firebase/firebase";
 import Status from "./Status/Status";
 import {getUserNameThunkAC, setUserId} from "../../redux/reducers/profileReducer";
+import Button from "react-bootstrap/Button";
 
 const Profile = props => {
     useEffect(() => {
@@ -20,17 +21,17 @@ const Profile = props => {
     }
     return (
         <div className={classes.Profile}>
-                        <img src={props.avatar} alt="Avatar"/>
-                        <div>
-                            <p>{props.userName}</p>
-                            <Status/>
-                        </div>
-                        <div>
-                            {auth.currentUser && <p>authorized</p>}
-                            <button onClick={signOut}>Sign out</button>
-                            <p>Saint-Petersburg, Russia</p>
-                        </div>
-                    </div>
+            <img src={props.avatar} alt="Avatar"/>
+            <div>
+                <p>{props.userName}</p>
+                <Status/>
+            </div>
+            <div>
+                {auth.currentUser && <p>authorized</p>}
+                <Button variant="light" onClick={signOut}>Sign out</Button>
+                <p>Saint-Petersburg, Russia</p>
+            </div>
+        </div>
     )
 }
 

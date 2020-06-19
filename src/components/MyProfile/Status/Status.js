@@ -13,7 +13,6 @@ let Status = props => {
     const sendStatus = (value) => {
         setEditMode(false);
         props.onSubmit(value)
-        debugger
     }
 
     const handleEnterPress = (e) => {

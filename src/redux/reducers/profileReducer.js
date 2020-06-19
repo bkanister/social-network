@@ -8,6 +8,8 @@ const initialState = {
     userStatus: ''
 }
 
+const usersCollection = firestore.collection('users')
+
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
 
@@ -41,17 +43,16 @@ export const setUserId = (userId) => ({type: SET_USER_ID, payload: userId})
 export const setUserStatus = (status) => ({type: SET_USER_STATUS, payload: status})
 export const getUserName = (name) => ({type: GET_USER_NAME, payload: name})
 
-export const signInThunkAC = (email, password) => {
-    console.log('signInThunkAC')
-    return (dispatch) => {
+export const signInThunkAC = (email, password) => dispatch => {
          firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
-            .then(function() {
-               return firebase.auth().signInWithEmailAndPassword(email, password).then((response) => {
+            .then(() => {
+               return firebase.auth().signInWithEmailAndPassword(email, password)
+                   .then((response) => {
                     console.log(response)
                     dispatch(setUserId(auth.currentUser.uid))
                 })
             })
-            .catch(function(error) {
+            .catch(error => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                         errorCode === 'auth/wrong-password'
@@ -59,64 +60,40 @@ export const signInThunkAC = (email, password) => {
                             : alert(errorMessage);
                         console.log(error);
             });
-    }
 }
 
-export const signUpThunkAC = (name, email, password) => {
-    console.log('signUpThunkAC')
-    return (dispatch) => {
+export const signUpThunkAC = (name, email, password) => dispatch => {
         auth.createUserWithEmailAndPassword(email, password)
-            .then((response) => {
-                firestore.collection('users').doc(auth.currentUser.uid)
-                    .set({
+            .then(() => {
+                usersCollection.doc(auth.currentUser.uid).set({
                         name,
                         email
                     })
-                    .catch(function(error) {
-                        const errorCode = error.code;
-                        const errorMessage = error.message;
-                            errorCode === 'auth/weak-password'
-                            ? alert('The password is too weak.')
-                            : alert(errorMessage)
-                        alert(error);
-                    });
                 dispatch(setUserId(auth.currentUser.uid))
             })
-    }
 }
 
-
-export const updateStatusThunkAC = (value) => {
-    return dispatch => {
-        firestore.collection('users').doc(auth.currentUser.uid)
-            .update({
-                status: value
-            })
-            .catch(error => console.log(error));
-        dispatch(setUserStatus(value))
-    }
+export const updateStatusThunkAC = value => dispatch => {
+    dispatch(setUserStatus(value))
+    usersCollection.doc(auth.currentUser.uid)
+        .update({
+            status: value
+        })
+        .catch(error => console.log(error));
 }
 
-export const getUserStatusThunkAC = () => {
-    return dispatch => {
-        firestore.collection('users').doc(auth.currentUser.uid).get()
-            .then((doc) => {
-                if (doc.exists) {
-                    dispatch(setUserStatus(doc.data().status))
-                }
-            })
-    }
+export const getUserStatusThunkAC = () => async dispatch => {
+        const response = await usersCollection.doc(auth.currentUser.uid).get()
+            if (response.exists) {
+                dispatch(setUserStatus(response.data().status))
+            }
 }
 
-export const getUserNameThunkAC = () => {
-    return dispatch => {
-        firestore.collection('users').doc(auth.currentUser.uid).get()
-            .then((doc) => {
-                if (doc.exists) {
-                    dispatch(getUserName(doc.data().name))
-                }
-            })
-    }
+export const getUserNameThunkAC = () => async dispatch => {
+        const response = await usersCollection.doc(auth.currentUser.uid).get()
+            if (response.exists) {
+                dispatch(getUserName(response.data().name))
+            }
 }
 
 export default profileReducer

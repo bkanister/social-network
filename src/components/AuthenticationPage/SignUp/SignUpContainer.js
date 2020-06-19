@@ -7,7 +7,6 @@ import {Redirect} from "react-router-dom";
 const SignUpContainer = props => {
 
     const handleSignUp = (formData) => {
-        debugger
         props.signUp(formData.displayName, formData.userEmail, formData.userPassword)
     }
 

@@ -3,6 +3,7 @@ import {signInThunkAC} from "../../../redux/reducers/profileReducer";
 import {Redirect} from "react-router-dom";
 import SignIn from "./SignIn";
 import {connect} from "react-redux";
+import SignInStyled from "./SignInStyled";
 
 const SignInContainer = (props) => {
 
@@ -13,7 +14,7 @@ const SignInContainer = (props) => {
     return (
         !!props.userID
             ? <Redirect exact to={'/'} /> // fix this! redirect user to previous page
-            : <SignIn onSubmit={handleSignIn}/>
+            : <SignInStyled onSubmit={handleSignIn}/>
     )
 }
 

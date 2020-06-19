@@ -91,10 +91,7 @@ export const deletePostThunkAC = (postKey) => {
     }
 }
 
-export const addPostThunkAC = (postText) => {
-    console.log('addPostThunkAC')
-    return (dispatch, getState) => {
-        debugger
+export const addPostThunkAC = (postText) => (dispatch, getState) => {
         const newPost = {
             key: '',
             body: postText,
@@ -103,9 +100,9 @@ export const addPostThunkAC = (postText) => {
             timestamp: Date.now()
         };
         sendPostToServerAndGetKey.sendPost(newPost)
+        sendPostToServerAndGetKey.addUser()
         newPost.key = sendPostToServerAndGetKey.getPostKey.bind(sendPostToServerAndGetKey)()
         dispatch(addPostCreator(newPost))
-    }
 }
 
 export default postsReducer

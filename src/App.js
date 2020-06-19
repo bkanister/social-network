@@ -13,13 +13,14 @@ import {auth} from './firebase/firebase'
 import {setUserId} from "./redux/reducers/profileReducer";
 import Authentication from "./components/AuthenticationPage/Authentication";
 import {connect} from "react-redux";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = props => {
     useEffect(() => {
         auth.onAuthStateChanged((user) => { // saves sign-in after page reload
             user ? props.dispatch(setUserId(user.uid)) : console.log('no user')
         })
-    }, [])
+    }, [props.state.profile.userID])
 
     useEffect(() => {
         getUsers(props.dispatch, props.state.users.currentPage)
