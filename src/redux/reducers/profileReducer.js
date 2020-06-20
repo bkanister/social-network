@@ -1,4 +1,4 @@
-import {GET_USER_NAME, SET_USER_ID, SET_USER_STATUS} from "./constants";
+import {SET_USER_NAME, SET_USER_ID, SET_USER_STATUS} from "./constants";
 import {auth, firestore} from "../../firebase/firebase";
 import * as firebase from "firebase/app"
 
@@ -20,8 +20,8 @@ const profileReducer = (state = initialState, action) => {
                 userID: action.payload
             }
 
-        case GET_USER_NAME:
-            console.log(GET_USER_NAME)
+        case SET_USER_NAME:
+            console.log(SET_USER_NAME)
             return {
                 ...state,
                 userName: action.payload
@@ -41,7 +41,7 @@ const profileReducer = (state = initialState, action) => {
 
 export const setUserId = (userId) => ({type: SET_USER_ID, payload: userId})
 export const setUserStatus = (status) => ({type: SET_USER_STATUS, payload: status})
-export const getUserName = (name) => ({type: GET_USER_NAME, payload: name})
+export const getUserName = (name) => ({type: SET_USER_NAME, payload: name})
 
 export const signInThunkAC = (email, password) => dispatch => {
          firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
@@ -65,11 +65,15 @@ export const signInThunkAC = (email, password) => dispatch => {
 export const signUpThunkAC = (name, email, password) => dispatch => {
         auth.createUserWithEmailAndPassword(email, password)
             .then(() => {
-                usersCollection.doc(auth.currentUser.uid).set({
-                        name,
-                        email
-                    })
-                dispatch(setUserId(auth.currentUser.uid))
+                firebase.auth().onAuthStateChanged(user => {
+                    if (user) {
+                            usersCollection.doc(auth.currentUser.uid).set({
+                                name,
+                                email
+                            })
+                            dispatch(setUserId(auth.currentUser.uid))
+                    }
+                });
             })
 }
 

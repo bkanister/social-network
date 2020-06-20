@@ -100,7 +100,6 @@ export const addPostThunkAC = (postText) => (dispatch, getState) => {
             timestamp: Date.now()
         };
         sendPostToServerAndGetKey.sendPost(newPost)
-        sendPostToServerAndGetKey.addUser()
         newPost.key = sendPostToServerAndGetKey.getPostKey.bind(sendPostToServerAndGetKey)()
         dispatch(addPostCreator(newPost))
 }

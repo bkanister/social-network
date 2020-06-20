@@ -28,7 +28,7 @@ let Status = props => {
                 <Field autoFocus name='status' component='input' type='text'
                        onBlur={(e) => sendStatus(e.currentTarget.value)}
                        onKeyPress={e => handleEnterPress(e)}
-                       value={props.status}
+                       value={props.initialValues}
                 />
             </form>
 
@@ -37,7 +37,10 @@ let Status = props => {
 
 const mapStateToProps = state => {
     return {
-        status: state.profile.userStatus
+        status: state.profile.userStatus,
+        initialValues: {
+            status: state.profile.userStatus
+        }
     }
 }
 

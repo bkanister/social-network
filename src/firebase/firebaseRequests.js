@@ -39,12 +39,6 @@ export const sendPostToServerAndGetKey = {
     getPostKey() {
         console.log('sendPostToServerAndGetKey get key')
         return this.postKey
-    },
-
-    addUser() {
-        firestore.collection('users').doc(auth.currentUser.uid).set({
-            name: 'name'
-        })
     }
 }
 
