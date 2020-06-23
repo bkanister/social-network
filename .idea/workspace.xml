@@ -27,13 +27,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e2d4b51-0842-4c32-b61d-f1a185f159f3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/SignUp/CreateAccount.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Modal/Modal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MyProfile/Status/Status.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyProfile/Status/Status.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/firebase/firebaseRequests.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/firebaseRequests.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducers/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducers/postsReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/postsReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AuthenticationPage/SignUp/SignUp.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AuthenticationPage/SignUp/SignUpContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/SignUp/SignUpContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MyProfile/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyProfile/Profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Post/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Post/Post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Post/Post.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Post/Post.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/formComponents/Input.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/formComponents/Input.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/MyTasks/MyTasks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyTasks/MyTasks.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/reducers/profileReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/profileReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +151,9 @@
       <workItem from="1591952836780" duration="12726000" />
       <workItem from="1592292877983" duration="6026000" />
       <workItem from="1592637751097" duration="13824000" />
-      <workItem from="1592666605922" duration="3224000" />
+      <workItem from="1592666605922" duration="3796000" />
+      <workItem from="1592733768354" duration="6115000" />
+      <workItem from="1592905309745" duration="1591000" />
     </task>
     <servers />
   </component>
@@ -195,10 +201,10 @@
     </state>
     <state x="572" y="228" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1590924459700" />
     <state x="572" y="241" key="#Notifications/0.0.1366.768@0.0.1366.768" timestamp="1591437190061" />
-    <state x="413" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591711273492">
+    <state x="413" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1592738869003">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="413" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.768@0.0.1366.768" timestamp="1591711273492" />
+    <state x="413" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.768@0.0.1366.768" timestamp="1592738869003" />
     <state x="92" y="92" width="1182" height="584" key="DiffContextDialog" timestamp="1592645546173">
       <screen x="0" y="0" width="1366" height="768" />
     </state>

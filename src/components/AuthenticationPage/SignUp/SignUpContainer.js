@@ -1,25 +1,25 @@
 import React from 'react'
 import {signUpThunkAC} from "../../../redux/reducers/profileReducer";
-import SignUp from "./SignUp";
 import {connect} from "react-redux";
 import {Redirect} from "react-router-dom";
+import CreateAccount from "./CreateAccount";
 
 const SignUpContainer = props => {
 
     const handleSignUp = (formData) => {
-        props.signUp(formData.displayName, formData.userEmail, formData.userPassword)
+        props.signUp(formData.firstName, formData.lastName, formData.userEmail, formData.userPassword)
     }
 
     return (
         !!props.userID
             ? <Redirect exact to={'/'} />
-            : <SignUp onSubmit={handleSignUp}/>
+            : <CreateAccount onSubmit={handleSignUp}/>
     )
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        signUp: (name, email, password) =>  dispatch(signUpThunkAC(name, email, password))
+        signUp: (firstName, lastName, email, password) =>  dispatch(signUpThunkAC(firstName, lastName, email, password))
     }
 }
 

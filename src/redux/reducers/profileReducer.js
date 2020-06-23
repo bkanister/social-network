@@ -4,7 +4,7 @@ import * as firebase from "firebase/app"
 
 const initialState = {
     userID: '',
-    userName: '',
+    firstName: '',
     userStatus: ''
 }
 
@@ -21,10 +21,11 @@ const profileReducer = (state = initialState, action) => {
             }
 
         case SET_USER_NAME:
+            debugger
             console.log(SET_USER_NAME)
             return {
                 ...state,
-                userName: action.payload
+                firstName: action.payload
             }
 
         case SET_USER_STATUS:
@@ -41,7 +42,7 @@ const profileReducer = (state = initialState, action) => {
 
 export const setUserId = (userId) => ({type: SET_USER_ID, payload: userId})
 export const setUserStatus = (status) => ({type: SET_USER_STATUS, payload: status})
-export const getUserName = (name) => ({type: SET_USER_NAME, payload: name})
+export const setUserName = (firstName) => ({type: SET_USER_NAME, payload: firstName})
 
 export const signInThunkAC = (email, password) => dispatch => {
          firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
@@ -62,13 +63,15 @@ export const signInThunkAC = (email, password) => dispatch => {
             });
 }
 
-export const signUpThunkAC = (name, email, password) => dispatch => {
+export const signUpThunkAC = (firstName, lastName, email, password) => dispatch => {
+    debugger
         auth.createUserWithEmailAndPassword(email, password)
             .then(() => {
                 firebase.auth().onAuthStateChanged(user => {
                     if (user) {
                             usersCollection.doc(auth.currentUser.uid).set({
-                                name,
+                                firstName,
+                                lastName,
                                 email
                             })
                             dispatch(setUserId(auth.currentUser.uid))
@@ -96,7 +99,8 @@ export const getUserStatusThunkAC = () => async dispatch => {
 export const getUserNameThunkAC = () => async dispatch => {
         const response = await usersCollection.doc(auth.currentUser.uid).get()
             if (response.exists) {
-                dispatch(getUserName(response.data().name))
+                console.log(response.data())
+                dispatch(setUserName(response.data().firstName))
             }
 }
 

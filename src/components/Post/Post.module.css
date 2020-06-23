@@ -16,10 +16,6 @@
     height: 50px;
 }
 
-.postContent button {
-    height: 20px;
-}
-
 .postText {
     margin: auto;
 }
@@ -37,3 +33,6 @@
     margin-right: 10px;
 }
 
+.btn {
+    height: 20px;
+}

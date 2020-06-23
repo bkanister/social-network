@@ -23,7 +23,8 @@ const Profile = props => {
         <div className={classes.Profile}>
             <img src={props.avatar} alt="Avatar"/>
             <div>
-                <p>{props.userName}</p>
+                <p>{props.firstName}</p>
+                <p>{props.lastName}</p>
                 <Status/>
             </div>
             <div>
@@ -38,7 +39,7 @@ const Profile = props => {
 const mapStateToProps = (state) => {
     return {
         avatar: state.posts.avatar,
-        userName: state.profile.userName,
+        firstName: state.profile.firstName,
         userID: state.profile.userID
     }
 }

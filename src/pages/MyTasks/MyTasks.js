@@ -1,5 +1,5 @@
 import React from 'react'
-import withAuth from "../../components/AuthenticationPage/withAuth";
+import ModalWindow from "../../components/Modal/Modal";
 
 const MyTasks = props => {
     return <div>
