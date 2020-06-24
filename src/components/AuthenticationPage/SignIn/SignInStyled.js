@@ -33,7 +33,7 @@ SignInStyled = reduxForm({
     form: 'login'
 })(SignInStyled);
 
-const InputContainer2 = (props) => {
+export const InputContainer2 = (props) => {
     return (
         <Form.Group controlId={`formBasic${props.name}`}>
             <Field name={props.name} component={Input2} type={props.type} validate={props.validate}/>

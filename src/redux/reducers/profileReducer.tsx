@@ -2,34 +2,38 @@ import {SET_USER_NAME, SET_USER_ID, SET_USER_STATUS} from "./constants";
 import {auth, firestore} from "../../firebase/firebase";
 import * as firebase from "firebase/app"
 
-const initialState = {
+
+
+const initialState: InitialStateType = {
     userID: '',
     firstName: '',
     userStatus: ''
 }
 
+type InitialStateType = {
+    userID: string
+    firstName: string
+    userStatus: string
+}
+
 const usersCollection = firestore.collection('users')
 
-const profileReducer = (state = initialState, action) => {
+const profileReducer = (state = initialState, action: any) => {
     switch (action.type) {
 
         case SET_USER_ID:
-            console.log(SET_USER_ID)
             return {
                 ...state,
                 userID: action.payload
             }
 
         case SET_USER_NAME:
-            debugger
-            console.log(SET_USER_NAME)
             return {
                 ...state,
                 firstName: action.payload
             }
 
         case SET_USER_STATUS:
-            console.log(SET_USER_STATUS)
             return {
                 ...state,
                 userStatus: action.payload
@@ -40,17 +44,23 @@ const profileReducer = (state = initialState, action) => {
 }
 
 
-export const setUserId = (userId) => ({type: SET_USER_ID, payload: userId})
-export const setUserStatus = (status) => ({type: SET_USER_STATUS, payload: status})
-export const setUserName = (firstName) => ({type: SET_USER_NAME, payload: firstName})
+type SetUserIdType = (userId: string) => ({type: typeof SET_USER_ID, payload: string})
+export const setUserId: SetUserIdType = (userId: string) => ({type: SET_USER_ID, payload: userId})
 
-export const signInThunkAC = (email, password) => dispatch => {
+type SetUserStatusType = (status: string) => ({type: typeof SET_USER_STATUS, payload: string})
+export const setUserStatus: SetUserStatusType = (status: string) => ({type: SET_USER_STATUS, payload: status})
+
+type SetUserNameType = (firstName: string) => ({type: typeof SET_USER_NAME, payload: string})
+export const setUserName: SetUserNameType  = (firstName: string)=> ({type: SET_USER_NAME, payload: firstName})
+
+export const signInThunkAC = (email: string, password: string) => (dispatch: any) => {
          firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
             .then(() => {
                return firebase.auth().signInWithEmailAndPassword(email, password)
                    .then((response) => {
                     console.log(response)
-                    dispatch(setUserId(auth.currentUser.uid))
+                    // @ts-ignore
+                       dispatch(setUserId(auth.currentUser.uid))
                 })
             })
             .catch(error => {
@@ -63,25 +73,28 @@ export const signInThunkAC = (email, password) => dispatch => {
             });
 }
 
-export const signUpThunkAC = (firstName, lastName, email, password) => dispatch => {
+export const signUpThunkAC = (firstName: string, lastName: string, email: string, password: string) => (dispatch: any) => {
     debugger
         auth.createUserWithEmailAndPassword(email, password)
             .then(() => {
                 firebase.auth().onAuthStateChanged(user => {
                     if (user) {
-                            usersCollection.doc(auth.currentUser.uid).set({
+                            // @ts-ignore
+                        usersCollection.doc(auth.currentUser.uid).set({
                                 firstName,
                                 lastName,
                                 email
                             })
-                            dispatch(setUserId(auth.currentUser.uid))
+                            // @ts-ignore
+                        dispatch(setUserId(auth.currentUser.uid))
                     }
                 });
             })
 }
 
-export const updateStatusThunkAC = value => dispatch => {
+export const updateStatusThunkAC = (value: string) => (dispatch: any) => {
     dispatch(setUserStatus(value))
+    // @ts-ignore
     usersCollection.doc(auth.currentUser.uid)
         .update({
             status: value
@@ -89,17 +102,21 @@ export const updateStatusThunkAC = value => dispatch => {
         .catch(error => console.log(error));
 }
 
-export const getUserStatusThunkAC = () => async dispatch => {
-        const response = await usersCollection.doc(auth.currentUser.uid).get()
+export const getUserStatusThunkAC = () => async (dispatch: any) => {
+        // @ts-ignore
+    const response = await usersCollection.doc(auth.currentUser.uid).get()
             if (response.exists) {
+                // @ts-ignore
                 dispatch(setUserStatus(response.data().status))
             }
 }
 
-export const getUserNameThunkAC = () => async dispatch => {
-        const response = await usersCollection.doc(auth.currentUser.uid).get()
+export const getUserNameThunkAC = () => async (dispatch: any) => {
+        // @ts-ignore
+    const response = await usersCollection.doc(auth.currentUser.uid).get()
             if (response.exists) {
                 console.log(response.data())
+                // @ts-ignore
                 dispatch(setUserName(response.data().firstName))
             }
 }

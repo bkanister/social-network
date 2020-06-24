@@ -8,7 +8,22 @@ import {
 import {deletePostFromServer, sendPostToServerAndGetKey} from "../../firebase/firebaseRequests";
 import {firestore, auth} from "../../firebase/firebase";
 
-const initialState = {
+type InitialStateType = {
+    avatar: string
+    posts: Array<PostType>
+    textareaValue: string
+    postImage: string
+    postsAreLoading: boolean
+}
+type PostType = {
+    key: string | undefined
+    body: string
+    img: string | undefined
+    date: string
+    timestamp: number
+}
+
+const initialState: InitialStateType = {
     avatar: 'https://image.spreadshirtmedia.net/image-server/v1/mp/designs/170224352,width=178,height=178,version=1579272891/benzinkanister-ersatz-tanken.png',
     posts: [],
     textareaValue: '',
@@ -16,10 +31,9 @@ const initialState = {
     postsAreLoading: false
 }
 
-const postsReducer = (state = initialState, action) => {
+const postsReducer = (state = initialState, action: any) => {
     switch (action.type) {
         case ADD_POST:
-            console.log('ADD_POST')
             return {
                 ...state,
                 posts: [action.payload, ...state.posts],
@@ -28,7 +42,6 @@ const postsReducer = (state = initialState, action) => {
             }
 
         case DELETE_POST:
-            console.log('DELETE_POST')
             const newPosts = state.posts.filter(post => {
                 return post.key !== action.payload;
             });
@@ -38,14 +51,12 @@ const postsReducer = (state = initialState, action) => {
             }
 
         case ADD_PHOTO:
-            console.log('ADD_PHOTO')
             return {
                 ...state,
                 postImage: action.payload
             }
 
         case DOWNLOAD_POSTS:
-            console.log('DOWNLOAD_POSTS')
             if (action.payload) {
                 return {
                     ...state,
@@ -58,24 +69,30 @@ const postsReducer = (state = initialState, action) => {
     }
 }
 
+type AddPostCreatorType = (newPost: PostType) => ({type: typeof ADD_POST, payload: PostType})
+export const addPostCreator: AddPostCreatorType = (newPost: PostType) => ({type: ADD_POST, payload: newPost})
 
-export const addPostCreator = (newPost) => ({type: ADD_POST, payload: newPost})
-export const deletePostCreator = (postKey) => ({type: DELETE_POST, payload: postKey})
-export const downloadPostsCreator = (posts) => ({type: DOWNLOAD_POSTS, payload: posts})
-export const addPhotoCreator = (fireBaseUrl) => ({type: ADD_PHOTO, payload: fireBaseUrl})
+type DeletePostCreatorType = (postKey: string) => ({type: typeof DELETE_POST, payload: string})
+export const deletePostCreator: DeletePostCreatorType = (postKey: string) => ({type: DELETE_POST, payload: postKey})
+
+type DownloadPostsCreatorType = (posts: Array<PostType>) => ({type: typeof DOWNLOAD_POSTS, payload: Array<PostType>})
+export const downloadPostsCreator: DownloadPostsCreatorType = (posts: Array<PostType>) => ({type: DOWNLOAD_POSTS, payload: posts})
+
+type AddPhotoCreatorType = (fireBaseUrl: string) => ({type: typeof ADD_PHOTO, payload: string})
+export const addPhotoCreator: AddPhotoCreatorType = (fireBaseUrl: string) => ({type: ADD_PHOTO, payload: fireBaseUrl})
 
 export const getPostsThunkAC = () => {
-    console.log('getPostsThunkAC')
-    return (dispatch) => {
+    return (dispatch: any) => {
+        // @ts-ignore
         firestore.collection("users").doc(auth.currentUser.uid).collection('posts').get()
             .then(function (querySnapshot) {
-                let posts = [];
+                let posts: any = [];
                 querySnapshot.forEach(function (doc) {
                     posts.push(doc.data());
                 });
-                posts = posts.map(post => Object.values(post))
+                posts = posts.map((post: any) => Object.values(post))
                 const merged = [].concat.apply([], posts);
-                const sorted = merged.sort((a, b) => {
+                const sorted = merged.sort((a: PostType, b: PostType) => {
                     return a.timestamp < b.timestamp ? 1 : a.timestamp > b.timestamp ? -1 : 0
                 })
                 dispatch(downloadPostsCreator(sorted))
@@ -83,16 +100,15 @@ export const getPostsThunkAC = () => {
     }
 }
 
-export const deletePostThunkAC = (postKey) => {
-    console.log('deletePostThunkAC')
-    return (dispatch) => {
+export const deletePostThunkAC = (postKey: string) => {
+    return (dispatch: any) => {
         deletePostFromServer(postKey)
         dispatch(deletePostCreator(postKey))
     }
 }
 
-export const addPostThunkAC = (postText) => (dispatch, getState) => {
-        const newPost = {
+export const addPostThunkAC = (postText: string) => (dispatch: any, getState: any) => {
+        const newPost: PostType = {
             key: '',
             body: postText,
             img: getState().posts.postImage,

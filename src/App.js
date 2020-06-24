@@ -6,7 +6,7 @@ import {Route, Switch} from "react-router-dom";
 import MyProfile from "./pages/MyProfile/MyProfile";
 import MyChats from "./pages/MyChats/MyChats";
 import MyFriends from "./pages/MyFriends/MyFriends";
-import MyTasks from "./pages/MyTasks/MyTasks";
+import MyTasks from "./pages/MyTasks/TasksList";
 import UserProfile from "./components/UsersProfile/UsersProfile";
 import {getUsers} from "./firebase/firebaseRequests";
 import {auth} from './firebase/firebase'
@@ -14,6 +14,7 @@ import {setUserId} from "./redux/reducers/profileReducer";
 import Authentication from "./components/AuthenticationPage/Authentication";
 import {connect} from "react-redux";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import MyTasksContainer from "./pages/MyTasks/MyTasksContainer";
 
 const App = props => {
     useEffect(() => {
@@ -48,7 +49,7 @@ const App = props => {
                             totalUsersCount={props.state.users.totalUsersCount}
                             currentUserProfile={props.state.users.currentUserProfile}
                         />}/>
-                        <Route path={'/my-tasks'} component={MyTasks}/>
+                        <Route path={'/my-tasks'} component={MyTasksContainer}/>
                         <Route path={'/auth'} render={() => <Authentication
                             dispatch={props.dispatch}
                             userName={props.state.profile.userName}
