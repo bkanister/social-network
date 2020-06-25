@@ -1,24 +1,17 @@
-import {SET_USER_NAME, SET_USER_ID, SET_USER_STATUS} from "./constants";
-import {auth, firestore} from "../../firebase/firebase";
+import {SET_USER_NAME, SET_USER_ID, SET_USER_STATUS} from "../constants";
+import {auth, firestore} from "../../../firebase/firebase";
 import * as firebase from "firebase/app"
-
-
+import {InitialStateType, ActionTypes} from "./types";
+import {Dispatch} from "redux";
 
 const initialState: InitialStateType = {
     userID: '',
     firstName: '',
     userStatus: ''
 }
-
-type InitialStateType = {
-    userID: string
-    firstName: string
-    userStatus: string
-}
-
 const usersCollection = firestore.collection('users')
 
-const profileReducer = (state = initialState, action: any) => {
+const profileReducer = (state = initialState, action: ActionTypes): InitialStateType => {
     switch (action.type) {
 
         case SET_USER_ID:
@@ -44,16 +37,13 @@ const profileReducer = (state = initialState, action: any) => {
 }
 
 
-type SetUserIdType = (userId: string) => ({type: typeof SET_USER_ID, payload: string})
-export const setUserId: SetUserIdType = (userId: string) => ({type: SET_USER_ID, payload: userId})
+export const setUserId = (userId: string): ActionTypes => ({type: SET_USER_ID, payload: userId})
+export const setUserStatus= (status: string): ActionTypes  => ({type: SET_USER_STATUS, payload: status})
+export const setUserName = (firstName: string): ActionTypes => ({type: SET_USER_NAME, payload: firstName})
 
-type SetUserStatusType = (status: string) => ({type: typeof SET_USER_STATUS, payload: string})
-export const setUserStatus: SetUserStatusType = (status: string) => ({type: SET_USER_STATUS, payload: status})
+type DispatchType = Dispatch<ActionTypes>
 
-type SetUserNameType = (firstName: string) => ({type: typeof SET_USER_NAME, payload: string})
-export const setUserName: SetUserNameType  = (firstName: string)=> ({type: SET_USER_NAME, payload: firstName})
-
-export const signInThunkAC = (email: string, password: string) => (dispatch: any) => {
+export const signInThunkAC = (email: string, password: string) => (dispatch: DispatchType) => {
          firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
             .then(() => {
                return firebase.auth().signInWithEmailAndPassword(email, password)
@@ -73,7 +63,7 @@ export const signInThunkAC = (email: string, password: string) => (dispatch: any
             });
 }
 
-export const signUpThunkAC = (firstName: string, lastName: string, email: string, password: string) => (dispatch: any) => {
+export const signUpThunkAC = (firstName: string, lastName: string, email: string, password: string) => (dispatch: DispatchType) => {
     debugger
         auth.createUserWithEmailAndPassword(email, password)
             .then(() => {
@@ -92,7 +82,7 @@ export const signUpThunkAC = (firstName: string, lastName: string, email: string
             })
 }
 
-export const updateStatusThunkAC = (value: string) => (dispatch: any) => {
+export const updateStatusThunkAC = (value: string) => (dispatch: DispatchType) => {
     dispatch(setUserStatus(value))
     // @ts-ignore
     usersCollection.doc(auth.currentUser.uid)
@@ -102,7 +92,7 @@ export const updateStatusThunkAC = (value: string) => (dispatch: any) => {
         .catch(error => console.log(error));
 }
 
-export const getUserStatusThunkAC = () => async (dispatch: any) => {
+export const getUserStatusThunkAC = () => async (dispatch: DispatchType) => {
         // @ts-ignore
     const response = await usersCollection.doc(auth.currentUser.uid).get()
             if (response.exists) {
@@ -111,7 +101,7 @@ export const getUserStatusThunkAC = () => async (dispatch: any) => {
             }
 }
 
-export const getUserNameThunkAC = () => async (dispatch: any) => {
+export const getUserNameThunkAC = () => async (dispatch: DispatchType) => {
         // @ts-ignore
     const response = await usersCollection.doc(auth.currentUser.uid).get()
             if (response.exists) {

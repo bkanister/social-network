@@ -10,7 +10,7 @@ import MyTasks from "./pages/MyTasks/TasksList";
 import UserProfile from "./components/UsersProfile/UsersProfile";
 import {getUsers} from "./firebase/firebaseRequests";
 import {auth} from './firebase/firebase'
-import {setUserId} from "./redux/reducers/profileReducer";
+import {setUserId} from "./redux/reducers/profile/profileReducer";
 import Authentication from "./components/AuthenticationPage/Authentication";
 import {connect} from "react-redux";
 import 'bootstrap/dist/css/bootstrap.min.css';

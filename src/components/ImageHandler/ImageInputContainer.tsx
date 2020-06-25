@@ -1,14 +1,11 @@
 import React, {ChangeEvent} from 'react'
 import {storage} from "../../firebase/firebase";
 import ImageInput from "./ImageInput";
-import {addPhotoCreator} from "../../redux/reducers/postsReducer";
-import {connect} from "react-redux";
+import {addPhotoCreator} from "../../redux/reducers/posts/postsReducer";
+import {connect, ConnectedProps} from "react-redux";
 import {StoreType} from "../../redux/reduxStore";
 
-type Props = {
-    postImage: string
-    addPhoto: (url: string) => void
-}
+type Props = PropsFromRedux
 
 const ImageInputContainer = ({postImage, addPhoto}: Props) => {
 
@@ -63,4 +60,7 @@ const mapDispatchToProps = (dispatch: any) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ImageInputContainer)
+const connector = connect(mapStateToProps, mapDispatchToProps)
+type PropsFromRedux = ConnectedProps<typeof connector>
+
+export default connector(ImageInputContainer)

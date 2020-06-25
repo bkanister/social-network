@@ -1,19 +1,14 @@
 import React, {useEffect, FC} from "react";
 import classes from './Profile.module.css'
-import {connect} from "react-redux";
+import {connect, ConnectedProps} from "react-redux";
 import {auth} from "../../firebase/firebase";
 import Status from "./Status/Status";
-import {getUserNameThunkAC, setUserId} from "../../redux/reducers/profileReducer";
+import {getUserNameThunkAC, setUserId} from "../../redux/reducers/profile/profileReducer";
 import Button from "react-bootstrap/Button";
 import {StoreType} from "../../redux/reduxStore";
 
-type PropsType = {
-    avatar: string
-    firstName: string
-    userID: string
-    setUserId: (userID: string) => void,
-    getName: () => void
-}
+type PropsType = PropsFromRedux
+
 const Profile: FC<PropsType> = ({avatar, firstName, userID, setUserId, getName}) => {
     useEffect(() => {
         getName()
@@ -58,5 +53,7 @@ const mapDispatchToProps = (dispatch: any) => {
     }
 }
 
+const connector = connect(mapStateToProps, mapDispatchToProps)
+type PropsFromRedux = ConnectedProps<typeof connector>
 
-export default connect(mapStateToProps, mapDispatchToProps)(Profile)
+export default connector(Profile)

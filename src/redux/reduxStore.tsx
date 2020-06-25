@@ -1,9 +1,9 @@
 import {createStore, applyMiddleware, combineReducers} from "redux";
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
-import postsReducer from "./reducers/postsReducer";
+import postsReducer from "./reducers/posts/postsReducer";
 import usersReducer from "./reducers/usersReducer";
-import profileReducer from "./reducers/profileReducer";
+import profileReducer from "./reducers/profile/profileReducer";
 import { reducer as formReducer } from 'redux-form'
 
 const rootReducer = combineReducers({
@@ -13,8 +13,7 @@ const rootReducer = combineReducers({
     form: formReducer
 })
 
-type RootReducerType = typeof rootReducer
-export type StoreType = ReturnType<RootReducerType>
+export type StoreType = ReturnType<typeof rootReducer>
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 

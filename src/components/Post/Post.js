@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import classes from '../Post/Post.module.css'
-import {deletePostThunkAC} from "../../redux/reducers/postsReducer";
+import {deletePostThunkAC} from "../../redux/reducers/posts/postsReducer";
 import {connect} from "react-redux";
 import ModalWindow from "../Modal/Modal";
 import Button from "react-bootstrap/Button";

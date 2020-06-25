@@ -1,6 +1,6 @@
 import React from 'react'
 import classes from '../NewPostCreator/NewPostCreator.module.css'
-import {addPostThunkAC} from "../../redux/reducers/postsReducer";
+import {addPostThunkAC} from "../../redux/reducers/posts/postsReducer";
 import ImageInputContainer from "../ImageHandler/ImageInputContainer";
 import {connect} from "react-redux";
 import {Field, reduxForm, reset} from "redux-form";

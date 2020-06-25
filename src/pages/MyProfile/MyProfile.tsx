@@ -4,7 +4,7 @@ import React from "react";
 import withAuth from "../../components/AuthenticationPage/withAuth";
 import NewPostCreator from "../../components/NewPostCreator/NewPostCreator";
 
-const MyProfile = props => {
+const MyProfile = () => {
     return (
         <div style={{flexGrow: 1}}>
                 <Profile/>

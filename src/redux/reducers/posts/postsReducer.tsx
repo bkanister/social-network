@@ -2,26 +2,14 @@ import {
     ADD_PHOTO,
     ADD_POST,
     DELETE_POST,
-    DOWNLOAD_POSTS,
-    INPUT_CHANGE,
-} from "./constants";
-import {deletePostFromServer, sendPostToServerAndGetKey} from "../../firebase/firebaseRequests";
-import {firestore, auth} from "../../firebase/firebase";
+    DOWNLOAD_POSTS
+} from "../constants";
+import {deletePostFromServer, sendPostToServerAndGetKey} from "../../../firebase/firebaseRequests";
+import {firestore, auth} from "../../../firebase/firebase";
+import {InitialStateType, ActionTypes, PostType} from "./types";
+import {StoreType} from "../../reduxStore";
+import {Dispatch} from "redux";
 
-type InitialStateType = {
-    avatar: string
-    posts: Array<PostType>
-    textareaValue: string
-    postImage: string
-    postsAreLoading: boolean
-}
-type PostType = {
-    key: string | undefined
-    body: string
-    img: string | undefined
-    date: string
-    timestamp: number
-}
 
 const initialState: InitialStateType = {
     avatar: 'https://image.spreadshirtmedia.net/image-server/v1/mp/designs/170224352,width=178,height=178,version=1579272891/benzinkanister-ersatz-tanken.png',
@@ -31,7 +19,7 @@ const initialState: InitialStateType = {
     postsAreLoading: false
 }
 
-const postsReducer = (state = initialState, action: any) => {
+const postsReducer = (state = initialState, action: ActionTypes): InitialStateType => {
     switch (action.type) {
         case ADD_POST:
             return {
@@ -69,20 +57,18 @@ const postsReducer = (state = initialState, action: any) => {
     }
 }
 
-type AddPostCreatorType = (newPost: PostType) => ({type: typeof ADD_POST, payload: PostType})
-export const addPostCreator: AddPostCreatorType = (newPost: PostType) => ({type: ADD_POST, payload: newPost})
 
-type DeletePostCreatorType = (postKey: string) => ({type: typeof DELETE_POST, payload: string})
-export const deletePostCreator: DeletePostCreatorType = (postKey: string) => ({type: DELETE_POST, payload: postKey})
 
-type DownloadPostsCreatorType = (posts: Array<PostType>) => ({type: typeof DOWNLOAD_POSTS, payload: Array<PostType>})
-export const downloadPostsCreator: DownloadPostsCreatorType = (posts: Array<PostType>) => ({type: DOWNLOAD_POSTS, payload: posts})
+export const addPostCreator = (newPost: PostType): ActionTypes  => ({type: ADD_POST, payload: newPost})
+export const deletePostCreator = (postKey: string): ActionTypes => ({type: DELETE_POST, payload: postKey})
+export const downloadPostsCreator = (posts: PostType[]): ActionTypes => ({type: DOWNLOAD_POSTS, payload: posts})
+export const addPhotoCreator = (fireBaseUrl: string): ActionTypes => ({type: ADD_PHOTO, payload: fireBaseUrl})
 
-type AddPhotoCreatorType = (fireBaseUrl: string) => ({type: typeof ADD_PHOTO, payload: string})
-export const addPhotoCreator: AddPhotoCreatorType = (fireBaseUrl: string) => ({type: ADD_PHOTO, payload: fireBaseUrl})
+type DispatchType = Dispatch<ActionTypes>
+type GetStateType = () => StoreType
 
 export const getPostsThunkAC = () => {
-    return (dispatch: any) => {
+    return (dispatch: DispatchType) => {
         // @ts-ignore
         firestore.collection("users").doc(auth.currentUser.uid).collection('posts').get()
             .then(function (querySnapshot) {
@@ -100,14 +86,12 @@ export const getPostsThunkAC = () => {
     }
 }
 
-export const deletePostThunkAC = (postKey: string) => {
-    return (dispatch: any) => {
+export const deletePostThunkAC = (postKey: string) => (dispatch: DispatchType) => {
         deletePostFromServer(postKey)
         dispatch(deletePostCreator(postKey))
     }
-}
 
-export const addPostThunkAC = (postText: string) => (dispatch: any, getState: any) => {
+export const addPostThunkAC = (postText: string) => (dispatch: DispatchType, getState: GetStateType) => {
         const newPost: PostType = {
             key: '',
             body: postText,

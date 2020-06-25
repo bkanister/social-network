@@ -27,26 +27,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e2d4b51-0842-4c32-b61d-f1a185f159f3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/Authentication.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/reducers/posts/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/reducers/profile/types.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AuthenticationPage/Authentication.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AuthenticationPage/SignIn/SignIn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AuthenticationPage/SignIn/SignInContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/SignIn/SignInContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AuthenticationPage/SignIn/SignInStyled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/SignIn/SignInStyled.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AuthenticationPage/SignUp/CreateAccount.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/SignUp/CreateAccount.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AuthenticationPage/SignUp/SignUpContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/SignUp/SignUpContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AuthenticationPage/withAuth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/withAuth.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ImageHandler/ImageInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ImageHandler/ImageInput.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ImageHandler/ImageInputContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ImageHandler/ImageInputContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Modal/Modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/Modal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MyProfile/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyProfile/Profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MyProfile/Status/Status.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyProfile/Status/Status.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/formComponents/Input.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/formComponents/Input.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/formComponents/Textarea.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/formComponents/Textarea.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/MyTasks/NewTaskCreator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyTasks/NewTaskCreator.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reduxStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reduxStore.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AuthenticationPage/SignIn/SignInContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/SignIn/SignInContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AuthenticationPage/SignUp/SignUpContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/SignUp/SignUpContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageHandler/ImageInputContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ImageHandler/ImageInputContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MyProfile/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyProfile/Profile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MyProfile/Status/Status.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyProfile/Status/Status.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NewPostCreator/NewPostCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewPostCreator/NewPostCreator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Post/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Post/Post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Posts/Posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Posts/Posts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/postsReducer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/posts/postsReducer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/profileReducer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/profile/profileReducer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reduxStore.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reduxStore.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +53,7 @@
       <list>
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -108,13 +104,15 @@
     <property name="ts.external.directory.path" value="X:\Projects\social-network\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="X:\Projects\social-network\src\pages\MyTasks" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="X:\Projects\social-network\src\redux\reducers\posts" />
+      <recent name="X:\Projects\social-network\src\redux\reducers\profile" />
+      <recent name="X:\Projects\social-network\src\components\AuthenticationPage\SignUp" />
       <recent name="X:\Projects\social-network\src\components\AuthenticationPage\SignIn" />
       <recent name="X:\Projects\social-network\src\components\ImageHandler" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="X:\Projects\social-network\src\components\AuthenticationPage\SignUp" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="X:\Projects\social-network\src\pages\MyTasks" />
       <recent name="X:\Projects\social-network\src\components\AuthenticationPage\SignIn" />
       <recent name="X:\Projects\social-network\src\components\ImageHandler" />
     </key>
@@ -170,7 +168,7 @@
       <workItem from="1592905309745" duration="19642000" />
       <workItem from="1592984900861" duration="4150000" />
       <workItem from="1592994113673" duration="15683000" />
-      <workItem from="1593071381591" duration="4826000" />
+      <workItem from="1593071381591" duration="11133000" />
     </task>
     <servers />
   </component>
@@ -218,6 +216,10 @@
     </state>
     <state x="572" y="228" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1590924459700" />
     <state x="572" y="241" key="#Notifications/0.0.1366.768@0.0.1366.768" timestamp="1591437190061" />
+    <state x="137" y="39" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593081716285">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="137" y="39" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1593081716285" />
     <state x="413" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1592738869003">
       <screen x="0" y="0" width="1366" height="768" />
     </state>

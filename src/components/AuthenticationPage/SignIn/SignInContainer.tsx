@@ -1,14 +1,11 @@
 import React, {FC} from 'react'
-import {signInThunkAC} from "../../../redux/reducers/profileReducer";
+import {signInThunkAC} from "../../../redux/reducers/profile/profileReducer";
 import {Redirect} from "react-router-dom";
-import {connect} from "react-redux";
+import {connect, ConnectedProps} from "react-redux";
 import SignInStyled from "./SignInStyled";
 import {StoreType} from "../../../redux/reduxStore";
 
-type PropsType = {
-    userID: string
-    signIn: (userEmail: string, userPassword: string) => void
-}
+type PropsType = PropsFromRedux
 
 const SignInContainer: FC<PropsType> = ({userID, signIn}) => {
 
@@ -35,4 +32,7 @@ const mapDispatchToProps = (dispatch: any) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignInContainer)
+const connector = connect(mapStateToProps, mapDispatchToProps)
+type PropsFromRedux = ConnectedProps<typeof connector>
+
+export default connector(SignInContainer)

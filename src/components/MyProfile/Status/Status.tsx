@@ -1,14 +1,10 @@
 import React, {ChangeEvent, FC, useEffect, useState} from 'react'
-import {getUserStatusThunkAC, updateStatusThunkAC} from "../../../redux/reducers/profileReducer";
-import {connect} from "react-redux";
+import {getUserStatusThunkAC, updateStatusThunkAC} from "../../../redux/reducers/profile/profileReducer";
+import {connect, ConnectedProps} from "react-redux";
 import {Field, InjectedFormProps, reduxForm} from "redux-form";
 import {StoreType} from "../../../redux/reduxStore";
 
-type Props = {
-    status: string
-    onSubmit: (value: string) => void
-    getStatus: () => void
-}
+type Props = PropsFromRedux
 
 const Status: FC<Props & InjectedFormProps<{}, Props>> = ({status, onSubmit, getStatus, ...props}: any) => {
     const [editMode, setEditMode] = useState(false)
@@ -62,6 +58,8 @@ const StatusForm = reduxForm<{}, Props>({
     form: 'status'
 })(Status);
 
-export default connect(mapStateToProps,
-    // @ts-ignore
-    mapDispatchToProps)(StatusForm)
+const connector = connect(mapStateToProps, mapDispatchToProps)
+type PropsFromRedux = ConnectedProps<typeof connector>
+
+// @ts-ignore
+export default connector(StatusForm)
