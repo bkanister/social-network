@@ -1,6 +1,15 @@
 import React from 'react'
 
-export const Textarea = ({input, meta, ...props}) => {
+type Props = {
+    input: any
+    meta: any
+    placeholder: string
+    touched: boolean
+    valid: boolean
+    error: any
+}
+
+export const Textarea = ({input, meta, ...props}: Props) => {
     return (
         <div>
             <textarea {...input} placeholder={props.placeholder}/>

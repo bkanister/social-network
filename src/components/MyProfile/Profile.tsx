@@ -1,15 +1,23 @@
-import React, {useEffect} from "react";
+import React, {useEffect, FC} from "react";
 import classes from './Profile.module.css'
 import {connect} from "react-redux";
 import {auth} from "../../firebase/firebase";
 import Status from "./Status/Status";
 import {getUserNameThunkAC, setUserId} from "../../redux/reducers/profileReducer";
 import Button from "react-bootstrap/Button";
+import {StoreType} from "../../redux/reduxStore";
 
-const Profile = props => {
+type PropsType = {
+    avatar: string
+    firstName: string
+    userID: string
+    setUserId: (userID: string) => void,
+    getName: () => void
+}
+const Profile: FC<PropsType> = ({avatar, firstName, userID, setUserId, getName}) => {
     useEffect(() => {
-        props.getName()
-    },[props.userID])
+        getName()
+    },[userID])
 
     const signOut = () => {
         auth.signOut().then(function() {
@@ -17,14 +25,13 @@ const Profile = props => {
         }).catch(function(error) {
             console.log('An error happened');
         });
-        props.setUserId('')
+        setUserId('')
     }
     return (
         <div className={classes.Profile}>
-            <img src={props.avatar} alt="Avatar"/>
+            <img src={avatar} alt="Avatar"/>
             <div>
-                <p>{props.firstName}</p>
-                <p>{props.lastName}</p>
+                <p>{firstName}</p>
                 <Status/>
             </div>
             <div>
@@ -36,7 +43,7 @@ const Profile = props => {
     )
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: StoreType) => {
     return {
         avatar: state.posts.avatar,
         firstName: state.profile.firstName,
@@ -44,9 +51,9 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch: any) => {
     return {
-        setUserId: (userID) => dispatch(setUserId(userID)),
+        setUserId: (userID: string) => dispatch(setUserId(userID)),
         getName: () => dispatch(getUserNameThunkAC())
     }
 }

@@ -1,25 +1,27 @@
-import React from 'react'
+import React, {FC} from 'react'
 import {Link} from "react-router-dom";
-import {reduxForm} from 'redux-form';
+import {InjectedFormProps, reduxForm} from 'redux-form';
 import {InputContainer} from "../../formComponents/Input";
 import {minLength, required} from "../../../validators";
 import Button from "react-bootstrap/Button";
 
 const minLength5 = minLength(5)
 
-let CreateAccount = (props) => {
+interface Props {}
+
+const CreateAccount: FC<Props & InjectedFormProps<{}, Props>> = (props: any) => {
     return (
         <div>
             <h1>Create new account</h1>
             <div>
                 <form onSubmit={props.handleSubmit}>
-                    <InputContainer name='firstName' type='text'
+                    <InputContainer name='firstName' type='text' label='First name:'
                                     placeholder='First name: ' validate={[required, minLength5]}/>
-                    <InputContainer name='lastName' type='text'
+                    <InputContainer name='lastName' type='text' label='Last name:'
                                     placeholder='Last name: ' validate={[required, minLength5]}/>
-                    <InputContainer name='userEmail' type='email'
+                    <InputContainer name='userEmail' type='email' label='E-mail:'
                                     placeholder='Email: ' validate={[required, minLength5]}/>
-                    <InputContainer name='userPassword' type='password'
+                    <InputContainer name='userPassword' type='password' label='Password'
                                     placeholder='Password: ' validate={[required, minLength5]}/>
                     <Button variant="success" type='submit'>SIGN UP</Button>
                 </form>
@@ -32,8 +34,8 @@ let CreateAccount = (props) => {
     )
 }
 
-CreateAccount = reduxForm({
+const SignUpForm = reduxForm<{}, Props>({
     form: 'createAccount'
 })(CreateAccount);
 
-export default CreateAccount
+export default SignUpForm

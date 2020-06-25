@@ -2,9 +2,10 @@ import React from 'react'
 import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import Preloader from "../Preloader/Preloader";
+import {StoreType} from "../../redux/reduxStore";
 
-const withAuth = Component => {
-    const withAuthRedirect = (props) => {
+const withAuth = (Component: React.ComponentType) => {
+    const withAuthRedirect = (props: any) => {
         if (props.isAuth) {
             return <Component {...props}/>
         } else {
@@ -17,7 +18,7 @@ const withAuth = Component => {
     return withRouter(connect(mapStateToProps, null)(withAuthRedirect))
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state: StoreType) => {
     return {
         isAuth: state.profile.userID
     }

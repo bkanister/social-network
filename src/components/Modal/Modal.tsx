@@ -2,7 +2,14 @@ import React from 'react'
 import Modal from 'react-bootstrap/Modal'
 import Button from "react-bootstrap/Button";
 
-const ModalWindow = ({show, postKey, confirmDelete, cancelDelete}) => {
+type Props = {
+    show: boolean
+    postKey: string
+    confirmDelete: (postKey: string) => void
+    cancelDelete: () => void
+}
+
+const ModalWindow = ({show, postKey, confirmDelete, cancelDelete}: Props) => {
     return (
         <Modal show={show} onHide={cancelDelete}>
                 <Modal.Header closeButton>
@@ -21,4 +28,5 @@ const ModalWindow = ({show, postKey, confirmDelete, cancelDelete}) => {
     )
 }
 
+// @ts-ignore
 export default ModalWindow

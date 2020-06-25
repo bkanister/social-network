@@ -13,6 +13,9 @@ const rootReducer = combineReducers({
     form: formReducer
 })
 
+type RootReducerType = typeof rootReducer
+export type StoreType = ReturnType<RootReducerType>
+
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
 
