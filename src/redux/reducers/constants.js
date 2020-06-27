@@ -12,6 +12,7 @@ export const USERS_ARE_LOADING = 'USERS_ARE_LOADING'
 export const SET_USER_ID = 'SET_USER_ID'
 export const SET_USER_STATUS = 'SET_USER_STATUS'
 export const SET_USER_NAME = 'SET_USER_NAME'
+export const SET_USER_AVATAR = 'SET_USER_AVATAR'
 //chat
 export const SEND_MESSAGE = 'SEND_MESSAGE'
 export const RECIEVE_MESSAGE = 'RECIEVE_MESSAGE'

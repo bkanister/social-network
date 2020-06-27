@@ -62,7 +62,7 @@ const postsReducer = (state = initialState, action: ActionTypes): InitialStateTy
 export const addPostCreator = (newPost: PostType): ActionTypes  => ({type: ADD_POST, payload: newPost})
 export const deletePostCreator = (postKey: string): ActionTypes => ({type: DELETE_POST, payload: postKey})
 export const downloadPostsCreator = (posts: PostType[]): ActionTypes => ({type: DOWNLOAD_POSTS, payload: posts})
-export const addPhotoCreator = (fireBaseUrl: string): ActionTypes => ({type: ADD_PHOTO, payload: fireBaseUrl})
+export const addPhotoToPostCreator = (fireBaseUrl: string): ActionTypes => ({type: ADD_PHOTO, payload: fireBaseUrl})
 
 type DispatchType = Dispatch<ActionTypes>
 type GetStateType = () => StoreType

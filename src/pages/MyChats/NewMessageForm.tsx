@@ -15,7 +15,7 @@ const NewMessageCreator: FC<Props & PropsFromRedux & InjectedFormProps<{}, Props
                 <Field name='newMessage' type='text'
                        component={Textarea}
                        placeholder='Write a new message...'/>
-                <ImageInputContainer/>
+                <ImageInputContainer exactPath={'messages'}/>
                 <Button type='submit'>send message</Button>
             </form>
         </div>

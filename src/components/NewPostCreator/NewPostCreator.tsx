@@ -19,7 +19,7 @@ const NewPostCreator: FC<Props & PropsFromRedux & InjectedFormProps<{}, PropsFro
                        component={Textarea}
                        placeholder='add new post...'
                        validate={[required, minLength10]}/>
-                    <ImageInputContainer/>
+                    <ImageInputContainer exactPath={'posts'}/>
                     <Button type='submit'>Add post</Button>
             </form>
         </div>

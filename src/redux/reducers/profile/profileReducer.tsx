@@ -1,13 +1,14 @@
-import {SET_USER_NAME, SET_USER_ID, SET_USER_STATUS} from "../constants";
+import {SET_USER_NAME, SET_USER_ID, SET_USER_STATUS, SET_USER_AVATAR} from "../constants";
 import {auth, firestore} from "../../../firebase/firebase";
 import * as firebase from "firebase/app"
 import {InitialStateType, ActionTypes} from "./types";
-import {Dispatch} from "redux";
+import {DispatchType} from "../profile/types";
 
 const initialState: InitialStateType = {
     userID: '',
     firstName: '',
-    userStatus: ''
+    userStatus: '',
+    avatar: ''
 }
 const usersCollection = firestore.collection('users')
 
@@ -32,6 +33,12 @@ const profileReducer = (state = initialState, action: ActionTypes): InitialState
                 userStatus: action.payload
             }
 
+        case SET_USER_AVATAR:
+            return {
+                ...state,
+                avatar: action.payload
+            }
+
         default: return state
     }
 }
@@ -40,8 +47,9 @@ const profileReducer = (state = initialState, action: ActionTypes): InitialState
 export const setUserId = (userId: string): ActionTypes => ({type: SET_USER_ID, payload: userId})
 export const setUserStatus= (status: string): ActionTypes  => ({type: SET_USER_STATUS, payload: status})
 export const setUserName = (firstName: string): ActionTypes => ({type: SET_USER_NAME, payload: firstName})
+export const setUserAvatar = (avatar: string): ActionTypes => ({type: SET_USER_AVATAR, payload: avatar})
 
-type DispatchType = Dispatch<ActionTypes>
+
 
 export const signInThunkAC = (email: string, password: string) => (dispatch: DispatchType) => {
          firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
@@ -61,7 +69,6 @@ export const signInThunkAC = (email: string, password: string) => (dispatch: Dis
                         console.log(error);
             });
 }
-
 export const signUpThunkAC = (firstName: string, lastName: string, email: string, password: string) => (dispatch: DispatchType) => {
     debugger
         auth.createUserWithEmailAndPassword(email, password)
@@ -79,6 +86,7 @@ export const signUpThunkAC = (firstName: string, lastName: string, email: string
             })
 }
 
+
 export const updateStatusThunkAC = (value: string) => (dispatch: DispatchType) => {
     dispatch(setUserStatus(value))
     usersCollection.doc(auth.currentUser!.uid)
@@ -87,13 +95,29 @@ export const updateStatusThunkAC = (value: string) => (dispatch: DispatchType) =
         })
         .catch(error => console.log(error));
 }
-
 export const getUserStatusThunkAC = () => async (dispatch: DispatchType) => {
     const response = await usersCollection.doc(auth.currentUser!.uid).get()
             if (response.exists) {
                 dispatch(setUserStatus(response.data()!.status))
             }
 }
+
+
+export const getUserAvatarThunkAC = () => async (dispatch: DispatchType) => {
+    const response = await usersCollection.doc(auth.currentUser!.uid).get()
+            if (response.exists) {
+                dispatch(setUserAvatar(response.data()!.avatar))
+            }
+}
+export const updateUserAvatarThunkAC = (value: string) => (dispatch: DispatchType) => {
+    dispatch(setUserAvatar(value))
+    usersCollection.doc(auth.currentUser!.uid)
+        .update({
+            avatar: value
+        })
+        .catch(error => console.log(error));
+}
+
 
 export const getUserNameThunkAC = () => async (dispatch: DispatchType) => {
     const response = await usersCollection.doc(auth.currentUser!.uid).get()

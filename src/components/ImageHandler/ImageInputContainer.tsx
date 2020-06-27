@@ -1,18 +1,20 @@
 import React, {ChangeEvent} from 'react'
-import {storage} from "../../firebase/firebase";
+import {auth, storage} from "../../firebase/firebase";
 import ImageInput from "./ImageInput";
-import {addPhotoCreator} from "../../redux/reducers/posts/postsReducer";
+import {addPhotoToPostCreator} from "../../redux/reducers/posts/postsReducer";
 import {connect, ConnectedProps} from "react-redux";
 import {StoreType} from "../../redux/reduxStore";
+import { updateUserAvatarThunkAC } from '../../redux/reducers/profile/profileReducer';
 
-type Props = PropsFromRedux
+type Props = PropsFromRedux & {
+    exactPath: string
+}
 
-const ImageInputContainer = ({postImage, addPhoto}: Props) => {
+const ImageInputContainer = ({postImage, addPhoto, changeAvatar, exactPath}: Props) => {
 
     const downloadImage = (e: ChangeEvent<HTMLInputElement>) => {
         return new Promise((resolve, reject) => {
             const image: File | null = e.target.files ? e.target.files[0] : null
-            // const image: File | null = e.target.files[0]
             if (image) {
                 resolve(image)
             } else {
@@ -23,16 +25,19 @@ const ImageInputContainer = ({postImage, addPhoto}: Props) => {
     }
 
     const handleFireBaseUpload = (image: any) => {
-        const uploadTask = storage.ref(`/images/${image.name}`).put(image)
+        const uploadTask = storage.ref(`${auth.currentUser!.uid}/images/${exactPath}/${image.name}`).put(image)
         uploadTask.on('state_changed',
             (snapShot) => {
                 console.log(snapShot)
             }, (err) => {
                 console.log(err)
             }, () => {
-                storage.ref('images').child(image.name).getDownloadURL()
+                storage.ref(`${auth.currentUser!.uid}/images/${exactPath}/`).child(image.name).getDownloadURL()
                     .then(fireBaseUrl => {
                         addPhoto(fireBaseUrl)
+                        if (exactPath === 'profile') {
+                            changeAvatar(fireBaseUrl)
+                        }
                     })
         })
     }
@@ -56,7 +61,8 @@ const mapStateToProps = (state: StoreType) => {
 
 const mapDispatchToProps = (dispatch: any) => {
     return {
-        addPhoto: (url: string) => dispatch(addPhotoCreator(url))
+        addPhoto: (url: string) => dispatch(addPhotoToPostCreator(url)),
+        changeAvatar: (url: string) => dispatch(updateUserAvatarThunkAC(url))
     }
 }
 

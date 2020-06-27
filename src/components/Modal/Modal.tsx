@@ -4,25 +4,26 @@ import Button from "react-bootstrap/Button";
 
 type Props = {
     show: boolean
-    postKey: string
-    confirmDelete: (postKey: string) => void
-    cancelDelete: () => void
+    custom?: any
+    confirm: any
+    cancel: () => void
+    text: string
 }
 
-const ModalWindow = ({show, postKey, confirmDelete, cancelDelete}: Props) => {
+const ModalWindow = ({show, custom, confirm, cancel, text}: Props) => {
     return (
-        <Modal show={show} onHide={cancelDelete}>
+        <Modal show={show} onHide={cancel}>
                 <Modal.Header closeButton>
                     <Modal.Title>Warning</Modal.Title>
                 </Modal.Header>
 
                 <Modal.Body>
-                    <p>Are you sure?</p>
+                    <p>Are you sure you want to {text}?</p>
                 </Modal.Body>
 
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={cancelDelete}>No, cancel</Button>
-                    <Button variant="primary" onClick={() => confirmDelete(postKey)}>Yes, delete</Button>
+                    <Button variant="secondary" onClick={cancel}>No</Button>
+                    <Button variant="primary" onClick={custom ? () => confirm(custom) : confirm}>Yes</Button>
                 </Modal.Footer>
         </Modal>
     )

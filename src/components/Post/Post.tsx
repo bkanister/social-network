@@ -36,9 +36,9 @@ const Post = ({avatar, deletePost, post}: Props) => {
                 <p>{post.date}</p>
                 <p>10 Likes</p>
             </footer>
-            {show && <ModalWindow show={show} postKey={post.key}
-                                  confirmDelete={deletePost}
-                                  cancelDelete={onCancelDelete}/>}
+            {show && <ModalWindow text={'delete your post'} show={show} custom={post.key}
+                                  confirm={deletePost}
+                                  cancel={onCancelDelete}/>}
         </div>
     )
 }

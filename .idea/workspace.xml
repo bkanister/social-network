@@ -27,64 +27,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e2d4b51-0842-4c32-b61d-f1a185f159f3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/pages/MyChats/Chat.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/MyChats/MyChats.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/MyChats/NewMessageForm.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/reducers/chats/chatReducer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/reducers/chats/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2020_15_45_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2020_15_45__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2020_15_54_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2020_15_54__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2020_15_56_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2020_15_56__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2020_15_57_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2020_15_57__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2020_15_59_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2020_15_59__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2020_16_00_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2020_16_00__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2020_16_01_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2020_16_01__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2020_16_04_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2020_16_04__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2020_16_06_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2020_16_06_[Default_Changelist]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2020_16_06__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2020_16_06__Default_Changelist_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2020_16_07_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2020_16_07__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2020_16_08_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2020_16_08__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2020_16_09_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2020_16_09__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2020_16_20_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2020_16_20__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2020_16_22_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2020_16_22__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2020_16_23_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2020_16_23__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2020_16_45_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_06_2020_16_45__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ChatList/RecentChats/RecentChats.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ChatList/RecentChats/RecentChats.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ChatList/RecentContacts/RecentContacts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ChatList/RecentContacts/RecentContacts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MyProfile/Status/Status.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyProfile/Status/Status.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NewPostCreator/NewPostCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewPostCreator/NewPostCreator.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Post/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Post/Post.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Posts/Posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Posts/Posts.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/firebase/firebase.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/firebase.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/firebase/firebaseRequests.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/firebaseRequests.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/MyChats/MyChats.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/MyChats/MyChats.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyChats/MyChats.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/MyFriends/MyFriends.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyFriends/MyFriends.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageHandler/ImageInputContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ImageHandler/ImageInputContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Modal/Modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/Modal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MyProfile/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyProfile/Profile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NewPostCreator/NewPostCreator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewPostCreator/NewPostCreator.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Post/Post.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Post/Post.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/MyChats/NewMessageForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyChats/NewMessageForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/reducers/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducers/posts/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/posts/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/posts/postsReducer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/posts/postsReducer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/reducers/profile/profileReducer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/profile/profileReducer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducers/usersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/usersReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reduxStore.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reduxStore.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/profile/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/profile/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +168,7 @@
       <workItem from="1593071381591" duration="25559000" />
       <workItem from="1593163105289" duration="9742000" />
       <workItem from="1593178292426" duration="592000" />
-      <workItem from="1593240948466" duration="15501000" />
+      <workItem from="1593240948466" duration="21507000" />
     </task>
     <servers />
   </component>
