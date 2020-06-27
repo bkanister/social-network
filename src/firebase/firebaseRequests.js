@@ -1,18 +1,5 @@
 import axios from "axios";
-import {downloadUsersCreator, usersAreLoadingCreator} from "../redux/reducers/usersReducer";
 import {auth, firestore} from "./firebase"
-
-export const getUsers = (dispatch, currentPage) => {
-    console.log('get users')
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=100&page=${currentPage}`)
-        .then((response) => {
-            dispatch(usersAreLoadingCreator())
-            return response
-        })
-        .then((response) => {
-            dispatch(downloadUsersCreator(response.data));
-        })
-}
 
 export const getUserProfile = (dispatch, id) => {
     console.log('getUserProfile')

@@ -2,7 +2,7 @@ import React from 'react'
 import classes from '../Navbar/Navbar.module.css'
 import {NavLink} from "react-router-dom";
 
-const Navbar = props => {
+const Navbar = () => {
     return (
         <aside className={classes.Navbar}>
             <header className={classes.logo}>Social network</header>

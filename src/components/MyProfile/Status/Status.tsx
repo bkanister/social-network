@@ -4,10 +4,8 @@ import {connect, ConnectedProps} from "react-redux";
 import {Field, InjectedFormProps, reduxForm} from "redux-form";
 import {StoreType} from "../../../redux/reduxStore";
 
-type Props = PropsFromRedux
-
-const Status: FC<Props & InjectedFormProps<{}, Props>> = ({status, onSubmit, getStatus, ...props}: any) => {
-    const [editMode, setEditMode] = useState(false)
+const Status: FC<PropsFromRedux & InjectedFormProps<{}, PropsFromRedux>> = ({status, onSubmit, getStatus, ...props}: any) => {
+    const [editMode, setEditMode] = useState<boolean>(false)
 
     useEffect(() => {
         getStatus()
@@ -18,7 +16,7 @@ const Status: FC<Props & InjectedFormProps<{}, Props>> = ({status, onSubmit, get
         onSubmit(value)
     }
 
-    const handleEnterPress = (e: any) => {
+    const handleEnterPress = (e: React.KeyboardEvent & React.ChangeEvent<HTMLInputElement>) => {
         if (e.key === 'Enter') {
             sendStatus(e.currentTarget.value)
         }
@@ -29,8 +27,8 @@ const Status: FC<Props & InjectedFormProps<{}, Props>> = ({status, onSubmit, get
             ? <p onDoubleClick={() => setEditMode(true)} >{status || 'hi'}</p>
             : <form onSubmit={props.handleSubmit}>
                 <Field autoFocus name='status' component='input' type='text'
-                       onBlur={(e: any) => sendStatus(e.currentTarget.value)}
-                       onKeyPress={(e: any) => handleEnterPress(e)}
+                       onBlur={(e: React.ChangeEvent<HTMLInputElement>) => sendStatus(e.currentTarget.value)}
+                       onKeyPress={(e: React.KeyboardEvent & React.ChangeEvent<HTMLInputElement>) => handleEnterPress(e)}
                        value={props.initialValues}
                 />
             </form>
@@ -54,7 +52,7 @@ const mapDispatchToProps = (dispatch: any) => {
     }
 }
 
-const StatusForm = reduxForm<{}, Props>({
+const StatusForm = reduxForm<{}, PropsFromRedux>({
     form: 'status'
 })(Status);
 

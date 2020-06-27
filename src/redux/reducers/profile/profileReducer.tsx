@@ -49,8 +49,7 @@ export const signInThunkAC = (email: string, password: string) => (dispatch: Dis
                return firebase.auth().signInWithEmailAndPassword(email, password)
                    .then((response) => {
                     console.log(response)
-                    // @ts-ignore
-                       dispatch(setUserId(auth.currentUser.uid))
+                       dispatch(setUserId(auth.currentUser!.uid))
                 })
             })
             .catch(error => {
@@ -69,14 +68,12 @@ export const signUpThunkAC = (firstName: string, lastName: string, email: string
             .then(() => {
                 firebase.auth().onAuthStateChanged(user => {
                     if (user) {
-                            // @ts-ignore
-                        usersCollection.doc(auth.currentUser.uid).set({
+                        usersCollection.doc(auth.currentUser!.uid).set({
                                 firstName,
                                 lastName,
                                 email
                             })
-                            // @ts-ignore
-                        dispatch(setUserId(auth.currentUser.uid))
+                        dispatch(setUserId(auth.currentUser!.uid))
                     }
                 });
             })
@@ -84,8 +81,7 @@ export const signUpThunkAC = (firstName: string, lastName: string, email: string
 
 export const updateStatusThunkAC = (value: string) => (dispatch: DispatchType) => {
     dispatch(setUserStatus(value))
-    // @ts-ignore
-    usersCollection.doc(auth.currentUser.uid)
+    usersCollection.doc(auth.currentUser!.uid)
         .update({
             status: value
         })
@@ -93,21 +89,17 @@ export const updateStatusThunkAC = (value: string) => (dispatch: DispatchType) =
 }
 
 export const getUserStatusThunkAC = () => async (dispatch: DispatchType) => {
-        // @ts-ignore
-    const response = await usersCollection.doc(auth.currentUser.uid).get()
+    const response = await usersCollection.doc(auth.currentUser!.uid).get()
             if (response.exists) {
-                // @ts-ignore
-                dispatch(setUserStatus(response.data().status))
+                dispatch(setUserStatus(response.data()!.status))
             }
 }
 
 export const getUserNameThunkAC = () => async (dispatch: DispatchType) => {
-        // @ts-ignore
-    const response = await usersCollection.doc(auth.currentUser.uid).get()
+    const response = await usersCollection.doc(auth.currentUser!.uid).get()
             if (response.exists) {
                 console.log(response.data())
-                // @ts-ignore
-                dispatch(setUserName(response.data().firstName))
+                dispatch(setUserName(response.data()!.firstName))
             }
 }
 

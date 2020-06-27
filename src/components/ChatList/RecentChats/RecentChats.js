@@ -5,7 +5,7 @@ const RecentChats = props => {
     const chats = props.users.map((user, index) => {
         return (
             <div key={index} className={classes.chat}>
-                <img src={user.photos.small || props.avatar} alt=""/>
+                <img src={props.avatar} alt=""/>
                 <div>
                     <p>{user.name}</p>
                     <p>Message text</p>

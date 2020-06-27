@@ -7,7 +7,7 @@ type AddPhotoCreatorType = ({type: typeof ADD_PHOTO, payload: string})
 
 export type InitialStateType = {
     avatar: string
-    posts: PostType[] | []
+    posts: PostType[]
     textareaValue: string
     postImage: string
     postsAreLoading: boolean

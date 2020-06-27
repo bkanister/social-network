@@ -5,12 +5,14 @@ import postsReducer from "./reducers/posts/postsReducer";
 import usersReducer from "./reducers/usersReducer";
 import profileReducer from "./reducers/profile/profileReducer";
 import { reducer as formReducer } from 'redux-form'
+import chatReducer from "./reducers/chats/chatReducer";
 
 const rootReducer = combineReducers({
     posts: postsReducer,
     users: usersReducer,
     profile: profileReducer,
-    form: formReducer
+    chat: chatReducer,
+    form: formReducer,
 })
 
 export type StoreType = ReturnType<typeof rootReducer>

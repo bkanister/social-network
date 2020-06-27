@@ -1,15 +1,17 @@
-import React from 'react'
+import React, {FC} from 'react'
 import classes from '../NewPostCreator/NewPostCreator.module.css'
 import {addPostThunkAC} from "../../redux/reducers/posts/postsReducer";
 import ImageInputContainer from "../ImageHandler/ImageInputContainer";
-import {connect} from "react-redux";
-import {Field, reduxForm, reset} from "redux-form";
+import {connect, ConnectedProps} from "react-redux";
+import {Field, InjectedFormProps, reduxForm, reset} from "redux-form";
 import {Textarea} from "../formComponents/Textarea";
 import {minLength, required} from "../../validators";
+import {Button} from "react-bootstrap";
 
 const minLength10 = minLength(10)
+interface Props {}
 
-let NewPostCreator = props => {
+const NewPostCreator: FC<Props & PropsFromRedux & InjectedFormProps<{}, PropsFromRedux>> = (props: any) => {
     return (
         <div className={classes.NewPostCreator}>
             <form onSubmit={props.handleSubmit}>
@@ -18,30 +20,27 @@ let NewPostCreator = props => {
                        placeholder='add new post...'
                        validate={[required, minLength10]}/>
                     <ImageInputContainer/>
-                    <button>Add post</button>
+                    <Button type='submit'>Add post</Button>
             </form>
         </div>
     )
 }
 
-const mapStateToProps = state => {
-    return {
-        textareaValue: state.posts.textareaValue,
-        postImage: state.posts.postImage
-    }
-}
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch: any) => {
     return {
-        onSubmit: (formData) => {
+        onSubmit: (formData: any) => {
             dispatch(addPostThunkAC(formData.newPost));
             dispatch(reset('newPostCreator'));
         }
     }
 }
 
-NewPostCreator = reduxForm({
+const NewPostForm = reduxForm<{}, PropsFromRedux>({
     form: 'newPostCreator'
 })(NewPostCreator);
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewPostCreator)
+const connector =  connect(null, mapDispatchToProps)
+type PropsFromRedux = ConnectedProps<typeof connector>
+
+export default connector(NewPostForm)
