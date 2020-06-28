@@ -28,16 +28,10 @@
   <component name="ChangeListManager">
     <list default="true" id="6e2d4b51-0842-4c32-b61d-f1a185f159f3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageHandler/ImageInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ImageHandler/ImageInput.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ImageHandler/ImageInputContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ImageHandler/ImageInputContainer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Modal/Modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/Modal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MyProfile/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyProfile/Profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NewPostCreator/NewPostCreator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewPostCreator/NewPostCreator.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Post/Post.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Post/Post.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/MyChats/NewMessageForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyChats/NewMessageForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducers/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducers/posts/postsReducer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/posts/postsReducer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducers/profile/profileReducer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/profile/profileReducer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducers/profile/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/profile/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/firebase/firebaseRequests.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/firebaseRequests.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +162,8 @@
       <workItem from="1593071381591" duration="25559000" />
       <workItem from="1593163105289" duration="9742000" />
       <workItem from="1593178292426" duration="592000" />
-      <workItem from="1593240948466" duration="21507000" />
+      <workItem from="1593240948466" duration="22527000" />
+      <workItem from="1593334774794" duration="5148000" />
     </task>
     <servers />
   </component>

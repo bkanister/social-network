@@ -22,12 +22,11 @@ const ModalWindow = ({show, custom, confirm, cancel, text}: Props) => {
                 </Modal.Body>
 
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={cancel}>No</Button>
                     <Button variant="primary" onClick={custom ? () => confirm(custom) : confirm}>Yes</Button>
+                    <Button variant="secondary" onClick={cancel}>No</Button>
                 </Modal.Footer>
         </Modal>
     )
 }
 
-// @ts-ignore
 export default ModalWindow
