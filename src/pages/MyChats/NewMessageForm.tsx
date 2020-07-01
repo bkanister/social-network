@@ -2,7 +2,6 @@ import React, { FC } from 'react'
 import {Field, InjectedFormProps, reduxForm, reset} from "redux-form";
 import {Textarea} from "../../components/formComponents/Textarea";
 import ImageInputContainer from "../../components/ImageHandler/ImageInputContainer";
-import {Button} from "react-bootstrap";
 import {connect, ConnectedProps} from "react-redux";
 import {sendMessageThunkAC} from "../../redux/reducers/chats/chatReducer";
 
@@ -16,7 +15,7 @@ const NewMessageCreator: FC<Props & PropsFromRedux & InjectedFormProps<{}, Props
                        component={Textarea}
                        placeholder='Write a new message...'/>
                 <ImageInputContainer exactPath={'messages'}/>
-                <Button type='submit'>send message</Button>
+                <button type='submit'>send message</button>
             </form>
         </div>
     )

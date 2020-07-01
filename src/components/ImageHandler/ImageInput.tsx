@@ -6,17 +6,20 @@ type Props = {
 }
 
 const ImageInput = ({postImage, downloadImage}: Props) => {
+
+    const downloadImageHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        downloadImage(e)
+        e.target.value = ''
+    }
+
     return (
         <>
-            <input type="file" src='https://mdn.mozillademos.org/files/2917/fxlogo.png'
-                   width='50' name='image'
-                   onChange={(e) => {
-                downloadImage(e)
-                e.target.value = '' // should add redux form instead of that solution
-            }}/>
-            {postImage
+            <input type="file" name='image' onChange={(e) => downloadImageHandler(e)}/>
+            {
+                postImage
                 ? <img style={{width: '100%'}} src={postImage} alt=""/>
-                : null}
+                : null
+            }
         </>
     )
 }

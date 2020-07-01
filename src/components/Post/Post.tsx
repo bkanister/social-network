@@ -3,7 +3,6 @@ import classes from '../Post/Post.module.css'
 import {deletePostThunkAC} from "../../redux/reducers/posts/postsReducer";
 import {connect, ConnectedProps} from "react-redux";
 import ModalWindow from "../Modal/Modal";
-import Button from "react-bootstrap/Button";
 import {StoreType} from "../../redux/reduxStore";
 import { PostType } from '../../redux/reducers/posts/types';
 
@@ -30,7 +29,7 @@ const Post = ({avatar, deletePost, post}: Props) => {
                     <p className={classes.postText}>{post.body}</p>
                     {post.img ? <p><img className={classes.postImg} src={post.img} alt=""/></p> : null}
                 </div>
-                <Button variant="outline-danger" onClick={onDeletePost} size='sm'>&times;</Button>
+                <button onClick={onDeletePost}>&times;</button>
             </div>
             <footer>
                 <p>{post.date}</p>

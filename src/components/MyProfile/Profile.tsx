@@ -1,17 +1,49 @@
-import React, {useEffect, FC, useState} from "react";
-import classes from './Profile.module.css'
-import {connect, ConnectedProps} from "react-redux";
-import {auth} from "../../firebase/firebase";
-import Status from "./Status/Status";
-import {getUserAvatarThunkAC, getUserNameThunkAC, setUserId} from "../../redux/reducers/profile/profileReducer";
-import Button from "react-bootstrap/Button";
-import {StoreType} from "../../redux/reduxStore";
-import ModalWindow from "../Modal/Modal";
-import ImageInputContainer from "../ImageHandler/ImageInputContainer";
+import React, {useEffect, FC, useState} from "react"
+import {connect, ConnectedProps} from "react-redux"
+import {auth} from "../../firebase/firebase"
+import Status from "./Status/Status"
+import {getUserAvatarThunkAC, getUserNameThunkAC, setUserId} from "../../redux/reducers/profile/profileReducer"
+import {StoreType} from "../../redux/reduxStore"
+import ModalWindow from "../Modal/Modal"
+import ImageInputContainer from "../ImageHandler/ImageInputContainer"
+// @ts-ignore
+import styled from 'styled-components'
 
-type PropsType = PropsFromRedux
+const StyledProfile = styled.div`
+    width: 280px;
+    height: 600px;
+    background: white;
+    margin-left: 50px;
+    border-radius: 10px;
+`
 
-const Profile: FC<PropsType> = ({avatar, firstName, userID, setUserId, getName, getAvatar}) => {
+const Avatar = styled.img`
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+`
+
+const Info = styled.div`
+    padding: 0 15px;
+`
+
+const Name = styled.div`
+    font-weight: 700;
+    font-size: 22px;
+    color: #434343;
+    margin-top: 30px;
+    margin-bottom: 20px;
+`
+
+const City = styled.p`
+    font-weight: 600;
+    font-size: 12px;
+    color: #9FA0AA;
+    margin-bottom: 20px;
+`
+
+const Profile: FC<PropsFromRedux> = ({avatar, firstName, userID, setUserId, getName, getAvatar}) => {
     const [showModal, setShowModal] = useState(false);
     const [showImageInput, setShowImageInput] = useState(false);
 
@@ -45,23 +77,20 @@ const Profile: FC<PropsType> = ({avatar, firstName, userID, setUserId, getName, 
         setUserId('')
     }
     return (
-        <div className={classes.Profile}>
-                <img onClick={onClickToChangePhoto} src={avatar} alt="Avatar"/>
-            <div>
-                <p>{firstName}</p>
+        <StyledProfile className='profile'>
+            <Avatar src={avatar} alt="Avatar" onClick={onClickToChangePhoto}/>
+            <Info>
+                <Name>{firstName}</Name>
+                <City>Saint-Petersburg<span> &middot; </span>Russia</City>
                 <Status/>
-            </div>
-            <div>
-                {auth.currentUser && <p>authorized</p>}
-                <Button variant="light" onClick={signOut}>Sign out</Button>
-                <p>Saint-Petersburg, Russia</p>
-            </div>
+                {auth.currentUser && <button onClick={signOut}>Sign out</button>}
+            </Info>
             {showModal ? <ModalWindow text={'change your photo'}
                                       show={showModal}
                                       confirm={confirmChangePhoto}
                                       cancel={onCancelChangePhoto}/> : null}
             {showImageInput ? <ImageInputContainer exactPath={'profile'}/> : null}
-        </div>
+        </StyledProfile>
     )
 }
 

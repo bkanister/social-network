@@ -6,7 +6,6 @@ import {connect, ConnectedProps} from "react-redux";
 import {Field, InjectedFormProps, reduxForm, reset} from "redux-form";
 import {Textarea} from "../formComponents/Textarea";
 import {minLength, required} from "../../validators";
-import {Button} from "react-bootstrap";
 
 const minLength10 = minLength(10)
 interface Props {}
@@ -20,7 +19,7 @@ const NewPostCreator: FC<Props & PropsFromRedux & InjectedFormProps<{}, PropsFro
                        placeholder='add new post...'
                        validate={[required, minLength10]}/>
                     <ImageInputContainer exactPath={'posts'}/>
-                    <Button type='submit'>Add post</Button>
+                    <button type='submit'>Add post</button>
             </form>
         </div>
     )

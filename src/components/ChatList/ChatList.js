@@ -1,11 +1,12 @@
 import React from 'react'
-import classes from '../ChatList/ChatList.module.css'
 import RecentContacts from "./RecentContacts/RecentContacts";
 import RecentChats from "./RecentChats/RecentChats";
 
+
+
 const ChatList = props => {
     return (
-        <aside className={classes.ChatList}>
+        <aside className='sidebar'>
             <header>Chat list</header>
             <hr/>
             <RecentContacts users={props.users} avatar={props.avatar}/>

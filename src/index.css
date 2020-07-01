@@ -1,10 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background: #F1F4F5;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navigation {
+    grid-area: header;
+}
+
+.profile {
+    grid-area: profile;
+}
+
+.main {
+    grid-area: main;
+}
+
+.sidebar {
+    grid-area: friends;
 }
 
 .App {
     display: grid;
-    grid-template-columns: 3fr 6fr 3fr;
+    grid-template-areas:
+            'header header header'
+            'profile main friends';
     column-gap: 80px;
+    row-gap: 30px;
+    grid-template-columns: 3fr 6fr 3fr;
 }

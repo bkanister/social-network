@@ -26,7 +26,9 @@ const ImageInputContainer: FC<Props> = ({postImage, exactPath}) => {
         }).then(image => handleFireBaseImageUpload(image as File, exactPath))
     }
 
-    return <ImageInput downloadImage={downloadImage} postImage={postImage}/>
+    return (
+        <ImageInput downloadImage={downloadImage} postImage={postImage}/>
+        )
 }
 
 const mapStateToProps = (state: StoreType) => {

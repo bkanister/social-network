@@ -1,6 +1,4 @@
 import React from 'react'
-import Modal from 'react-bootstrap/Modal'
-import Button from "react-bootstrap/Button";
 
 type Props = {
     show: boolean
@@ -12,20 +10,21 @@ type Props = {
 
 const ModalWindow = ({show, custom, confirm, cancel, text}: Props) => {
     return (
-        <Modal show={show} onHide={cancel}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Warning</Modal.Title>
-                </Modal.Header>
+        <div>
+                <header>
+                    <title>Warning</title>
+                    <p>&times;</p>
+                </header>
 
-                <Modal.Body>
+                <div>
                     <p>Are you sure you want to {text}?</p>
-                </Modal.Body>
+                </div>
 
-                <Modal.Footer>
-                    <Button variant="primary" onClick={custom ? () => confirm(custom) : confirm}>Yes</Button>
-                    <Button variant="secondary" onClick={cancel}>No</Button>
-                </Modal.Footer>
-        </Modal>
+                <footer>
+                    <button onClick={custom ? () => confirm(custom) : confirm}>Yes</button>
+                    <button onClick={cancel}>No</button>
+                </footer>
+        </div>
     )
 }
 

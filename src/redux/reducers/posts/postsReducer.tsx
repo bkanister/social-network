@@ -69,8 +69,7 @@ type GetStateType = () => StoreType
 
 export const getPostsThunkAC = () => {
     return (dispatch: DispatchType) => {
-        // @ts-ignore
-        firestore.collection("users").doc(auth.currentUser.uid).collection('posts').get()
+        firestore.collection("users").doc(auth.currentUser!.uid).collection('posts').get()
             .then(function (querySnapshot) {
                 let posts: any = [];
                 querySnapshot.forEach(function (doc) {

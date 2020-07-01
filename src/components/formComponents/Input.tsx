@@ -1,8 +1,5 @@
 import React, {FC} from 'react'
-import classes from "../AuthenticationPage/SignIn/SignIn.module.css";
 import {Field} from "redux-form";
-import Form from "react-bootstrap/Form";
-import Alert from "react-bootstrap/Alert";
 
 
 type InputContainerPropsType = {
@@ -15,10 +12,10 @@ type InputContainerPropsType = {
 
 export const InputContainer: FC<InputContainerPropsType> = ({name, type, label, validate}) => {
     return (
-        <Form.Group controlId={`formBasic${name}`}>
-            <Form.Label>{label}</Form.Label>
+        <form>
+            <label>{label}</label>
             <Field name={name} component={Input} type={type} validate={validate}/>
-        </Form.Group>
+        </form>
     )
 }
 
@@ -34,8 +31,8 @@ type InputPropsType = {
 const Input: FC<InputPropsType> = ({input, meta, ...props}) => {
     return (
         <>
-            <Form.Control type={props.type} {...input} />
-            {meta.touched && !meta.valid && <Alert variant='danger'>*{meta.error}</Alert>}
+            <input type={props.type} {...input} />
+            {meta.touched && !meta.valid && <p>*{meta.error}</p>}
         </>
     )
 }

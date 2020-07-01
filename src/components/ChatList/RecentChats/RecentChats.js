@@ -1,11 +1,17 @@
 import React from 'react'
-import classes from '../RecentChats/RecentChats.module.css'
+import styled from 'styled-components'
+
+const FriendsAvatar = styled.img`
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+`
 
 const RecentChats = props => {
     const chats = props.users.map((user, index) => {
         return (
-            <div key={index} className={classes.chat}>
-                <img src={props.avatar} alt=""/>
+            <div key={index}>
+                <FriendsAvatar src={props.avatar} alt=""/>
                 <div>
                     <p>{user.name}</p>
                     <p>Message text</p>
@@ -15,7 +21,7 @@ const RecentChats = props => {
     });
 
     return (
-        <div className={classes.RecentChats}>
+        <div>
             {chats}
         </div>
     )

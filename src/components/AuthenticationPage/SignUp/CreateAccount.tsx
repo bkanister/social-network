@@ -3,7 +3,6 @@ import {Link} from "react-router-dom";
 import {InjectedFormProps, reduxForm} from 'redux-form';
 import {InputContainer} from "../../formComponents/Input";
 import {minLength, required} from "../../../validators";
-import Button from "react-bootstrap/Button";
 
 const minLength5 = minLength(5)
 
@@ -23,7 +22,7 @@ const CreateAccount: FC<Props & InjectedFormProps<{}, Props>> = (props: any) => 
                                     placeholder='Email: ' validate={[required, minLength5]}/>
                     <InputContainer name='userPassword' type='password' label='Password'
                                     placeholder='Password: ' validate={[required, minLength5]}/>
-                    <Button variant="success" type='submit'>SIGN UP</Button>
+                    <button type='submit'>SIGN UP</button>
                 </form>
                 <p>
                     Already have an account?{" "}
