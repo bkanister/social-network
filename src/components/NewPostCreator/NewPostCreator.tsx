@@ -1,27 +1,74 @@
 import React, {FC} from 'react'
-import classes from '../NewPostCreator/NewPostCreator.module.css'
 import {addPostThunkAC} from "../../redux/reducers/posts/postsReducer";
 import ImageInputContainer from "../ImageHandler/ImageInputContainer";
 import {connect, ConnectedProps} from "react-redux";
 import {Field, InjectedFormProps, reduxForm, reset} from "redux-form";
 import {Textarea} from "../formComponents/Textarea";
 import {minLength, required} from "../../validators";
+// @ts-ignore
+import styled from 'styled-components'
 
+//styles
+const NewPostStyled = styled.div`
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 7px;
+    height: auto;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 15px -4px rgba(0,0,0,0.16);
+    min-width: 400px;
+`
+const NewPostFooter = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+`
+const ButtonStyled = styled.button`
+    box-shadow:inset 0px 39px 0px -24px #e67a73;
+    background-color:#e4685d;
+    border-radius:4px;
+    border:1px solid #ffffff;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:16px;
+    padding:6px 15px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #b23e35;
+    
+    &:hover {
+        background-color: #eb675e;
+    }
+    
+    &:active {
+        position:relative;
+        top:1px;
+        outline: none;
+    }
+`
+
+//validators
 const minLength10 = minLength(10)
-interface Props {}
 
-const NewPostCreator: FC<Props & PropsFromRedux & InjectedFormProps<{}, PropsFromRedux>> = (props: any) => {
+//types
+type Props = PropsFromRedux & {}
+
+const NewPostCreator: FC<Props & InjectedFormProps<{}, PropsFromRedux>> = (props: any) => {
     return (
-        <div className={classes.NewPostCreator}>
+        <NewPostStyled>
             <form onSubmit={props.handleSubmit}>
                 <Field name='newPost' type='text'
                        component={Textarea}
-                       placeholder='add new post...'
+                       placeholder='write something...'
                        validate={[required, minLength10]}/>
-                    <ImageInputContainer exactPath={'posts'}/>
-                    <button type='submit'>Add post</button>
+               <NewPostFooter>
+                   <ImageInputContainer exactPath={'posts'}/>
+                   <ButtonStyled type='submit'>Add post</ButtonStyled>
+               </NewPostFooter>
             </form>
-        </div>
+        </NewPostStyled>
     )
 }
 

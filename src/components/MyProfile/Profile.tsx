@@ -14,14 +14,16 @@ const StyledProfile = styled.div`
     height: 600px;
     background: white;
     margin-left: 50px;
-    border-radius: 10px;
+    border-radius: 7px;
+    box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.16);
 `
 
 const Avatar = styled.img`
     width: 100%;
     height: auto;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.16);
 `
 
 const Info = styled.div`
