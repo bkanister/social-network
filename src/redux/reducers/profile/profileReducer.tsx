@@ -56,7 +56,6 @@ export const signInThunkAC = (email: string, password: string) => (dispatch: Dis
             .then(() => {
                return firebase.auth().signInWithEmailAndPassword(email, password)
                    .then((response) => {
-                    console.log(response)
                        dispatch(setUserId(auth.currentUser!.uid))
                 })
             })
@@ -122,7 +121,6 @@ export const updateUserAvatarThunkAC = (value: string) => (dispatch: DispatchTyp
 export const getUserNameThunkAC = () => async (dispatch: DispatchType) => {
     const response = await usersCollection.doc(auth.currentUser!.uid).get()
             if (response.exists) {
-                console.log(response.data())
                 dispatch(setUserName(response.data()!.firstName))
             }
 }

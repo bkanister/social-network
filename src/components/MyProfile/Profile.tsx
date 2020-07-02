@@ -6,7 +6,6 @@ import {getUserAvatarThunkAC, getUserNameThunkAC, setUserId} from "../../redux/r
 import {StoreType} from "../../redux/reduxStore"
 import ModalWindow from "../Modal/Modal"
 import ImageInputContainer from "../ImageHandler/ImageInputContainer"
-// @ts-ignore
 import styled from 'styled-components'
 
 const StyledProfile = styled.div`
@@ -16,34 +15,30 @@ const StyledProfile = styled.div`
     margin-left: 50px;
     border-radius: 7px;
     box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.16);
-`
-
+`;
 const Avatar = styled.img`
     width: 100%;
     height: auto;
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
     box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.16);
-`
-
+`;
 const Info = styled.div`
     padding: 0 15px;
-`
-
+`;
 const Name = styled.div`
     font-weight: 700;
     font-size: 22px;
     color: #434343;
     margin-top: 30px;
     margin-bottom: 20px;
-`
-
+`;
 const City = styled.p`
     font-weight: 600;
     font-size: 12px;
     color: #9FA0AA;
     margin-bottom: 20px;
-`
+`;
 
 const Profile: FC<PropsFromRedux> = ({avatar, firstName, userID, setUserId, getName, getAvatar}) => {
     const [showModal, setShowModal] = useState(false);
@@ -64,10 +59,12 @@ const Profile: FC<PropsFromRedux> = ({avatar, firstName, userID, setUserId, getN
 
     useEffect(() => {
         getName()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[userID])
 
     useEffect(() => {
         getAvatar()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[avatar])
 
     const signOut = () => {

@@ -12,10 +12,10 @@ type InputContainerPropsType = {
 
 export const InputContainer: FC<InputContainerPropsType> = ({name, type, label, validate}) => {
     return (
-        <form>
+        <>
             <label>{label}</label>
             <Field name={name} component={Input} type={type} validate={validate}/>
-        </form>
+        </>
     )
 }
 

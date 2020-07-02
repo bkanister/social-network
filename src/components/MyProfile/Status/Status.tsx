@@ -9,6 +9,7 @@ const Status: FC<PropsFromRedux & InjectedFormProps<{}, PropsFromRedux>> = ({sta
 
     useEffect(() => {
         getStatus()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[status])
 
     const sendStatus = (value: string) => {

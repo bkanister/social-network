@@ -1,7 +1,5 @@
-import React, {useEffect} from "react";
-import classes from '../UsersProfile/UsersProfile.module.css'
+import React from "react";
 import {withRouter} from "react-router-dom";
-import {getUserProfile} from "../../firebase/firebaseRequests";
 import NewPostCreator from "../NewPostCreator/NewPostCreator";
 import Posts from "../Posts/Posts";
 import withAuth from "../AuthenticationPage/withAuth";

@@ -14,6 +14,7 @@ const MyChats = ({messages}: Props) => {
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(getMessagesOnceThunkAC())
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [messages])
 
 

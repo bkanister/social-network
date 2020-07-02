@@ -1,4 +1,4 @@
-import React, {FC} from 'react'
+import React from 'react'
 
 
 type User = {
@@ -12,8 +12,6 @@ type Props = {
     users: Array<User>
     avatar: string
 }
-
-
 
 
 const MyFriends = ({users, avatar}: Props) => {

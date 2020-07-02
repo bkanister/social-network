@@ -6,7 +6,6 @@ import {Route, Switch} from "react-router-dom";
 import MyProfile from "./pages/MyProfile/MyProfile";
 import MyChats from "./pages/MyChats/MyChats";
 import MyFriends from "./pages/MyFriends/MyFriends";
-import UserProfile from "./components/UsersProfile/UsersProfile";
 import {auth} from './firebase/firebase'
 import {setUserId} from "./redux/reducers/profile/profileReducer";
 import Authentication from "./components/AuthenticationPage/Authentication";
@@ -23,8 +22,8 @@ const App = ({state, dispatch}: PropsFromRedux) => {
                 dispatch(setUserId(user.uid))
                 dispatch(getUsersThunkAC())
             }
-        console.log('no user')
         })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [state.profile.userID])
 
 

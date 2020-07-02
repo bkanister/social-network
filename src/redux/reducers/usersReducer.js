@@ -1,10 +1,5 @@
-import {
-    DOWNLOAD_USERS,
-    SET_CURRENT_PAGE_NUMBER, USERS_ARE_LOADING
-} from "./constants";
-import {auth, firestore} from "../../firebase/firebase";
-import {PostType} from "./posts/types";
-import {downloadPostsCreator} from "./posts/postsReducer";
+import {DOWNLOAD_USERS} from "./constants";
+import {firestore} from "../../firebase/firebase";
 
 const initialState = {
     defaultUserAvatar: 'https://art.pixilart.com/1f127be4c0f2913.png',

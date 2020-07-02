@@ -1,10 +1,7 @@
 import React, {ChangeEvent, FC} from 'react'
-import {auth, storage} from "../../firebase/firebase";
 import ImageInput from "./ImageInput";
-import {addPhotoToPostCreator} from "../../redux/reducers/posts/postsReducer";
-import {connect, ConnectedProps} from "react-redux";
+import {connect} from "react-redux";
 import {StoreType} from "../../redux/reduxStore";
-import { updateUserAvatarThunkAC } from '../../redux/reducers/profile/profileReducer';
 import {handleFireBaseImageUpload} from "../../firebase/firebaseRequests";
 
 interface Props {

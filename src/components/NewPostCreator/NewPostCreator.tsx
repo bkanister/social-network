@@ -5,7 +5,6 @@ import {connect, ConnectedProps} from "react-redux";
 import {Field, InjectedFormProps, reduxForm, reset} from "redux-form";
 import {Textarea} from "../formComponents/Textarea";
 import {minLength, required} from "../../validators";
-// @ts-ignore
 import styled from 'styled-components'
 
 //styles
@@ -16,7 +15,7 @@ const NewPostStyled = styled.div`
     border-radius: 7px;
     height: auto;
     box-sizing: border-box;
-    box-shadow: 0px 0px 15px -4px rgba(0,0,0,0.16);
+    box-shadow: 0 0 15px -4px rgba(0,0,0,0.16);
     min-width: 400px;
 `
 const NewPostFooter = styled.div`
@@ -32,7 +31,6 @@ const ButtonStyled = styled.button`
     display:inline-block;
     cursor:pointer;
     color:#ffffff;
-    font-family:Arial;
     font-size:16px;
     padding:6px 15px;
     text-decoration:none;
@@ -61,7 +59,7 @@ const NewPostCreator: FC<Props & InjectedFormProps<{}, PropsFromRedux>> = (props
             <form onSubmit={props.handleSubmit}>
                 <Field name='newPost' type='text'
                        component={Textarea}
-                       placeholder='write something...'
+                       placeholder='Write something.'
                        validate={[required, minLength10]}/>
                <NewPostFooter>
                    <ImageInputContainer exactPath={'posts'}/>

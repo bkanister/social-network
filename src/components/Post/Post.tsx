@@ -1,16 +1,47 @@
 import React, {useState} from 'react'
-import classes from '../Post/Post.module.css'
 import {deletePostThunkAC} from "../../redux/reducers/posts/postsReducer";
 import {connect, ConnectedProps} from "react-redux";
 import ModalWindow from "../Modal/Modal";
 import {StoreType} from "../../redux/reduxStore";
 import { PostType } from '../../redux/reducers/posts/types';
+import styled from 'styled-components'
+import PostHeader from './PostHeader';
 
+
+//types
 type Props = PropsFromRedux & {
     post: PostType
 }
 
-const Post = ({avatar, deletePost, post}: Props) => {
+//styles
+
+const PostStyled = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    background: white;
+    box-shadow: 0 0 15px -4px rgba(0,0,0,0.16);
+    border-radius: 7px;
+    padding: 25px;
+`
+
+
+
+const Body = styled.div`
+  
+`
+const Image = styled.img`
+  width: 100%;
+`
+const Footer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+`
+
+
+const Post = ({avatar, name, deletePost, post}: Props) => {
     const [show, setShow] = useState(false);
 
     const onDeletePost = () => {
@@ -22,29 +53,32 @@ const Post = ({avatar, deletePost, post}: Props) => {
     }
 
     return (
-        <div className={classes.Post}>
-            <div className={classes.postContent}>
-                <img className={classes.avatar} src={avatar} alt="Avatar"/>
-                <div>
-                    <p className={classes.postText}>{post.body}</p>
-                    {post.img ? <p><img className={classes.postImg} src={post.img} alt=""/></p> : null}
-                </div>
-                <button onClick={onDeletePost}>&times;</button>
-            </div>
-            <footer>
-                <p>{post.date}</p>
-                <p>10 Likes</p>
-            </footer>
+        <PostStyled>
             {show && <ModalWindow text={'delete your post'} show={show} custom={post.key}
                                   confirm={deletePost}
                                   cancel={onCancelDelete}/>}
-        </div>
+            <PostHeader avatar={avatar} name={name}
+                        date={post.date} onDelete={onDeletePost}/>
+            <Body>
+                <p>{post.body}</p>
+                { post.img
+                    ? <p><Image src={post.img} alt=""/></p>
+                    : null }
+            </Body>
+
+            <Footer>
+                <p>10 Likes</p>
+                <p>10 comments</p>
+                <p>10 reposts</p>
+            </Footer>
+        </PostStyled>
     )
 }
 
 const mapStateToProps = (state: StoreType) => {
     return {
-        avatar: state.posts.avatar
+        avatar: state.profile.avatar,
+        name: state.profile.firstName
     }
 }
 
