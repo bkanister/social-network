@@ -7,7 +7,7 @@ const Post = props => {
             <div className={classes.postContent}>
                 <img src={props.avatar} alt="Avatar"/>
                 <p className={classes.postText}>{props.post.body}</p>
-                <button onClick={() => props.deletePost(props.postId)}>&times;</button>
+                <button onClick={() => props.dispatch({type: 'DELETE_POST', postId: props.postId})}>&times;</button>
             </div>
             <footer>
                 <p>{new Date().toLocaleString()}</p>

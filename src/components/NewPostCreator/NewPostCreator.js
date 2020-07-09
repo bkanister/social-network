@@ -10,12 +10,12 @@ const textInput = useRef(null);
                       id="textarea"
                       placeholder="Add new post..."
                       value={props.textareaValue}
-                      onChange={(e) => props.changeInputHandler(e.target.value)}
+                      onChange={(e) => props.dispatch({type: 'INPUT_CHANGE', inputText: e.target.value})}
             />
             <footer>
                 <div>add photo or emoji</div>
                 <button onClick={() => {
-                    props.addNewPost(textInput.current.value);
+                    props.dispatch({type: 'ADD_POST', postText: textInput.current.value});
                 }}>Add post</button>
             </footer>
         </div>

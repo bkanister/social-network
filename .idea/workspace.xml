@@ -2,28 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e2d4b51-0842-4c32-b61d-f1a185f159f3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/MyFriends/MyFriends.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/MyFriends/MyFriends.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/MyTasks/MyTasks.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/MyTasks/MyTasks.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/MyTeam/MyTeam.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/render.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ChatList/ChatList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ChatList/ChatList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ChatList/ChatList.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ChatList/ChatList.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ChatList/RecentChats/RecentChats.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ChatList/RecentChats/RecentChats.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ChatList/RecentChats/RecentChats.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ChatList/RecentChats/RecentChats.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navbar.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ChatList/RecentContacts/RecentContacts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ChatList/RecentContacts/RecentContacts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/NewPostCreator/NewPostCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewPostCreator/NewPostCreator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NewPostCreator/NewPostCreator.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewPostCreator/NewPostCreator.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Post/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Post/Post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Post/Post.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Post/Post.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Posts/Posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Posts/Posts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Posts/Posts.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Posts/Posts.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profile.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/MyProfile/MyProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyProfile/MyProfile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/state.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/state.js" afterDir="false" />
@@ -85,6 +69,8 @@
       <workItem from="1594329710057" duration="16464000" />
       <workItem from="1594328734679" duration="3737000" />
       <workItem from="1594329395116" duration="10184000" />
+      <workItem from="1594328702077" duration="6541000" />
+      <workItem from="1594329069850" duration="1538000" />
     </task>
     <servers />
   </component>
