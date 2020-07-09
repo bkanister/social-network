@@ -29,7 +29,7 @@ const App = ({state, dispatch}: PropsFromRedux) => {
 
     return (
          <div className="App">
-                <Navigation/>
+                <Navigation avatar={state.profile.avatar}/>
                 <MyProfile/>
                 <Switch>
                         <Route exact path={'/'} render={() => <MainContent/>}/>

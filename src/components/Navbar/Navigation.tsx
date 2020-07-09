@@ -7,6 +7,7 @@ import {ReactComponent as ChatIcon} from '../../icons/chat.svg'
 import {ReactComponent as TaskIcon} from '../../icons/property.svg'
 import {ReactComponent as NewsIcon} from '../../icons/globe.svg'
 import {ReactComponent as SettingsIcon} from '../../icons/cog.svg'
+import mainLogo from '../../social-logo.png'
 
 //styles
 const Header = styled.header`
@@ -17,8 +18,12 @@ const Header = styled.header`
     flex-direction: row;
     grid-template-columns: 2fr 8fr 2fr;
 `;
-const Logo = styled.div`
+const LogoContainer = styled.div`
     margin: auto;
+`;
+const Logo = styled.img`
+    width: 100px;
+    height: 70px;
 `;
 const Navbar = styled.nav`
     margin: auto;
@@ -40,13 +45,17 @@ const StyledNavLink = styled(NavLink)`
         right: 4px;
     }
 `
+type Props = {
+    avatar: string | undefined
+}
 
-const Navigation = () => {
+const Navigation = ({avatar}: Props) => {
     return (
         <Header className='navigation'>
-            <Logo>LOGO</Logo>
+            <LogoContainer><
+                Logo src={mainLogo} alt=""/>
+            </LogoContainer>
             <Navbar>
-
                 <StyledNavLink exact to={'/'}>
                     <HomeIcon/>
                     <span>&nbsp;My profile</span>
@@ -78,7 +87,9 @@ const Navigation = () => {
                 </StyledNavLink>
 
             </Navbar>
-            <Logo>LOGO</Logo>
+            <LogoContainer>
+                <Logo src={avatar} alt=""/>
+            </LogoContainer>
         </Header>
 
     )

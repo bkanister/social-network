@@ -52,9 +52,11 @@ export const handleFireBaseImageUpload = (image: File, exactPath: string) => {
         }, () => {
             storage.ref(`${auth.currentUser!.uid}/images/${exactPath}/`).child(image.name).getDownloadURL()
                 .then(fireBaseUrl => {
-                    store.dispatch(addPhotoToPostCreator(fireBaseUrl))
                     if (exactPath === 'profile') {
                         store.dispatch(updateUserAvatarThunkAC(fireBaseUrl))
+                    }
+                    if (exactPath === 'posts') {
+                        store.dispatch(addPhotoToPostCreator(fireBaseUrl))
                     }
                 })
         })

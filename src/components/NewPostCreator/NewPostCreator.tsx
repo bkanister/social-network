@@ -24,20 +24,20 @@ const NewPostFooter = styled.div`
     justify-content: space-between;
 `
 const ButtonStyled = styled.button`
-    box-shadow:inset 0px 39px 0px -24px #e67a73;
-    background-color:#e4685d;
+    box-shadow:inset 0px 39px 0px -24px #40A798;
+    background-color:#40A798;
     border-radius:4px;
     border:1px solid #ffffff;
     display:inline-block;
     cursor:pointer;
-    color:#ffffff;
+    color: white;
     font-size:16px;
     padding:6px 15px;
     text-decoration:none;
-    text-shadow:0px 1px 0px #b23e35;
+    text-shadow:0px 1px 0px #eee;
     
     &:hover {
-        background-color: #eb675e;
+        background-color: #40A798;
     }
     
     &:active {

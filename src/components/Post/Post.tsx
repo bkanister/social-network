@@ -6,6 +6,7 @@ import {StoreType} from "../../redux/reduxStore";
 import { PostType } from '../../redux/reducers/posts/types';
 import styled from 'styled-components'
 import PostHeader from './PostHeader';
+import PostFooter from "./PostFooter";
 
 
 //types
@@ -29,16 +30,12 @@ const PostStyled = styled.div`
 
 
 const Body = styled.div`
-  
+  margin-bottom: 20px;
 `
 const Image = styled.img`
   width: 100%;
 `
-const Footer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-`
+
 
 
 const Post = ({avatar, name, deletePost, post}: Props) => {
@@ -65,12 +62,7 @@ const Post = ({avatar, name, deletePost, post}: Props) => {
                     ? <p><Image src={post.img} alt=""/></p>
                     : null }
             </Body>
-
-            <Footer>
-                <p>10 Likes</p>
-                <p>10 comments</p>
-                <p>10 reposts</p>
-            </Footer>
+            <PostFooter/>
         </PostStyled>
     )
 }

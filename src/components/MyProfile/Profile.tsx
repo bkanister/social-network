@@ -41,22 +41,6 @@ const City = styled.p`
 `;
 
 const Profile: FC<PropsFromRedux> = ({avatar, firstName, userID, setUserId, getName, getAvatar}) => {
-    const [showModal, setShowModal] = useState(false);
-    const [showImageInput, setShowImageInput] = useState(false);
-
-    const onClickToChangePhoto = () => {
-        setShowModal(true);
-    }
-
-    const onCancelChangePhoto = () => {
-        setShowModal(false);
-    }
-
-    const confirmChangePhoto = () => {
-        setShowModal(false);
-        setShowImageInput(true)
-    }
-
     useEffect(() => {
         getName()
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -77,18 +61,14 @@ const Profile: FC<PropsFromRedux> = ({avatar, firstName, userID, setUserId, getN
     }
     return (
         <StyledProfile className='profile'>
-            <Avatar src={avatar} alt="Avatar" onClick={onClickToChangePhoto}/>
+            <Avatar src={avatar} alt="Avatar"/>
+            <ImageInputContainer exactPath={'profile'}/>
             <Info>
                 <Name>{firstName}</Name>
                 <City>Saint-Petersburg<span> &middot; </span>Russia</City>
                 <Status/>
                 {auth.currentUser && <button onClick={signOut}>Sign out</button>}
             </Info>
-            {showModal ? <ModalWindow text={'change your photo'}
-                                      show={showModal}
-                                      confirm={confirmChangePhoto}
-                                      cancel={onCancelChangePhoto}/> : null}
-            {showImageInput ? <ImageInputContainer exactPath={'profile'}/> : null}
         </StyledProfile>
     )
 }
