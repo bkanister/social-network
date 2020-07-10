@@ -27,22 +27,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e2d4b51-0842-4c32-b61d-f1a185f159f3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/ChangeAvatarForm/ChangeAvatarForm.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ImageHandler/PostImageFormContainer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/icons/mugshot.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/universalStyleComponents/styled.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AuthenticationPage/Authentication.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/Authentication.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ChatList/ChatList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ChatList/ChatList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ChatList/RecentContacts/RecentContacts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ChatList/RecentContacts/RecentContacts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ImageHandler/ImageInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ImageHandler/PostImageForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ImageHandler/ImageInputContainer.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ChatList/RecentContacts/RecentContacts.module.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageHandler/PostImageForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ImageHandler/PostImageForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MyProfile/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyProfile/Profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MyProfile/Status/Status.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyProfile/Status/Status.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NewPostCreator/NewPostCreator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewPostCreator/NewPostCreator.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UsersProfile/UsersProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainContent/MainContent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UsersProfile/UsersProfile.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/MyChats/NewMessageForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyChats/NewMessageForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navigation.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Post/PostHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Post/PostHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/usersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/usersReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,9 +47,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="JavaScript File" />
         <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -210,7 +204,7 @@
       <workItem from="1594369226751" duration="42000" />
       <workItem from="1594369313467" duration="133000" />
       <workItem from="1594369467819" duration="76000" />
-      <workItem from="1594369599966" duration="6505000" />
+      <workItem from="1594369599966" duration="8493000" />
     </task>
     <servers />
   </component>
@@ -262,9 +256,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="137" y="39" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1593081716285" />
-    <state x="413" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1593704441652">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state x="387" y="136" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1594382080381">
+      <screen x="0" y="0" width="1280" height="800" />
     </state>
+    <state x="387" y="136" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.800@0.0.1280.800" timestamp="1594382080381" />
     <state x="413" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.768@0.0.1366.768" timestamp="1593704441652" />
     <state x="92" y="92" width="1182" height="584" key="DiffContextDialog" timestamp="1593515197562">
       <screen x="0" y="0" width="1366" height="768" />

@@ -1,16 +1,28 @@
 import React from 'react'
-import classes from '../RecentContacts/RecentContacts.module.css'
+import styled from 'styled-components'
+import {SmallPhoto} from "../../../universalStyleComponents/styled";
+
+const Person = styled.div`
+  display: flex;
+  flex-direction: row;
+  padding: 20px; 5px;
+  border-bottom: 1px solid #cccccc;
+`
 
 const RecentContacts = props => {
     const contacts = props.users.map((user, index) => {
         return (
-                <span key={index} >
-                    <img src={user.avatar || props.avatar} alt="Avatar"/>
-                </span>
+                <Person key={index} >
+                    <SmallPhoto src={user.avatar || props.avatar} alt="Avatar"/>
+                    <div>
+                        <p>{`${user.firstName} ${user.lastName}`}</p>
+                        <p>{user.status}</p>
+                    </div>
+                </Person>
         )
     })
     return (
-        <div className={classes.RecentContacts}>
+        <div>
             {contacts}
         </div>
     )

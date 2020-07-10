@@ -1,6 +1,7 @@
 import React, {FC} from 'react'
 import {ReactComponent as DeleteIcon} from "../../icons/cross.svg";
 import styled from "styled-components";
+import {SmallPhoto} from "../../universalStyleComponents/styled";
 
 type Props = {
     avatar: string | undefined
@@ -31,12 +32,7 @@ const DeleteButton = styled(DeleteIcon)`
     cursor: pointer;
   }
 `;
-const Photo = styled.img`
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 7px;
-`;
+
 const Name = styled.p`
     font-size: 15px;
     font-weight: 600;
@@ -51,7 +47,7 @@ const PostHeader: FC<Props> = ({avatar, name, date,onDelete}) => {
     return (
         <Header>
             <NameAndPhoto>
-                <Photo src={avatar} alt="Avatar"/>
+                <SmallPhoto src={avatar} alt="Avatar"/>
                 <div>
                     <Name>{name}</Name>
                     <Info>Front-end developer</Info>

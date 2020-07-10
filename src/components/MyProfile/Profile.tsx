@@ -38,14 +38,6 @@ const City = styled.p`
     color: #9FA0AA;
     margin-bottom: 20px;
 `;
-const DefaultAvatar = styled.div`
-    background: pink;
-    width: 100%;
-    height: 300px;
-    color: white;
-    box-sizing: border-box;
-    padding: 70px;
-`
 
 const Profile: FC<PropsFromRedux> = ({avatar, firstName, userID, setUserId, getName, getAvatar}) => {
     useEffect(() => {

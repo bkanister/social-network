@@ -8,6 +8,7 @@ import {ReactComponent as TaskIcon} from '../../icons/property.svg'
 import {ReactComponent as NewsIcon} from '../../icons/globe.svg'
 import {ReactComponent as SettingsIcon} from '../../icons/cog.svg'
 import mainLogo from '../../social-logo.png'
+import { SmallPhoto } from '../../universalStyleComponents/styled';
 
 //styles
 const Header = styled.header`
@@ -88,7 +89,7 @@ const Navigation = ({avatar}: Props) => {
 
             </Navbar>
             <LogoContainer>
-                <Logo src={avatar} alt=""/>
+                <SmallPhoto src={avatar} alt=""/>
             </LogoContainer>
         </Header>
 

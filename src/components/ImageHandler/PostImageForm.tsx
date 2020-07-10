@@ -16,7 +16,6 @@ export const InvisibleFileInput = styled.input`
 `
 
 const PostImageForm = ({downloadImage}: Props) => {
-    debugger
     const downloadImageHandler = (e: ChangeEvent<HTMLInputElement>) => {
         downloadImage(e)
         e.target.value = ''

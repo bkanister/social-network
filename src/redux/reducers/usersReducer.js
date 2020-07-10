@@ -1,5 +1,5 @@
 import {DOWNLOAD_USERS} from "./constants";
-import {firestore} from "../../firebase/firebase";
+import {auth, firestore} from "../../firebase/firebase";
 
 const initialState = {
     defaultUserAvatar: 'https://art.pixilart.com/1f127be4c0f2913.png',
@@ -26,7 +26,9 @@ export const getUsersThunkAC = () => dispatch => {
             .then(function (querySnapshot) {
                 const users = []
                 querySnapshot.forEach(function (doc) {
-                    users.push(doc.data());
+                    if (doc.id !== auth.currentUser.uid) {
+                        users.push(doc.data());
+                    }
                 });
                 dispatch(downloadUsersCreator(users))
             })
