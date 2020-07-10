@@ -27,17 +27,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e2d4b51-0842-4c32-b61d-f1a185f159f3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Post/PostFooter.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/social-logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ChangeAvatarForm/ChangeAvatarForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ImageHandler/PostImageFormContainer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/mugshot.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AuthenticationPage/Authentication.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthenticationPage/Authentication.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ChatList/ChatList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ChatList/ChatList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ChatList/RecentContacts/RecentContacts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ChatList/RecentContacts/RecentContacts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageHandler/ImageInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ImageHandler/PostImageForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageHandler/ImageInputContainer.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MyProfile/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyProfile/Profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navigation.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MyProfile/Status/Status.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyProfile/Status/Status.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/NewPostCreator/NewPostCreator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewPostCreator/NewPostCreator.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Post/Post.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Post/Post.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/firebase/firebaseRequests.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/firebaseRequests.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UsersProfile/UsersProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainContent/MainContent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UsersProfile/UsersProfile.module.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/MyChats/NewMessageForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyChats/NewMessageForm.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +103,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
@@ -114,6 +119,23 @@
       <recent name="X:\Projects\social-network\src\components\AuthenticationPage\SignUp" />
       <recent name="X:\Projects\social-network\src\components\AuthenticationPage\SignIn" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -180,7 +202,15 @@
       <workItem from="1593602232920" duration="9164000" />
       <workItem from="1593678260046" duration="19502000" />
       <workItem from="1594282994081" duration="292000" />
-      <workItem from="1594292141270" duration="2367000" />
+      <workItem from="1594292141270" duration="5040000" />
+      <workItem from="1594325549874" duration="126000" />
+      <workItem from="1594367324050" duration="891000" />
+      <workItem from="1594368495510" duration="615000" />
+      <workItem from="1594369161630" duration="46000" />
+      <workItem from="1594369226751" duration="42000" />
+      <workItem from="1594369313467" duration="133000" />
+      <workItem from="1594369467819" duration="76000" />
+      <workItem from="1594369599966" duration="6505000" />
     </task>
     <servers />
   </component>
@@ -244,34 +274,42 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="463" y="139" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1592925270782" />
-    <state width="1308" height="163" key="GridCell.Tab.0.bottom" timestamp="1590838182537">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1259" height="210" key="GridCell.Tab.0.bottom" timestamp="1594379986350">
+      <screen x="0" y="0" width="1280" height="800" />
     </state>
+    <state width="1259" height="210" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1594379986350" />
     <state width="1308" height="163" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1590838182537" />
     <state width="1308" height="176" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1590678463329" />
-    <state width="1308" height="163" key="GridCell.Tab.0.center" timestamp="1590838182537">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1259" height="174" key="GridCell.Tab.0.bottom/0.23.1280.709@0.23.1280.709" timestamp="1594369706715" />
+    <state width="1259" height="210" key="GridCell.Tab.0.center" timestamp="1594379986348">
+      <screen x="0" y="0" width="1280" height="800" />
     </state>
+    <state width="1259" height="210" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1594379986348" />
     <state width="1308" height="163" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1590838182537" />
     <state width="1308" height="176" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1590678463329" />
-    <state width="1308" height="163" key="GridCell.Tab.0.left" timestamp="1590838182537">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1259" height="174" key="GridCell.Tab.0.center/0.23.1280.709@0.23.1280.709" timestamp="1594369706714" />
+    <state width="1259" height="210" key="GridCell.Tab.0.left" timestamp="1594379986346">
+      <screen x="0" y="0" width="1280" height="800" />
     </state>
+    <state width="1259" height="210" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1594379986346" />
     <state width="1308" height="163" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1590838182537" />
     <state width="1308" height="176" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1590678463329" />
-    <state width="1308" height="163" key="GridCell.Tab.0.right" timestamp="1590838182537">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1259" height="174" key="GridCell.Tab.0.left/0.23.1280.709@0.23.1280.709" timestamp="1594369706713" />
+    <state width="1259" height="210" key="GridCell.Tab.0.right" timestamp="1594379986349">
+      <screen x="0" y="0" width="1280" height="800" />
     </state>
+    <state width="1259" height="210" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1594379986349" />
     <state width="1308" height="163" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1590838182537" />
     <state width="1308" height="176" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1590678463329" />
+    <state width="1259" height="174" key="GridCell.Tab.0.right/0.23.1280.709@0.23.1280.709" timestamp="1594369706714" />
     <state x="510" y="86" key="RollbackChangesDialog" timestamp="1591104846063">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="510" y="86" key="RollbackChangesDialog/0.0.1366.768@0.0.1366.768" timestamp="1591104846063" />
-    <state x="189" y="53" width="990" height="704" key="SettingsEditor" timestamp="1594283304213">
+    <state x="189" y="23" width="990" height="704" key="SettingsEditor" timestamp="1594367707104">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="189" y="53" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1594283304213" />
+    <state x="189" y="23" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1594367707103" />
     <state x="173" y="24" width="990" height="704" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1590924894640" />
     <state x="173" y="25" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1593697273974" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1590923830545">
@@ -286,10 +324,11 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="92" y="92" width="1182" height="584" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.768@0.0.1366.768" timestamp="1591451225038" />
-    <state x="85" y="89" width="1182" height="584" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog" timestamp="1593605008696">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state x="80" y="93" width="1108" height="609" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog" timestamp="1594380265748">
+      <screen x="0" y="23" width="1280" height="709" />
     </state>
     <state x="85" y="89" width="1182" height="584" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog/0.0.1366.768@0.0.1366.768" timestamp="1593605008696" />
+    <state x="80" y="93" width="1108" height="609" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog/0.23.1280.709@0.23.1280.709" timestamp="1594380265748" />
     <state x="96" y="96" width="1174" height="536" key="dock-window-1" timestamp="1590925240337">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

@@ -25,7 +25,7 @@ const Status: FC<PropsFromRedux & InjectedFormProps<{}, PropsFromRedux>> = ({sta
 
     return (
         !editMode
-            ? <p onDoubleClick={() => setEditMode(true)} >{status || 'hi'}</p>
+            ? <p onDoubleClick={() => setEditMode(true)} >{status || 'change default status'}</p>
             : <form onSubmit={props.handleSubmit}>
                 <Field autoFocus name='status' component='input' type='text'
                        onBlur={(e: React.ChangeEvent<HTMLInputElement>) => sendStatus(e.currentTarget.value)}

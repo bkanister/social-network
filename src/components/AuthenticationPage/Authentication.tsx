@@ -3,7 +3,7 @@ import {Route, Switch} from "react-router-dom";
 import SignInContainer from "./SignIn/SignInContainer";
 import SignUpContainer from "./SignUp/SignUpContainer";
 
-const Authentication = (props: any) => {
+const Authentication = () => {
     return (
         <div>
             <Switch>

@@ -7,12 +7,8 @@ import RecentChats from "./RecentChats/RecentChats";
 const ChatList = props => {
     return (
         <aside className='sidebar'>
-            <header>Chat list</header>
-            <hr/>
+            <header>People you may know</header>
             <RecentContacts users={props.users} avatar={props.avatar}/>
-            <hr/>
-            <RecentChats users={props.users} avatar={props.avatar}/>
-            <button>+ New chat</button>
         </aside>
     )
 }

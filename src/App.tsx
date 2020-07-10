@@ -13,7 +13,7 @@ import {connect, ConnectedProps} from "react-redux";
 import MyTasksContainer from "./pages/MyTasks/MyTasksContainer";
 import {getUsersThunkAC} from "./redux/reducers/usersReducer";
 import {StoreType} from "./redux/reduxStore";
-import MainContent from "./components/UsersProfile/UsersProfile";
+import MainContent from "./components/MainContent/MainContent";
 
 const App = ({state, dispatch}: PropsFromRedux) => {
     useEffect(() => {
@@ -30,9 +30,11 @@ const App = ({state, dispatch}: PropsFromRedux) => {
     return (
          <div className="App">
                 <Navigation avatar={state.profile.avatar}/>
-                <MyProfile/>
                 <Switch>
-                        <Route exact path={'/'} render={() => <MainContent/>}/>
+                    <Route exact path={'/'}>
+                        <MainContent/>
+                        <MyProfile/>
+                    </Route>
                         <Route path={'/my-chats'} render={() => <MyChats
                             messages={state.chat.messages}
                         />}/>

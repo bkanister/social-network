@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import {Field, InjectedFormProps, reduxForm, reset} from "redux-form";
 import {Textarea} from "../../components/formComponents/Textarea";
-import ImageInputContainer from "../../components/ImageHandler/ImageInputContainer";
+import ImageInputContainer from "../../components/ImageHandler/PostImageFormContainer";
 import {connect, ConnectedProps} from "react-redux";
 import {sendMessageThunkAC} from "../../redux/reducers/chats/chatReducer";
 

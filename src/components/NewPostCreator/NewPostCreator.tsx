@@ -1,11 +1,12 @@
 import React, {FC} from 'react'
 import {addPostThunkAC} from "../../redux/reducers/posts/postsReducer";
-import ImageInputContainer from "../ImageHandler/ImageInputContainer";
+import PostImageFormContainer from "../ImageHandler/PostImageFormContainer";
 import {connect, ConnectedProps} from "react-redux";
 import {Field, InjectedFormProps, reduxForm, reset} from "redux-form";
 import {Textarea} from "../formComponents/Textarea";
 import {minLength, required} from "../../validators";
 import styled from 'styled-components'
+import {StoreType} from "../../redux/reduxStore";
 
 //styles
 const NewPostStyled = styled.div`
@@ -62,7 +63,10 @@ const NewPostCreator: FC<Props & InjectedFormProps<{}, PropsFromRedux>> = (props
                        placeholder='Write something.'
                        validate={[required, minLength10]}/>
                <NewPostFooter>
-                   <ImageInputContainer exactPath={'posts'}/>
+                   <PostImageFormContainer exactPath={'posts'}/>
+                   <div>
+                       <img src={props.postImage} alt=""/>
+                   </div>
                    <ButtonStyled type='submit'>Add post</ButtonStyled>
                </NewPostFooter>
             </form>
@@ -70,6 +74,11 @@ const NewPostCreator: FC<Props & InjectedFormProps<{}, PropsFromRedux>> = (props
     )
 }
 
+const mapStateToProps = (state: StoreType) => {
+    return {
+        postImage: state.posts.postImage
+    }
+}
 
 const mapDispatchToProps = (dispatch: any) => {
     return {
@@ -84,7 +93,7 @@ const NewPostForm = reduxForm<{}, PropsFromRedux>({
     form: 'newPostCreator'
 })(NewPostCreator);
 
-const connector =  connect(null, mapDispatchToProps)
+const connector =  connect(mapStateToProps, mapDispatchToProps)
 type PropsFromRedux = ConnectedProps<typeof connector>
 
 export default connector(NewPostForm)

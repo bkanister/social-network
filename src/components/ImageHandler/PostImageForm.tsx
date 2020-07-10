@@ -1,14 +1,12 @@
 import React, {ChangeEvent} from 'react'
 import {ReactComponent as ImageIcon} from '../../icons/media.svg'
-// @ts-ignore
 import styled from 'styled-components'
 
 type Props = {
-    postImage: string
     downloadImage: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
-const InvisibleFileInput = styled.input`
+export const InvisibleFileInput = styled.input`
     width: 0.1px;
     height: 0.1px;
     opacity: 0;
@@ -17,8 +15,8 @@ const InvisibleFileInput = styled.input`
     z-index: -1;
 `
 
-const ImageInput = ({postImage, downloadImage}: Props) => {
-
+const PostImageForm = ({downloadImage}: Props) => {
+    debugger
     const downloadImageHandler = (e: ChangeEvent<HTMLInputElement>) => {
         downloadImage(e)
         e.target.value = ''
@@ -31,14 +29,9 @@ const ImageInput = ({postImage, downloadImage}: Props) => {
             <label htmlFor="imageInput">
                 <ImageIcon/>
             </label>
-
-            {
-                postImage
-                ? <img style={{width: '100%'}} src={postImage} alt=""/>
-                : null
-            }
         </>
     )
 }
 
-export default ImageInput
+// @ts-ignore
+export default PostImageForm

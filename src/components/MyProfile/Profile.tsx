@@ -4,9 +4,8 @@ import {auth} from "../../firebase/firebase"
 import Status from "./Status/Status"
 import {getUserAvatarThunkAC, getUserNameThunkAC, setUserId} from "../../redux/reducers/profile/profileReducer"
 import {StoreType} from "../../redux/reduxStore"
-import ModalWindow from "../Modal/Modal"
-import ImageInputContainer from "../ImageHandler/ImageInputContainer"
 import styled from 'styled-components'
+import ChangeAvatarForm from "../ChangeAvatarForm/ChangeAvatarForm";
 
 const StyledProfile = styled.div`
     width: 280px;
@@ -39,6 +38,14 @@ const City = styled.p`
     color: #9FA0AA;
     margin-bottom: 20px;
 `;
+const DefaultAvatar = styled.div`
+    background: pink;
+    width: 100%;
+    height: 300px;
+    color: white;
+    box-sizing: border-box;
+    padding: 70px;
+`
 
 const Profile: FC<PropsFromRedux> = ({avatar, firstName, userID, setUserId, getName, getAvatar}) => {
     useEffect(() => {
@@ -62,7 +69,7 @@ const Profile: FC<PropsFromRedux> = ({avatar, firstName, userID, setUserId, getN
     return (
         <StyledProfile className='profile'>
             <Avatar src={avatar} alt="Avatar"/>
-            <ImageInputContainer exactPath={'profile'}/>
+            <ChangeAvatarForm/>
             <Info>
                 <Name>{firstName}</Name>
                 <City>Saint-Petersburg<span> &middot; </span>Russia</City>
