@@ -6,6 +6,7 @@ type User = {
     firstName: string
     lastName: string
     status: string
+    avatar: string
 }
 
 type Props = {
@@ -20,7 +21,7 @@ const MyFriends = ({users, avatar}: Props) => {
         <div>
             {users.map((user: User) => (
                     <div>
-                        <img style={{width: 40}} src={avatar} alt=""/>
+                        <img style={{width: 40}} src={user.avatar || avatar} alt=""/>
                         <p>{user.email}</p>
                         <p>{user.firstName}</p>
                         <p>{user.lastName}</p>

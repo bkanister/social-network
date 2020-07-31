@@ -30,10 +30,10 @@ const App = ({state, dispatch}: PropsFromRedux) => {
     return (
          <div className="App">
                 <Navigation avatar={state.profile.avatar}/>
+                <MyProfile/>
                 <Switch>
                     <Route exact path={'/'}>
                         <MainContent/>
-                        <MyProfile/>
                     </Route>
                         <Route path={'/my-chats'} render={() => <MyChats
                             messages={state.chat.messages}

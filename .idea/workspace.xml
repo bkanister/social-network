@@ -27,16 +27,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e2d4b51-0842-4c32-b61d-f1a185f159f3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/universalStyleComponents/styled.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ChatList/ChatList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ChatList/ChatList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ChatList/RecentContacts/RecentContacts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ChatList/RecentContacts/RecentContacts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ChatList/RecentContacts/RecentContacts.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ImageHandler/PostImageForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ImageHandler/PostImageForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MyProfile/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyProfile/Profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navigation.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Post/PostHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Post/PostHeader.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducers/usersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/usersReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/MyChats/Chat.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyChats/Chat.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/MyChats/MyChats.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyChats/MyChats.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/MyChats/NewMessageForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyChats/NewMessageForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/MyFriends/MyFriends.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyFriends/MyFriends.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/chats/chatReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/chats/chatReducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/chats/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/chats/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,7 +203,10 @@
       <workItem from="1594369226751" duration="42000" />
       <workItem from="1594369313467" duration="133000" />
       <workItem from="1594369467819" duration="76000" />
-      <workItem from="1594369599966" duration="8493000" />
+      <workItem from="1594369599966" duration="8745000" />
+      <workItem from="1594461837370" duration="190000" />
+      <workItem from="1594992690813" duration="1783000" />
+      <workItem from="1596183002623" duration="7153000" />
     </task>
     <servers />
   </component>
@@ -269,31 +271,31 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="463" y="139" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1592925270782" />
-    <state width="1259" height="210" key="GridCell.Tab.0.bottom" timestamp="1594379986350">
+    <state width="1259" height="210" key="GridCell.Tab.0.bottom" timestamp="1596185651159">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1259" height="210" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1594379986350" />
+    <state width="1259" height="210" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1596185651159" />
     <state width="1308" height="163" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1590838182537" />
     <state width="1308" height="176" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1590678463329" />
     <state width="1259" height="174" key="GridCell.Tab.0.bottom/0.23.1280.709@0.23.1280.709" timestamp="1594369706715" />
-    <state width="1259" height="210" key="GridCell.Tab.0.center" timestamp="1594379986348">
+    <state width="1259" height="210" key="GridCell.Tab.0.center" timestamp="1596185651158">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1259" height="210" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1594379986348" />
+    <state width="1259" height="210" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1596185651158" />
     <state width="1308" height="163" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1590838182537" />
     <state width="1308" height="176" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1590678463329" />
     <state width="1259" height="174" key="GridCell.Tab.0.center/0.23.1280.709@0.23.1280.709" timestamp="1594369706714" />
-    <state width="1259" height="210" key="GridCell.Tab.0.left" timestamp="1594379986346">
+    <state width="1259" height="210" key="GridCell.Tab.0.left" timestamp="1596185651157">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1259" height="210" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1594379986346" />
+    <state width="1259" height="210" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1596185651157" />
     <state width="1308" height="163" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1590838182537" />
     <state width="1308" height="176" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1590678463329" />
     <state width="1259" height="174" key="GridCell.Tab.0.left/0.23.1280.709@0.23.1280.709" timestamp="1594369706713" />
-    <state width="1259" height="210" key="GridCell.Tab.0.right" timestamp="1594379986349">
+    <state width="1259" height="210" key="GridCell.Tab.0.right" timestamp="1596185651159">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1259" height="210" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1594379986349" />
+    <state width="1259" height="210" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1596185651159" />
     <state width="1308" height="163" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1590838182537" />
     <state width="1308" height="176" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1590678463329" />
     <state width="1259" height="174" key="GridCell.Tab.0.right/0.23.1280.709@0.23.1280.709" timestamp="1594369706714" />

@@ -7,6 +7,7 @@ export type InitialStateType = {
 }
 
 export type MessageType = {
+    uid: string
     name: string
     message: string
     image?: string

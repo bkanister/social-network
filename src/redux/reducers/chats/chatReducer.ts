@@ -1,6 +1,6 @@
 import {GET_ALL_MESSAGES, RECIEVE_MESSAGE, SEND_MESSAGE} from "../constants";
 import {ActionTypes, DispatchType, InitialStateType, MessageType, GetStateType} from "./types";
-import {db} from "../../../firebase/firebase";
+import {db, auth} from "../../../firebase/firebase";
 
 
 const initialState: InitialStateType = {
@@ -38,7 +38,8 @@ export const sendMessageThunkAC = (message: string) => (dispatch: DispatchType, 
     const newMessage: MessageType = {
         name: getState().profile.firstName,
         message,
-        date: Date.now()
+        date: Date.now(),
+        uid: auth.currentUser!.uid
     }
         db.ref("chats").push(newMessage);
     dispatch(sendMessageCreator(newMessage))
