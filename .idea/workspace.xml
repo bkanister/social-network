@@ -28,14 +28,9 @@
   <component name="ChangeListManager">
     <list default="true" id="6e2d4b51-0842-4c32-b61d-f1a185f159f3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/MyChats/Chat.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyChats/Chat.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/MyChats/MyChats.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyChats/MyChats.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/MyChats/NewMessageForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyChats/NewMessageForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/MyFriends/MyFriends.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyFriends/MyFriends.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducers/chats/chatReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/chats/chatReducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducers/chats/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/chats/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,6 +125,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -206,12 +202,14 @@
       <workItem from="1594369599966" duration="8745000" />
       <workItem from="1594461837370" duration="190000" />
       <workItem from="1594992690813" duration="1783000" />
-      <workItem from="1596183002623" duration="7153000" />
+      <workItem from="1596183002623" duration="7788000" />
+      <workItem from="1597229740330" duration="262000" />
+      <workItem from="1597909725891" duration="1406000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -271,34 +269,34 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="463" y="139" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1592925270782" />
-    <state width="1259" height="210" key="GridCell.Tab.0.bottom" timestamp="1596185651159">
-      <screen x="0" y="0" width="1280" height="800" />
+    <state width="1259" height="173" key="GridCell.Tab.0.bottom" timestamp="1597919040889">
+      <screen x="0" y="23" width="1280" height="709" />
     </state>
-    <state width="1259" height="210" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1596185651159" />
+    <state width="1259" height="210" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1596194266981" />
     <state width="1308" height="163" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1590838182537" />
     <state width="1308" height="176" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1590678463329" />
-    <state width="1259" height="174" key="GridCell.Tab.0.bottom/0.23.1280.709@0.23.1280.709" timestamp="1594369706715" />
-    <state width="1259" height="210" key="GridCell.Tab.0.center" timestamp="1596185651158">
-      <screen x="0" y="0" width="1280" height="800" />
+    <state width="1259" height="173" key="GridCell.Tab.0.bottom/0.23.1280.709@0.23.1280.709" timestamp="1597919040889" />
+    <state width="1259" height="173" key="GridCell.Tab.0.center" timestamp="1597919040888">
+      <screen x="0" y="23" width="1280" height="709" />
     </state>
-    <state width="1259" height="210" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1596185651158" />
+    <state width="1259" height="210" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1596194266975" />
     <state width="1308" height="163" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1590838182537" />
     <state width="1308" height="176" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1590678463329" />
-    <state width="1259" height="174" key="GridCell.Tab.0.center/0.23.1280.709@0.23.1280.709" timestamp="1594369706714" />
-    <state width="1259" height="210" key="GridCell.Tab.0.left" timestamp="1596185651157">
-      <screen x="0" y="0" width="1280" height="800" />
+    <state width="1259" height="173" key="GridCell.Tab.0.center/0.23.1280.709@0.23.1280.709" timestamp="1597919040888" />
+    <state width="1259" height="173" key="GridCell.Tab.0.left" timestamp="1597919040887">
+      <screen x="0" y="23" width="1280" height="709" />
     </state>
-    <state width="1259" height="210" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1596185651157" />
+    <state width="1259" height="210" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1596194266975" />
     <state width="1308" height="163" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1590838182537" />
     <state width="1308" height="176" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1590678463329" />
-    <state width="1259" height="174" key="GridCell.Tab.0.left/0.23.1280.709@0.23.1280.709" timestamp="1594369706713" />
-    <state width="1259" height="210" key="GridCell.Tab.0.right" timestamp="1596185651159">
-      <screen x="0" y="0" width="1280" height="800" />
+    <state width="1259" height="173" key="GridCell.Tab.0.left/0.23.1280.709@0.23.1280.709" timestamp="1597919040887" />
+    <state width="1259" height="173" key="GridCell.Tab.0.right" timestamp="1597919040888">
+      <screen x="0" y="23" width="1280" height="709" />
     </state>
-    <state width="1259" height="210" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1596185651159" />
+    <state width="1259" height="210" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1596194266976" />
     <state width="1308" height="163" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1590838182537" />
     <state width="1308" height="176" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1590678463329" />
-    <state width="1259" height="174" key="GridCell.Tab.0.right/0.23.1280.709@0.23.1280.709" timestamp="1594369706714" />
+    <state width="1259" height="173" key="GridCell.Tab.0.right/0.23.1280.709@0.23.1280.709" timestamp="1597919040888" />
     <state x="510" y="86" key="RollbackChangesDialog" timestamp="1591104846063">
       <screen x="0" y="0" width="1366" height="768" />
     </state>

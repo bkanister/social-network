@@ -7,10 +7,16 @@ import {sendMessageThunkAC} from "../../redux/reducers/chats/chatReducer";
 interface Props {}
 
 const NewMessageCreator: FC<Props & PropsFromRedux & InjectedFormProps<{}, PropsFromRedux>>  = (props) => {
-
+    const handleKeyDown = (e: any, cb: any) => {
+        if (e.key === 'Enter' && e.shiftKey === false) {
+            e.preventDefault()
+            cb()
+        }
+    }
     return (
         <div>
-            <form onSubmit={props.handleSubmit}>
+            <form onSubmit={props.handleSubmit}
+                  onKeyDown={(e) => handleKeyDown(e, props.handleSubmit)}>
                 <Field name='newMessage' type='text'
                        component={Textarea}
                        placeholder='Write a new message...'/>

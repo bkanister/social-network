@@ -6,21 +6,23 @@ import {auth} from "../../firebase/firebase";
 const ChatDefaultStyle = styled.div`
   margin: 20px 10px;
   box-shadow: 5px 5px 7px 1px rgba(204,204,204,0.87);
-  border-radius: 7px;
   width: 200px;
   display: flex;
   flex-direction: column;
+  padding: 5px;
 `
 
 const ChatBlockWhite = styled(ChatDefaultStyle)`
   background: white;
   align-self: flex-start;
+  border-radius: 0 7px 7px 7px;
 `
 
 const ChatBlockGreen = styled(ChatDefaultStyle)`
   background: #9DC3C0;
   align-self: flex-end;
   color: white;
+  border-radius: 7px 0 7px 7px;
 `
 
 const ChatBlock = (props: any) => {

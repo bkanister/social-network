@@ -28,7 +28,7 @@ const MyChats = ({messages}: Props) => {
 
     useEffect(() => {
         chatBottom.current!.scrollIntoView()
-    },[])
+    },[messages])
 
         return (
             <div>
