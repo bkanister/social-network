@@ -15,7 +15,7 @@
     "@types/react-router-dom": "^5.1.5",
     "@types/redux-form": "^8.2.6",
     "@typescript-eslint/parser": "2.0.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "firebase": "^7.15.0",
     "google-auth-library": "5.x",
     "react": "^16.13.1",
